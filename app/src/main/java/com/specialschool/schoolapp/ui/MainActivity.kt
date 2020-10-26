@@ -1,7 +1,8 @@
-package com.specialschool.schoolapp
+package com.specialschool.schoolapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.specialschool.schoolapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
