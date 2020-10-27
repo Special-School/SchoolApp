@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         //주석 테스트
+        //test 20:20
 
 
     }
