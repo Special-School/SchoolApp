@@ -9,4 +9,7 @@ object Libs {
     const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     const val NAVIGATION_FRAGMENT_KTX = "androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION_FRAGMENT_KTX}"
     const val NAVIGATION_UI_KTX = "androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION_UI_KTX}"
+    const val ROOM_COMPILER = "androidx.room:room-compiler:${Versions.ROOM_VERSION}"
+    const val ROOM_KTX = "androidx.room:room-ktx:${Versions.ROOM_VERSION}"
+    const val ROOM_RUNTIME = "androidx.room:room-runtime:${Versions.ROOM_VERSION}"
 }

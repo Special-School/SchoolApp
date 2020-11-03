@@ -18,4 +18,5 @@ object Versions {
     const val MATERIAL = "1.2.1"
     const val NAVIGATION_FRAGMENT_KTX = "2.3.1"
     const val NAVIGATION_UI_KTX = "2.3.1"
+    const val ROOM_VERSION = "2.2.5"
 }

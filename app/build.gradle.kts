@@ -42,6 +42,14 @@ dependencies {
     implementation(Libs.CONSTRAINT_LAYOUT)
     implementation(Libs.NAVIGATION_FRAGMENT_KTX)
     implementation(Libs.NAVIGATION_UI_KTX)
+
+    // Room
+    implementation(Libs.ROOM_KTX)
+    implementation(Libs.ROOM_RUNTIME)
+    kapt(Libs.ROOM_COMPILER)
+    testImplementation(Libs.ROOM_KTX)
+    testImplementation(Libs.ROOM_RUNTIME)
+
     testImplementation(Libs.JUNIT)
     androidTestImplementation(Libs.EXT_JUNIT)
     androidTestImplementation(Libs.ESPRESSO_CORE)
