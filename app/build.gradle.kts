@@ -51,6 +51,9 @@ dependencies {
     testImplementation(Libs.ROOM_RUNTIME)
 
     testImplementation(Libs.JUNIT)
+    testImplementation(Libs.HAMCREST)
+    testImplementation(Libs.MOCKITO_CORE)
+    testImplementation(Libs.MOCKITO_KOTLIN)
     androidTestImplementation(Libs.EXT_JUNIT)
     androidTestImplementation(Libs.ESPRESSO_CORE)
 }
