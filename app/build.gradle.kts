@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -56,4 +57,13 @@ dependencies {
     testImplementation(Libs.MOCKITO_KOTLIN)
     androidTestImplementation(Libs.EXT_JUNIT)
     androidTestImplementation(Libs.ESPRESSO_CORE)
+
+    // Hilt
+    implementation(Libs.HILT_ANDROID)
+    implementation(Libs.HILT_VIEWMODEL)
+    androidTestImplementation(Libs.HILT_TESTING)
+    kapt(Libs.HILT_COMPILER)
+    kapt(Libs.ANDROIDX_HILT_COMPILER)
+    kaptAndroidTest(Libs.HILT_COMPILER)
+    kaptAndroidTest(Libs.ANDROIDX_HILT_COMPILER)
 }
