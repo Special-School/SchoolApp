@@ -10,4 +10,8 @@ class HomeViewModel @ViewModelInject constructor() : ViewModel() {
         value = "home"
     }
     val title: LiveData<String> = _title
+
+    fun onClickButton() {
+        _title.value = "change"
+    }
 }
