@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.specialschool.schoolapp.databinding.FragmentHomeBinding
-import com.specialschool.schoolapp.ui.home.presenter.HomeContract
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment(), HomeContract.View {
+class HomeFragment : Fragment() {
 
     private val model: HomeViewModel by viewModels()
 
