@@ -2,6 +2,10 @@ package com.specialschool.schoolapp.di
 
 import android.content.Context
 import com.specialschool.schoolapp.data.db.AppDatabase
+import com.specialschool.schoolapp.data.search.DefaultSchoolRepository
+import com.specialschool.schoolapp.data.search.FakeSchoolDataSource
+import com.specialschool.schoolapp.data.search.SchoolDataSource
+import com.specialschool.schoolapp.data.search.SchoolRepository
 import com.specialschool.schoolapp.domain.search.FtsTextMatchStrategy
 import com.specialschool.schoolapp.domain.search.TextMatchStrategy
 import dagger.Module
@@ -25,5 +29,17 @@ class AppModule {
     @Provides
     fun provideTextMatchStrategy(appDatabase: AppDatabase): TextMatchStrategy {
         return FtsTextMatchStrategy(appDatabase)
+    }
+
+    @Singleton
+    @Provides
+    fun provideSchoolRepository(dataSource: SchoolDataSource): SchoolRepository {
+        return DefaultSchoolRepository(dataSource)
+    }
+
+    @Singleton
+    @Provides
+    fun provideSchoolDataSource(): SchoolDataSource {
+        return FakeSchoolDataSource()
     }
 }
