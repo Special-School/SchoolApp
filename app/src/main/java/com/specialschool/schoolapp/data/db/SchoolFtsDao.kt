@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface SchoolDao {
+interface SchoolFtsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(schools: List<SchoolFtsEntity>)

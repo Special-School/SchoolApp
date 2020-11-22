@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [SchoolFtsEntity::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun schoolDao(): SchoolDao
+    abstract fun schoolFtsDao(): SchoolFtsDao
 
     companion object {
         fun buildDatabase(context: Context): AppDatabase {
