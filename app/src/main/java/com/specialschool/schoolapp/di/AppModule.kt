@@ -40,6 +40,6 @@ class AppModule {
     @Singleton
     @Provides
     fun provideSchoolDataSource(): SchoolDataSource {
-        return FakeSchoolDataSource()
+        return FakeSchoolDataSource
     }
 }
