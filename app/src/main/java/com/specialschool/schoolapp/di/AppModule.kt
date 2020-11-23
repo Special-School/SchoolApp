@@ -6,8 +6,8 @@ import com.specialschool.schoolapp.data.search.DefaultSchoolRepository
 import com.specialschool.schoolapp.data.search.FakeSchoolDataSource
 import com.specialschool.schoolapp.data.search.SchoolDataSource
 import com.specialschool.schoolapp.data.search.SchoolRepository
-import com.specialschool.schoolapp.domain.search.FtsTextMatchStrategy
-import com.specialschool.schoolapp.domain.search.TextMatchStrategy
+import com.specialschool.schoolapp.domain.search.FtsQueryMatchStrategy
+import com.specialschool.schoolapp.domain.search.QueryMatchStrategy
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,8 +27,8 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideTextMatchStrategy(appDatabase: AppDatabase): TextMatchStrategy {
-        return FtsTextMatchStrategy(appDatabase)
+    fun provideQueryMatchStrategy(appDatabase: AppDatabase): QueryMatchStrategy {
+        return FtsQueryMatchStrategy(appDatabase)
     }
 
     @Singleton

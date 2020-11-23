@@ -4,13 +4,13 @@ import com.specialschool.schoolapp.data.db.AppDatabase
 import com.specialschool.schoolapp.model.School
 import javax.inject.Inject
 
-interface TextMatchStrategy {
+interface QueryMatchStrategy {
     suspend fun searchSchools(schools: List<School>, query: String): List<School>
 }
 
-class FtsTextMatchStrategy @Inject constructor(
+class FtsQueryMatchStrategy @Inject constructor(
     private val appDatabase: AppDatabase
-) : TextMatchStrategy {
+) : QueryMatchStrategy {
 
     override suspend fun searchSchools(schools: List<School>, query: String): List<School> {
         if (query.isEmpty()) {

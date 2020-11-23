@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 class SearchUseCase @Inject constructor(
     private val repository: SchoolRepository,
-    private val textMatchStrategy: TextMatchStrategy,
+    private val queryMatchStrategy: QueryMatchStrategy,
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) {
 
@@ -30,7 +30,7 @@ class SearchUseCase @Inject constructor(
         return repository.getSchools().map { result ->
             when (result) {
                 is Success -> {
-                    val searchResults = textMatchStrategy.searchSchools(result.data, query)
+                    val searchResults = queryMatchStrategy.searchSchools(result.data, query)
                     Success(searchResults)
                 }
                 is Loading -> result

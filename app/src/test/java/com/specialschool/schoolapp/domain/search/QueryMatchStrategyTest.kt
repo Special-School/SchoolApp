@@ -11,7 +11,7 @@ import org.hamcrest.Matchers.equalTo
 import org.junit.Rule
 
 @ExperimentalCoroutinesApi
-class TextMatchStrategyTest(private val strategy: TextMatchStrategy) {
+class QueryMatchStrategyTest(private val strategy: QueryMatchStrategy) {
 
     companion object {
         val coroutineRule = MainCoroutineRule()

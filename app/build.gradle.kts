@@ -85,6 +85,5 @@ dependencies {
 
     // Coroutines
     api(Libs.COROUTINES)
-    api(Libs.COROUTINES_TEST)
     testImplementation(Libs.COROUTINES_TEST)
 }
