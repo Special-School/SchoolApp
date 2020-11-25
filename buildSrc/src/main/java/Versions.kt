@@ -19,7 +19,7 @@ object Versions {
     const val HILT = "2.28-alpha"
     const val HILT_JETPACK = "1.0.0-alpha02"
     const val JUNIT = "4.12"
-    const val KOTLIN = "1.4.10"
+    const val KOTLIN = "1.4.20"
     const val LIFECYCLE = "2.2.0"
     const val MATERIAL = "1.2.1"
     const val MOCKITO_CORE = "1.10.19"
