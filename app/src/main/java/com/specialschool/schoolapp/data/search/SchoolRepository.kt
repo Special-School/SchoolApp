@@ -11,16 +11,12 @@ import javax.inject.Singleton
 class DefaultSchoolRepository @Inject constructor(
     private val dataSource: SchoolDataSource
 ) : SchoolRepository {
-    override fun getSchools(): Flow<Result<List<School>>> {
-        return flow {
-            emit(Result.Loading)
-            val schools = dataSource.getSchoolData()
-            emit(Result.Success(schools))
-        }
+    override fun getSchools(): List<School> {
+        return dataSource.getSchoolData()
     }
 }
 
 interface SchoolRepository {
 
-    fun getSchools(): Flow<Result<List<School>>>
+    fun getSchools(): List<School>
 }
