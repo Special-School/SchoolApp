@@ -4,6 +4,7 @@ plugins {
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
     id("kotlin-parcelize")
+    id("org.jetbrains.dokka-android") version Versions.DOKKA_ANDROID
 }
 
 android {
@@ -86,4 +87,12 @@ dependencies {
     // Coroutines
     api(Libs.COROUTINES)
     testImplementation(Libs.COROUTINES_TEST)
+}
+
+tasks {
+    val dokka by getting(org.jetbrains.dokka.gradle.DokkaTask::class) {
+        outputFormat = "html"
+        outputDirectory = "$buildDir/dokka"
+        includeNonPublic = true
+    }
 }

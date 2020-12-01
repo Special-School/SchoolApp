@@ -13,6 +13,7 @@ object Versions {
     const val CONSTRAINT_LAYOUT = "2.0.4"
     const val CORE_KTX = "1.3.2"
     const val COROUTINES = "1.4.1"
+    const val DOKKA_ANDROID = "0.9.18"
     const val ESPRESSO = "3.3.0"
     const val EXT_JUNIT = "1.1.2"
     const val HAMCREST = "2.2"
