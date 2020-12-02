@@ -87,7 +87,22 @@ dependencies {
     // Coroutines
     api(Libs.COROUTINES)
     testImplementation(Libs.COROUTINES_TEST)
+
+    // Firebase
+    implementation(platform(Libs.FIREBASE_BOM))
+    api(Libs.FIREBASE_AUTH)
+    api(Libs.FIREBASE_CONFIG)
+    api(Libs.FIREBASE_ANALYTICS)
+    api(Libs.FIREBASE_FIRESTORE)
+    api(Libs.FIREBASE_FUNCTIONS)
+    api(Libs.FIREBASE_MESSAGING)
+    implementation(Libs.FIREBASE_UI_AUTH)
+
+    // GSON
+    implementation(Libs.GSON)
 }
+
+apply(plugin = "com.google.gms.google-services")
 
 tasks {
     val dokka by getting(org.jetbrains.dokka.gradle.DokkaTask::class) {
