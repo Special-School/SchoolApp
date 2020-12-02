@@ -1,6 +1,7 @@
 package com.specialschool.schoolapp.ui.search
 
 import androidx.fragment.app.Fragment
-import com.specialschool.schoolapp.ui.search.presenter.SearchContract
+import dagger.hilt.android.AndroidEntryPoint
 
-class SearchFragment : Fragment(), SearchContract.View
+@AndroidEntryPoint
+class SearchFragment : Fragment()
