@@ -3,13 +3,18 @@ package com.specialschool.schoolapp.util
 import androidx.lifecycle.Observer
 
 /**
- * event wrapper 클래스로 여러 observer에서 동일한 event에 접근하는 경우 중복 실행을 방지한다
+ * Event로 나타나는 data의 래퍼 클래스
+ *
+ * @property content data
  */
 open class Event<out T>(private val content: T) {
 
     var hasBeenHandled = false
         private set
 
+    /**
+     * 중복 실행을 방지하고 [content]를 반환한다.
+     */
     fun getContentIfNotHandled(): T? {
         return if (hasBeenHandled) {
             null
@@ -19,6 +24,9 @@ open class Event<out T>(private val content: T) {
         }
     }
 
+    /**
+     * 중복 실행되었어도 [content]를 반환한다.
+     */
     fun peekContent(): T = content
 }
 

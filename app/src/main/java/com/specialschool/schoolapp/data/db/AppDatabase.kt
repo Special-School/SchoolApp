@@ -5,7 +5,12 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [SchoolFtsEntity::class], version = 2, exportSchema = false)
+/**
+ * Room 데이터베이스 클래스
+ *
+ * **See Also:** [@Database](https://developer.android.com/reference/androidx/room/Database)
+ */
+@Database(entities = [SchoolFtsEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun schoolFtsDao(): SchoolFtsDao
