@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:568006620061:android:89eda5338e817fb6b73574",
+        "mobilesdk_app_id": "1:568006620061:android:042eacbaea2a5419b73574",
         "android_client_info": {
-          "package_name": "com.mobulabs.schoolapp"
+          "package_name": "com.specialschool.schoolapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "568006620061-qfgmf49qg1iavv42juql5bm18sd6ielm.apps.googleusercontent.com",
+          "client_id": "568006620061-9ngdlob2ut9geqmbivn4hhoslsjthdo3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.mobulabs.schoolapp",
+            "package_name": "com.specialschool.schoolapp",
             "certificate_hash": "a5ca672bf3f63a4b936142a30ac6a322ac75b89f"
           }
         },

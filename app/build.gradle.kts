@@ -102,6 +102,8 @@ dependencies {
     api(Libs.FIREBASE_FIRESTORE)
     api(Libs.FIREBASE_FUNCTIONS)
     api(Libs.FIREBASE_MESSAGING)
+
+    // Firebase UI auth
     implementation(Libs.FIREBASE_UI_AUTH)
 
     // GSON

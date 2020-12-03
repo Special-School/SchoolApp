@@ -18,6 +18,7 @@ object Versions {
     const val ESPRESSO = "3.3.0"
     const val EXT_JUNIT = "1.1.2"
     const val FIREBASE_BOM = "26.1.0"
+    const val FIREBASE_UI_AUTH = "7.1.1"
     const val FRAGMENT_KTX = "1.2.5"
     const val GLIDE = "4.11.0"
     const val GOOGLE_PLAY_SERVICES_MAPS = "17.0.0"

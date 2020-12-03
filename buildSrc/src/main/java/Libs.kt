@@ -18,7 +18,7 @@ object Libs {
     const val FIREBASE_FIRESTORE = "com.google.firebase:firebase-firestore-ktx"
     const val FIREBASE_FUNCTIONS = "com.google.firebase:firebase-functions-ktx"
     const val FIREBASE_MESSAGING = "com.google.firebase:firebase-messaging"
-    const val FIREBASE_UI_AUTH = "com.firebaseui:firebase-ui-auth"
+    const val FIREBASE_UI_AUTH = "com.firebaseui:firebase-ui-auth:${Versions.FIREBASE_UI_AUTH}"
     const val FRAGMENT_KTX = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT_KTX}"
     const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
