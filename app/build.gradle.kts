@@ -49,6 +49,8 @@ dependencies {
 
     implementation(Libs.CORE_KTX)
     implementation(Libs.APPCOMPAT)
+    implementation(Libs.ACTIVITY_KTX)
+    implementation(Libs.FRAGMENT_KTX)
     implementation(Libs.MATERIAL)
     implementation(Libs.CONSTRAINT_LAYOUT)
     implementation(Libs.NAVIGATION_FRAGMENT_KTX)
@@ -91,7 +93,30 @@ dependencies {
     // Coroutines
     api(Libs.COROUTINES)
     testImplementation(Libs.COROUTINES_TEST)
+
+    // Firebase
+    implementation(platform(Libs.FIREBASE_BOM))
+    api(Libs.FIREBASE_AUTH)
+    api(Libs.FIREBASE_CONFIG)
+    api(Libs.FIREBASE_ANALYTICS)
+    api(Libs.FIREBASE_FIRESTORE)
+    api(Libs.FIREBASE_FUNCTIONS)
+    api(Libs.FIREBASE_MESSAGING)
+    implementation(Libs.FIREBASE_UI_AUTH)
+
+    // GSON
+    implementation(Libs.GSON)
+
+    // OkHttp
+    implementation(Libs.OKHTTP)
+    implementation(Libs.OKHTTP_LOGGING_INTERCEPTOR)
+
+    // Glide
+    implementation(Libs.GLIDE)
+    kapt(Libs.GLIDE_COMPILER)
 }
+
+apply(plugin = "com.google.gms.google-services")
 
 tasks {
     val dokka by getting(org.jetbrains.dokka.gradle.DokkaTask::class) {
