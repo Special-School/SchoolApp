@@ -16,7 +16,7 @@ import com.specialschool.schoolapp.R
 
 class Search_Detail_Fragment : Fragment() {
 
-    var search : Search_Test_Activity ?= null
+    var search: Search_Test_Activity? = null
     override fun onAttach(context: Context) {
         super.onAttach(context)
 
@@ -24,27 +24,27 @@ class Search_Detail_Fragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?,
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view:View = inflater.inflate(R.layout.fragment_search__detail_, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_search__detail_, container, false)
 
-        val t1 : TextView = view.findViewById(R.id.detail_info1)
-        val t2 : TextView = view.findViewById(R.id.detail_info2)
-        val t3 : TextView = view.findViewById(R.id.detail_info3)
-        val t4 : TextView = view.findViewById(R.id.detail_info4)
-        val t5 : TextView = view.findViewById(R.id.detail_info5)
-        val t6 : TextView = view.findViewById(R.id.detail_info6)
-        val t7 : TextView = view.findViewById(R.id.detail_info7)
-        val t8 : TextView = view.findViewById(R.id.detail_info8)
-        val t9 : TextView = view.findViewById(R.id.detail_info9)
-        val t10 : TextView = view.findViewById(R.id.detail_info10)
+        val t1: TextView = view.findViewById(R.id.detail_info1)
+        val t2: TextView = view.findViewById(R.id.detail_info2)
+        val t3: TextView = view.findViewById(R.id.detail_info3)
+        val t4: TextView = view.findViewById(R.id.detail_info4)
+        val t5: TextView = view.findViewById(R.id.detail_info5)
+        val t6: TextView = view.findViewById(R.id.detail_info6)
+        val t7: TextView = view.findViewById(R.id.detail_info7)
+        val t8: TextView = view.findViewById(R.id.detail_info8)
+        val t9: TextView = view.findViewById(R.id.detail_info9)
+        val t10: TextView = view.findViewById(R.id.detail_info10)
 
-        val btn1 : Button = view.findViewById(R.id.map_button)
-        val btn2 : Button = view.findViewById(R.id.call_btn1)
-        val btn3 : Button = view.findViewById(R.id.call_btn2)
-        val btn4 : Button = view.findViewById(R.id.homepage_btn)
+        val btn1: Button = view.findViewById(R.id.map_button)
+        val btn2: Button = view.findViewById(R.id.call_btn1)
+        val btn3: Button = view.findViewById(R.id.call_btn2)
+        val btn4: Button = view.findViewById(R.id.homepage_btn)
         t1.setText(arguments?.getString("city"))
         t2.setText(arguments?.getString("establish"))
         t3.setText(arguments?.getString("schoolname"))
@@ -67,27 +67,14 @@ class Search_Detail_Fragment : Fragment() {
             startActivity(intent)
         }
         btn4.setOnClickListener {
-            var intent = Intent(Intent.ACTION_VIEW,Uri.parse("http://${arguments?.getString("url")}"))
+            var intent =
+                Intent(Intent.ACTION_VIEW, Uri.parse("http://${arguments?.getString("url")}"))
             startActivity(intent)
         }
 
         btn1.setOnClickListener {
             search?.setMap()
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         return view
     }

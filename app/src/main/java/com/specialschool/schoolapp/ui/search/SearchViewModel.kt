@@ -21,8 +21,4 @@ class SearchViewModel : ViewModel() {
         value = "검색"
     }
     val btn_text : LiveData<String> = search_btn
-
-
-
-
 }

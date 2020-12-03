@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:gravity="center_horizontal"
-    android:layout_height="wrap_content">
-
+    android:orientation="vertical">
 
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/school_main"
-        android:gravity="center_horizontal"
-        android:textSize="20dp"
-        android:text="학교 이름"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/black"
-        android:layout_marginHorizontal="60dp"/>
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/school_name"
         android:gravity="center_horizontal"
-        android:textSize="14dp"
-        android:text="주소"/>
+        android:text="학교 이름"
+        android:textSize="20dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/purple_500"
-        android:layout_marginHorizontal="2dp"/>
+        android:layout_marginHorizontal="60dp"
+        android:background="@color/black" />
 
+    <TextView
+        android:id="@+id/school_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="주소"
+        android:textSize="14dp" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="2dp"
+        android:background="@color/purple_500" />
 
 
 </LinearLayout>
