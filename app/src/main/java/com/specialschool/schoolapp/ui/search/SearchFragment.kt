@@ -18,12 +18,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.specialschool.schoolapp.R
 import com.specialschool.schoolapp.ui.MainActivity
-import com.specialschool.schoolapp.ui.settings.presenter.SettingsContract
 import kotlinx.android.synthetic.main.search_school_item.view.*
 
 //기존 클래스에서 개발 내용 적용 안됨, 기본적인 Fragment 사용 방법으로 돌아감
 // Fragment 사용을 위해 SearchViewModel 생성
-class SearchFragment : Fragment(), SettingsContract.View {
+class SearchFragment : Fragment() {
     //이 부분은 확실히 왜 써야되는지 모름 기본적인 상황에선 안씀, 하단 네비게이션바 사용하는 코드에 있어서 추가함
     private lateinit var searchViewModel: SearchViewModel
     //onCreateView 생성 기초와 거의 동일한 모습이지만 Linear Layout과 호환 되는지 확인 필요
@@ -38,7 +37,11 @@ class SearchFragment : Fragment(), SettingsContract.View {
     val test_array: ArrayList<Memo> = ArrayList()
     val search_array: ArrayList<Memo> = ArrayList()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
 
 
@@ -49,8 +52,6 @@ class SearchFragment : Fragment(), SettingsContract.View {
         val search_edit_layout: TextInputLayout = root.findViewById(R.id.search_edit_layout)
 
 
-
-
         //test
 
 
@@ -58,12 +59,21 @@ class SearchFragment : Fragment(), SettingsContract.View {
         //test_array.add(Memo(2,"상탑초등학교","서울시"))
 
         //spinner 구현
-        ArrayAdapter.createFromResource(root.context, R.array.search_spinner_item, android.R.layout.simple_spinner_dropdown_item).also { adapter ->
+        ArrayAdapter.createFromResource(
+            root.context,
+            R.array.search_spinner_item,
+            android.R.layout.simple_spinner_dropdown_item
+        ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             search_spinner.adapter = adapter
 
             search_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
                     search_edit_text.setText("")
                     when (search_spinner.selectedItemPosition) {
                         0 -> {
@@ -95,8 +105,34 @@ class SearchFragment : Fragment(), SettingsContract.View {
 
         //리사이클러뷰 확인을 위해 add 로 데이터 추가함
         for (i in 1..10) {
-            test_array.add(Memo("서울", "사립", "서울맹학교", "시각장애", "1913.04.01", "02-731-6773", "02-731-6772", "3032", "서울특별시 종로구 필운대로 97 (신교동, 국립서울맹학교)", "www.bl.sc.kr"))
-            test_array.add(Memo("경기도", "국립", "서울농학교", "청각장애", "1913.04.01", "02-737-0659", "02-737-0378", "3032", "서울특별시 종로구 필운대로 103 서울농학교", "seoulnong.sen.sc.kr"))
+            test_array.add(
+                Memo(
+                    "서울",
+                    "사립",
+                    "서울맹학교",
+                    "시각장애",
+                    "1913.04.01",
+                    "02-731-6773",
+                    "02-731-6772",
+                    "3032",
+                    "서울특별시 종로구 필운대로 97 (신교동, 국립서울맹학교)",
+                    "www.bl.sc.kr"
+                )
+            )
+            test_array.add(
+                Memo(
+                    "경기도",
+                    "국립",
+                    "서울농학교",
+                    "청각장애",
+                    "1913.04.01",
+                    "02-737-0659",
+                    "02-737-0378",
+                    "3032",
+                    "서울특별시 종로구 필운대로 103 서울농학교",
+                    "seoulnong.sen.sc.kr"
+                )
+            )
         }
         //리사이클러뷰 선언 및 layoutManager, adapter 선언
         val recy: RecyclerView = root.findViewById(R.id.school_info_recycler!!) as RecyclerView
@@ -192,9 +228,12 @@ class SearchFragment : Fragment(), SettingsContract.View {
         mainActivity = context as MainActivity
     }
 
-    class Search_Adapter(val context: Context, val test_Array: ArrayList<Memo>) : RecyclerView.Adapter<mViewH>() {
+    class Search_Adapter(val context: Context, val test_Array: ArrayList<Memo>) :
+        RecyclerView.Adapter<mViewH>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): mViewH {
-            return mViewH(LayoutInflater.from(context).inflate(R.layout.search_school_item, parent, false))
+            return mViewH(
+                LayoutInflater.from(context).inflate(R.layout.search_school_item, parent, false)
+            )
         }
 
         override fun onBindViewHolder(holder: mViewH, position: Int) {
@@ -218,7 +257,11 @@ class SearchFragment : Fragment(), SettingsContract.View {
 
             itemView.setOnClickListener {
                 //item 터치시 토스트 메시지 생성
-                Toast.makeText(itemView.context, "${data.school_name}의 세부 정보 화면으로 이동합니다.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    itemView.context,
+                    "${data.school_name}의 세부 정보 화면으로 이동합니다.",
+                    Toast.LENGTH_SHORT
+                ).show()
 
 
                 val intent = Intent(itemView?.context, Search_Test_Activity::class.java)
@@ -234,7 +277,6 @@ class SearchFragment : Fragment(), SettingsContract.View {
                 var intent_url: Intent = intent.putExtra("url", data.url)
 
                 startActivity(itemView.context, intent, null)
-
 
 
             }
