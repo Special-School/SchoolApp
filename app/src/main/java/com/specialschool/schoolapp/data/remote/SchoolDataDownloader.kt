@@ -46,6 +46,7 @@ class SchoolDataDownloader(
      * Firestore endpoint에서 학교 데이터 파일(json)을 네트워크를 통해 불러온다.
      * 처음 데이터를 불러 올 때나 cache를 다시 설정할 때 호출한다.
      *
+     * @return 반환된 Response를 byte stream으로 열어서 json parser에 넘긴다.
      * @throws IOException 실패했을 경우 발생
      */
     @Throws(IOException::class)
