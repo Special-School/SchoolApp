@@ -1,9 +1,10 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("android.extensions")
     kotlin("kapt")
     id("dagger.hilt.android.plugin")
-    id("kotlin-parcelize")
+    //id("kotlin-parcelize")
     id("org.jetbrains.dokka-android") version Versions.DOKKA_ANDROID
 }
 
@@ -58,6 +59,9 @@ dependencies {
     implementation(Libs.LIFECYCLE_LIVE_DATA_KTX)
     implementation(Libs.LIFECYCLE_VIEW_MODEL_KTX)
     kapt(Libs.LIFECYCLE_COMPILER)
+
+    implementation(Libs.LEGACY_SUPPORT)
+    implementation(Libs.GOOGLE_PLAY_SERVICES_MAPS)
 
     // Room
     implementation(Libs.ROOM_KTX)
