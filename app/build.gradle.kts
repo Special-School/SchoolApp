@@ -48,6 +48,8 @@ dependencies {
 
     implementation(Libs.CORE_KTX)
     implementation(Libs.APPCOMPAT)
+    implementation(Libs.ACTIVITY_KTX)
+    implementation(Libs.FRAGMENT_KTX)
     implementation(Libs.MATERIAL)
     implementation(Libs.CONSTRAINT_LAYOUT)
     implementation(Libs.NAVIGATION_FRAGMENT_KTX)
@@ -100,6 +102,14 @@ dependencies {
 
     // GSON
     implementation(Libs.GSON)
+
+    // OkHttp
+    implementation(Libs.OKHTTP)
+    implementation(Libs.OKHTTP_LOGGING_INTERCEPTOR)
+
+    // Glide
+    implementation(Libs.GLIDE)
+    kapt(Libs.GLIDE_COMPILER)
 }
 
 apply(plugin = "com.google.gms.google-services")

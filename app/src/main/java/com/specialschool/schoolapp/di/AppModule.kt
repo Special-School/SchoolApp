@@ -1,6 +1,7 @@
 package com.specialschool.schoolapp.di
 
 import android.content.Context
+import com.specialschool.schoolapp.MainApplication
 import com.specialschool.schoolapp.data.db.AppDatabase
 import com.specialschool.schoolapp.data.search.DefaultSchoolRepository
 import com.specialschool.schoolapp.data.search.FakeSchoolDataSource
@@ -41,5 +42,10 @@ class AppModule {
     @Provides
     fun provideSchoolDataSource(): SchoolDataSource {
         return FakeSchoolDataSource
+    }
+
+    @Provides
+    fun provideContext(application: MainApplication): Context {
+        return application.applicationContext
     }
 }
