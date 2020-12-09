@@ -1,5 +1,5 @@
 object Versions {
-    val versionName = "1.0.0" // X.Y.Z; X = Major, Y = minor, Z = Patch level
+    val versionName = "1.0.0" // X.Y.Z; X = Major, Y = Minor, Z = Patch
     private val versionCodeBase = 1000 // XYYZZM; M = Module
     val versionCodeMobile = versionCodeBase + 3
 
@@ -28,7 +28,7 @@ object Versions {
     const val HILT = "2.28-alpha"
     const val HILT_JETPACK = "1.0.0-alpha02"
     const val JUNIT = "4.12"
-    const val KOTLIN = "1.4.20"
+    const val KOTLIN = "1.4.21"
     const val LEGACY_SUPPORT = "1.0.0"
     const val LIFECYCLE = "2.2.0"
     const val MATERIAL = "1.2.1"
