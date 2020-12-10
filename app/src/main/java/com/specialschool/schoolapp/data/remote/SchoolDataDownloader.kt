@@ -1,14 +1,14 @@
 package com.specialschool.schoolapp.data.remote
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.WorkerThread
-import okhttp3.Cache
-import okhttp3.OkHttpClient
-import okhttp3.Protocol
-import okhttp3.Response
+import com.specialschool.schoolapp.BuildConfig
+import okhttp3.*
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.IOException
-import kotlin.jvm.Throws
+import kotlin.Throws
 
 /**
  * 학교 데이터 다운로드 모듈, OkHttp3 클라이언트로 구현
@@ -43,7 +43,7 @@ class SchoolDataDownloader(
     }
 
     /**
-     * Firestore endpoint에서 학교 데이터 파일(json)을 네트워크를 통해 불러온다.
+     * Firebase storage endpoint에서 학교 데이터 파일(json)을 네트워크를 통해 불러온다.
      * 처음 데이터를 불러 올 때나 cache를 다시 설정할 때 호출한다.
      *
      * @return 반환된 Response를 byte stream으로 열어서 json parser에 넘긴다.
@@ -52,15 +52,44 @@ class SchoolDataDownloader(
     @Throws(IOException::class)
     @WorkerThread
     fun fetch(): Response {
-        // val url
-        TODO("fetch")
+        val url = BuildConfig.SCHOOL_DATA_URL
+
+        val httpBuilder = url.toHttpUrlOrNull()?.newBuilder()
+            ?: throw IllegalArgumentException("malformed data url")
+        httpBuilder.addQueryParameter("bootstrapVersion", bootstrapVersion)
+
+        val request = Request.Builder()
+            .url(httpBuilder.build())
+            .cacheControl(CacheControl.FORCE_NETWORK)
+            .build()
+
+        val response = client.newCall(request).execute()
+        Log.d("DATA_DOWNLOADER", "Download bytes: ${response.body?.contentLength() ?: 0}")
+
+        return response ?: throw IOException("Network error")
     }
 
     /**
-     * Firestore endpoint에서 학교 데이터 파일(json)을 Http 캐시를 통해 불러온다.
+     * Firebase storage endpoint에서 학교 데이터 파일(json)을 Http 캐시를 통해 불러온다.
      */
     fun fetchCached(): Response? {
-        // val url
-        TODO("fetchCached")
+        val url = BuildConfig.SCHOOL_DATA_URL
+
+        val httpBuilder = url.toHttpUrlOrNull()?.newBuilder()
+            ?: throw IllegalArgumentException("malformed data url")
+        httpBuilder.addQueryParameter("bootstrapVersion", bootstrapVersion)
+
+        val request = Request.Builder()
+            .url(httpBuilder.build())
+            .cacheControl(CacheControl.FORCE_CACHE)
+            .build()
+
+        val response = client.newCall(request).execute()
+        Log.d("DATA_DOWNLOADER", "Loaded Cache bytes: ${response.body?.contentLength() ?: 0}")
+
+        if (response.code == 504) {
+            return null
+        }
+        return response ?: throw IOException("Network error")
     }
 }

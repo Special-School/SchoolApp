@@ -19,6 +19,8 @@ android {
         versionName = Versions.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "SCHOOL_DATA_URL", "\"https://firebasestorage.googleapis.com/v0/b/schoolapp-488dc.appspot.com/o/school_data.json?alt=media&token=6119b532-1f73-4e6a-abbb-09ddd9fbc288\"")
     }
 
     buildTypes {
