@@ -44,8 +44,8 @@ class SettingsFragment : Fragment() {
             val dialog_title: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialog_title.setText(btn1.text)
             dialog.setText(
-                "2020년도 백석대학교 ICT 학부 캡스톤 디자인 수업을 위해 개발된 어플리케이션입니다." +
-                        "어플리케이션 사용자는 \'특수학교\' 어플리케이션 모든 서비스를 이용할 수 있습니다."
+                    "2020년도 백석대학교 ICT 학부 캡스톤 디자인 수업을 위해 개발된 어플리케이션입니다." +
+                            "어플리케이션 사용자는 \'특수학교\' 어플리케이션 모든 서비스를 이용할 수 있습니다."
             )
 
             builder.setView(dialogView)
@@ -70,7 +70,7 @@ class SettingsFragment : Fragment() {
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialog_title: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialog_title.setText((btn3.text))
-            dialog.setText("업데이트 예정")
+            dialog.setText("1. Google Developers \n www.developers.google.com")
             builder.setView(dialogView)
                 .setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 
@@ -81,7 +81,7 @@ class SettingsFragment : Fragment() {
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialog_title: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialog_title.setText((btn4.text))
-            dialog.setText("2020-11-18기준\n version : 1.0.0")
+            dialog.setText("version : 1.0.0 (2020-11-18)\nversion : 1.1.0 (2020-12-03)")
             builder.setView(dialogView)
                 .setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 

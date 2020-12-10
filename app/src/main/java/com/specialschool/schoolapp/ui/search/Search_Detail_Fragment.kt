@@ -1,7 +1,9 @@
 package com.specialschool.schoolapp.ui.search
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -56,6 +58,11 @@ class Search_Detail_Fragment : Fragment() {
         t9.setText(arguments?.getString("tel2"))
         t10.setText(arguments?.getString("url"))
 
+        //팝업을 위한 builder
+        val builder = AlertDialog.Builder(view.context)
+
+
+
         btn2.setOnClickListener {
             var intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:${arguments?.getString("tel1")}")
@@ -73,8 +80,12 @@ class Search_Detail_Fragment : Fragment() {
         }
 
         btn1.setOnClickListener {
+
             search?.setMap()
+
+
         }
+
 
         return view
     }
