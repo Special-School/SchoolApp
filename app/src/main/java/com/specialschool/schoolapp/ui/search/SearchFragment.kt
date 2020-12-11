@@ -31,8 +31,8 @@ class SearchFragment : Fragment() {
     //리사이클러뷰 클릭이벤트용
 
     lateinit var recyclerSchool: RecyclerView
-    val test_array: ArrayList<Memo> = ArrayList()
-    val search_array: ArrayList<Memo> = ArrayList()
+    private val testArray: ArrayList<Memo> = ArrayList()
+    private val searchArray: ArrayList<Memo> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -95,7 +95,7 @@ class SearchFragment : Fragment() {
 
         //리사이클러뷰 확인을 위해 add 로 데이터 추가함
         for (i in 1..10) {
-            test_array.add(
+            testArray.add(
                 Memo(
                     "서울",
                     "사립",
@@ -109,7 +109,7 @@ class SearchFragment : Fragment() {
                     "www.bl.sc.kr"
                 )
             )
-            test_array.add(
+            testArray.add(
                 Memo(
                     "경기도",
                     "국립",
@@ -130,55 +130,55 @@ class SearchFragment : Fragment() {
         recy.layoutManager = LinearLayoutManager(requireContext())
         recy.setHasFixedSize(true)
 
-        recy.adapter = SearchAdapter(requireContext(), test_array)
+        recy.adapter = SearchAdapter(requireContext(), testArray)
 
         searchButton.setOnClickListener {
             //Toast.makeText(root.context, "테스트 ${test_array.size}개가 있음", Toast.LENGTH_SHORT).show()
             //Toast.makeText(root.context, "테스트 ${test_array[0].city.equals("서울")}개가 있음", Toast.LENGTH_SHORT).show()
 
             //검색을 위한 리사이클러뷰 배열 초기화
-            search_array.clear()
+            searchArray.clear()
 
             //스피너 사용을 위한 when 문
             //내부 for 문과 if 문으로 리사이클러뷰
             when (searchSpinner.selectedItemPosition) {
                 0 -> {
                     //전체 학교 리스트 출력
-                    search_array.addAll(test_array)
+                    searchArray.addAll(testArray)
                     searchEditText.setText("")
                 }
                 1 -> {
                     //도시 검색만
-                    for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].city.equals(searchEditText.text.toString())) {
-                            search_array.addAll(listOf(test_array[num - 1]))
+                    for (num: Int in 1..testArray.size) {
+                        if (testArray[num - 1].city.equals(searchEditText.text.toString())) {
+                            searchArray.addAll(listOf(testArray[num - 1]))
                         }
                     }
                 }
                 2 -> {
-                    for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].schoolName.equals(searchEditText.text.toString())) {
-                            search_array.addAll(listOf(test_array[num - 1]))
+                    for (num: Int in 1..testArray.size) {
+                        if (testArray[num - 1].schoolName.equals(searchEditText.text.toString())) {
+                            searchArray.addAll(listOf(testArray[num - 1]))
                         }
                     }
                 }
                 3 -> {
-                    for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].establish.equals(searchEditText.text.toString())) {
-                            search_array.addAll(listOf(test_array[num - 1]))
+                    for (num: Int in 1..testArray.size) {
+                        if (testArray[num - 1].establish.equals(searchEditText.text.toString())) {
+                            searchArray.addAll(listOf(testArray[num - 1]))
                         }
                     }
                 }
                 4 -> {
-                    for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].type.equals(searchEditText.text.toString())) {
-                            search_array.addAll(listOf(test_array[num - 1]))
+                    for (num: Int in 1..testArray.size) {
+                        if (testArray[num - 1].type.equals(searchEditText.text.toString())) {
+                            searchArray.addAll(listOf(testArray[num - 1]))
                         }
                     }
                 }
             }
 
-            recy.adapter = SearchAdapter(requireContext(), search_array)
+            recy.adapter = SearchAdapter(requireContext(), searchArray)
         }
 
         recy.callOnClick()
