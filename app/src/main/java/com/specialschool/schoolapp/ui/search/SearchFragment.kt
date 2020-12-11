@@ -1,26 +1,16 @@
 package com.specialschool.schoolapp.ui.search
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.*
-import androidx.core.content.ContextCompat.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.specialschool.schoolapp.R
-import com.specialschool.schoolapp.databinding.FragmentHomeBinding
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
-import com.specialschool.schoolapp.ui.home.HomeViewModel
+import com.specialschool.schoolapp.ui.school.SchoolAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.search_school_item.view.*
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
@@ -29,12 +19,13 @@ class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
+    private lateinit var schoolAdapter: SchoolAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding = FragmentSearchBinding.inflate(
             inflater, container, false
         ).apply {
