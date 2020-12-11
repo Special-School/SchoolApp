@@ -4,20 +4,23 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.specialschool.schoolapp.domain.search.SearchUseCase
 import com.specialschool.schoolapp.model.School
+import com.specialschool.schoolapp.ui.event.EventActions
 import com.specialschool.schoolapp.util.Event
 import com.specialschool.schoolapp.util.Result
+import com.specialschool.schoolapp.util.successOr
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class SearchViewModel @ViewModelInject constructor(
     private val searchUseCase: SearchUseCase
-) : ViewModel() {
+) : ViewModel(),
+    EventActions {
 
     private val _navigateToSchoolDetailAction = MutableLiveData<Event<String>>()
     val navigateToSchoolDetailAction: LiveData<Event<String>> = _navigateToSchoolDetailAction
 
     private val _searchResults = MediatorLiveData<List<School>>()
-    val searchResult: LiveData<List<School>> = _searchResults
+    val searchResults: LiveData<List<School>> = _searchResults
 
     private var searchJob: Job? = null
 
@@ -36,11 +39,15 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     private fun processSearchResult(result: Result<List<School>>) {
-        val searchResults = (result as? Result.Success)?.data ?: emptyList()
-        _searchResults.value = searchResults
+        val schools = result.successOr(emptyList())
+        _searchResults.value = schools
     }
 
     private fun onQueryCleared() {
         _searchResults.value = emptyList()
+    }
+
+    override fun openItemDetail(id: String) {
+        TODO("Not yet implemented")
     }
 }

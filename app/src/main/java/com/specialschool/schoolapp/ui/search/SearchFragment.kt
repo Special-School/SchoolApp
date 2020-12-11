@@ -9,7 +9,6 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,7 +37,7 @@ class SearchFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        model.searchResult.observe(viewLifecycleOwner, Observer {
+        model.searchResults.observe(viewLifecycleOwner, Observer {
             schoolAdapter.submitList(it)
         })
 
@@ -60,6 +59,12 @@ class SearchFragment : Fragment() {
                 }
             }
             requestFocus()
+        }
+
+        schoolAdapter = SchoolAdapter(model, this)
+
+        binding.schoolInfoRecycler.apply {
+            adapter = schoolAdapter
         }
     }
 

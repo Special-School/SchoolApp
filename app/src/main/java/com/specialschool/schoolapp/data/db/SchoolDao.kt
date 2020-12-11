@@ -6,11 +6,11 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
 @Dao
-interface SchoolFtsDao {
+interface SchoolDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(schools: List<SchoolFtsEntity>)
+    fun insertAll(schools: List<SchoolEntity>)
 
-    @Query("SELECT schoolName FROM schoolfts WHERE schoolfts MATCH :query")
+    @Query("SELECT schoolName FROM school WHERE schoolName LIKE :query")
     fun searchAllSchools(query: String): List<String>
 }

@@ -1,6 +1,7 @@
 package com.specialschool.schoolapp.data
 
 import com.specialschool.schoolapp.data.db.AppDatabase
+import com.specialschool.schoolapp.data.db.SchoolEntity
 import com.specialschool.schoolapp.data.db.SchoolFtsEntity
 import com.specialschool.schoolapp.model.School
 import com.specialschool.schoolapp.model.SchoolData
@@ -88,5 +89,13 @@ class SchoolRepository @Inject constructor(
             )
         }
         database.schoolFtsDao().insertAll(schoolFtsEntities)
+
+        val schoolEntities = data.schools.map { school ->
+            SchoolEntity(
+                schoolId = school.id,
+                schoolName = school.name
+            )
+        }
+        database.schoolDao().insertAll(schoolEntities)
     }
 }

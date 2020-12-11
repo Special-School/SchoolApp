@@ -26,7 +26,7 @@ class FtsQueryMatchStrategy @Inject constructor(
         if (query.isEmpty()) {
             return schools
         }
-        val schoolIds = appDatabase.schoolFtsDao().searchAllSchools(query.toLowerCase()).toSet()
-        return schools.filter { school -> school.id in schoolIds }
+        val schoolNames = appDatabase.schoolDao().searchAllSchools("%$query%").toSet()
+        return schools.filter { school -> school.name in schoolNames }
     }
 }

@@ -10,10 +10,12 @@ import androidx.room.RoomDatabase
  *
  * **See Also:** [@Database](https://developer.android.com/reference/androidx/room/Database)
  */
-@Database(entities = [SchoolFtsEntity::class], version = 1, exportSchema = false)
+@Database(entities = [SchoolFtsEntity::class, SchoolEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun schoolFtsDao(): SchoolFtsDao
+
+    abstract fun schoolDao(): SchoolDao
 
     companion object {
         fun buildDatabase(context: Context): AppDatabase {

@@ -100,7 +100,10 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/school_info_recycler"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/search_school_item"/>
             </LinearLayout>
         </LinearLayout>
 
