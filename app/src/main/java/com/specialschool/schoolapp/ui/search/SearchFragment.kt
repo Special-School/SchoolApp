@@ -49,6 +49,18 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.searchBtn.apply {
+            setOnClickListener {
+                model.onSearchQueryChanged(binding.searchText.text.toString())
+            }
+
+            setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    showKeyboard(view.findFocus())
+                }
+            }
+            requestFocus()
+        }
     }
 
     override fun onPause() {
