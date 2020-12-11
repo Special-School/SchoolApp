@@ -1,28 +1,25 @@
 package com.specialschool.schoolapp.ui.search
 
-import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.specialschool.schoolapp.R
 
+class SearchDetailFragment : Fragment() {
 
-class Search_Detail_Fragment : Fragment() {
+    var search: SearchTestActivity? = null
 
-    var search: Search_Test_Activity? = null
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
-        search = context as Search_Test_Activity
+        search = context as SearchTestActivity
     }
 
     override fun onCreateView(
@@ -30,7 +27,7 @@ class Search_Detail_Fragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_search__detail_, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_search_detail, container, false)
 
         val t1: TextView = view.findViewById(R.id.detail_info1)
         val t2: TextView = view.findViewById(R.id.detail_info2)
@@ -61,31 +58,24 @@ class Search_Detail_Fragment : Fragment() {
         //팝업을 위한 builder
         val builder = AlertDialog.Builder(view.context)
 
-
-
         btn2.setOnClickListener {
-            var intent = Intent(Intent.ACTION_DIAL)
+            val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:${arguments?.getString("tel1")}")
             startActivity(intent)
         }
         btn3.setOnClickListener {
-            var intent = Intent(Intent.ACTION_DIAL)
+            val intent = Intent(Intent.ACTION_DIAL)
             intent.data = Uri.parse("tel:${arguments?.getString("tel2")}")
             startActivity(intent)
         }
         btn4.setOnClickListener {
-            var intent =
+            val intent =
                 Intent(Intent.ACTION_VIEW, Uri.parse("http://${arguments?.getString("url")}"))
             startActivity(intent)
         }
-
         btn1.setOnClickListener {
-
             search?.setMap()
-
-
         }
-
 
         return view
     }

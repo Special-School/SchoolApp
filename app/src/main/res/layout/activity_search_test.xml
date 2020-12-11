@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.search.Search_Test_Activity">
+    tools:context=".ui.search.SearchTestActivity">
 
 
     <LinearLayout

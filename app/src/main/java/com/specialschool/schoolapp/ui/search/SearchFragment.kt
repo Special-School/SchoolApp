@@ -7,10 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -32,8 +30,7 @@ class SearchFragment : Fragment() {
 
     //리사이클러뷰 클릭이벤트용
 
-
-    lateinit var recycler_school: RecyclerView
+    lateinit var recyclerSchool: RecyclerView
     val test_array: ArrayList<Memo> = ArrayList()
     val search_array: ArrayList<Memo> = ArrayList()
 
@@ -44,16 +41,13 @@ class SearchFragment : Fragment() {
     ): View? {
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
 
-
         val root = inflater.inflate(R.layout.fragment_search, container, false)
-        val search_button: Button = root.findViewById(R.id.search_btn)
-        val search_edit_text: TextInputEditText = root.findViewById(R.id.search_text)
-        val search_spinner: Spinner = root.findViewById(R.id.search_spinner)
-        val search_edit_layout: TextInputLayout = root.findViewById(R.id.search_edit_layout)
-
+        val searchButton: Button = root.findViewById(R.id.search_btn)
+        val searchEditText: TextInputEditText = root.findViewById(R.id.search_text)
+        val searchSpinner: Spinner = root.findViewById(R.id.search_spinner)
+        val searchEditLayout: TextInputLayout = root.findViewById(R.id.search_edit_layout)
 
         //test
-
 
         //test_array.add(Memo(1,"중탑초등학교","성남시"))
         //test_array.add(Memo(2,"상탑초등학교","서울시"))
@@ -65,31 +59,30 @@ class SearchFragment : Fragment() {
             android.R.layout.simple_spinner_dropdown_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            search_spinner.adapter = adapter
-
-            search_spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            searchSpinner.adapter = adapter
+            searchSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     parent: AdapterView<*>?,
                     view: View?,
                     position: Int,
                     id: Long
                 ) {
-                    search_edit_text.setText("")
-                    when (search_spinner.selectedItemPosition) {
+                    searchEditText.setText("")
+                    when (searchSpinner.selectedItemPosition) {
                         0 -> {
-                            search_edit_layout.setHint("")
+                            searchEditLayout.setHint("")
                         }
                         1 -> {
-                            search_edit_layout.setHint("도시이름을 입력해주세요 (예시) 서울, 경기도")
+                            searchEditLayout.setHint("도시이름을 입력해주세요 (예시) 서울, 경기도")
                         }
                         2 -> {
-                            search_edit_layout.setHint("전체 학교명을 입력해주세요 (예시) 서울농학교")
+                            searchEditLayout.setHint("전체 학교명을 입력해주세요 (예시) 서울농학교")
                         }
                         3 -> {
-                            search_edit_layout.setHint("국립 / 사립 중에 선택해 입력해주세요")
+                            searchEditLayout.setHint("국립 / 사립 중에 선택해 입력해주세요")
                         }
                         4 -> {
-                            search_edit_layout.setHint("장애 영역을 입력해주세요")
+                            searchEditLayout.setHint("장애 영역을 입력해주세요")
                         }
                     }
                 }
@@ -98,10 +91,7 @@ class SearchFragment : Fragment() {
 
                 }
             }
-
-
         }
-
 
         //리사이클러뷰 확인을 위해 add 로 데이터 추가함
         for (i in 1..10) {
@@ -134,110 +124,84 @@ class SearchFragment : Fragment() {
                 )
             )
         }
+
         //리사이클러뷰 선언 및 layoutManager, adapter 선언
         val recy: RecyclerView = root.findViewById(R.id.school_info_recycler!!) as RecyclerView
         recy.layoutManager = LinearLayoutManager(requireContext())
         recy.setHasFixedSize(true)
 
-        recy.adapter = Search_Adapter(requireContext(), test_array)
+        recy.adapter = SearchAdapter(requireContext(), test_array)
 
-
-
-
-
-
-
-
-
-
-
-        search_button.setOnClickListener {
+        searchButton.setOnClickListener {
             //Toast.makeText(root.context, "테스트 ${test_array.size}개가 있음", Toast.LENGTH_SHORT).show()
             //Toast.makeText(root.context, "테스트 ${test_array[0].city.equals("서울")}개가 있음", Toast.LENGTH_SHORT).show()
 
             //검색을 위한 리사이클러뷰 배열 초기화
             search_array.clear()
 
-
             //스피너 사용을 위한 when 문
             //내부 for 문과 if 문으로 리사이클러뷰
-            when (search_spinner.selectedItemPosition) {
+            when (searchSpinner.selectedItemPosition) {
                 0 -> {
                     //전체 학교 리스트 출력
                     search_array.addAll(test_array)
-                    search_edit_text.setText("")
+                    searchEditText.setText("")
                 }
-
-
                 1 -> {
                     //도시 검색만
                     for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].city.equals(search_edit_text.text.toString())) {
+                        if (test_array[num - 1].city.equals(searchEditText.text.toString())) {
                             search_array.addAll(listOf(test_array[num - 1]))
                         }
                     }
                 }
-
-
                 2 -> {
                     for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].school_name.equals(search_edit_text.text.toString())) {
+                        if (test_array[num - 1].schoolName.equals(searchEditText.text.toString())) {
                             search_array.addAll(listOf(test_array[num - 1]))
                         }
                     }
                 }
-
-
                 3 -> {
                     for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].establish.equals(search_edit_text.text.toString())) {
+                        if (test_array[num - 1].establish.equals(searchEditText.text.toString())) {
                             search_array.addAll(listOf(test_array[num - 1]))
                         }
                     }
                 }
-
                 4 -> {
                     for (num: Int in 1..test_array.size) {
-                        if (test_array[num - 1].type.equals(search_edit_text.text.toString())) {
+                        if (test_array[num - 1].type.equals(searchEditText.text.toString())) {
                             search_array.addAll(listOf(test_array[num - 1]))
                         }
                     }
                 }
-
-
             }
 
-            recy.adapter = Search_Adapter(requireContext(), search_array)
-
-
+            recy.adapter = SearchAdapter(requireContext(), search_array)
         }
 
         recy.callOnClick()
 
-
-
-
-
-
         return root
     }
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         mainActivity = context as MainActivity
     }
 
-    class Search_Adapter(val context: Context, val test_Array: ArrayList<Memo>) :
-        RecyclerView.Adapter<mViewH>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): mViewH {
-            return mViewH(
+    class SearchAdapter(val context: Context, val test_Array: ArrayList<Memo>) :
+        RecyclerView.Adapter<SearchViewHolder>() {
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
+            return SearchViewHolder(
                 LayoutInflater.from(context).inflate(R.layout.search_school_item, parent, false)
             )
         }
 
-        override fun onBindViewHolder(holder: mViewH, position: Int) {
-            holder.bind_Item(test_Array[position])
+        override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
+            holder.bindItem(test_Array[position])
 
 
         }
@@ -245,47 +209,36 @@ class SearchFragment : Fragment() {
         override fun getItemCount(): Int {
             return test_Array.size
         }
-
-
     }
 
+    class SearchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    class mViewH(view: View) : RecyclerView.ViewHolder(view) {
-        fun bind_Item(data: Memo) {
-            itemView.school_main.text = data.school_name
-            itemView.school_name.text = data.addr_detail
+        fun bindItem(data: Memo) {
+            itemView.school_main.text = data.schoolName
+            itemView.school_name.text = data.addrDetail
 
             itemView.setOnClickListener {
                 //item 터치시 토스트 메시지 생성
                 Toast.makeText(
                     itemView.context,
-                    "${data.school_name}의 세부 정보 화면으로 이동합니다.",
+                    "${data.schoolName}의 세부 정보 화면으로 이동합니다.",
                     Toast.LENGTH_SHORT
                 ).show()
 
-
-                val intent = Intent(itemView?.context, Search_Test_Activity::class.java)
+                val intent = Intent(itemView?.context, SearchTestActivity::class.java)
                 var intent_city: Intent = intent.putExtra("city", data.city)
                 var intent_establish: Intent = intent.putExtra("establish", data.establish)
-                var intent_school_name: Intent = intent.putExtra("school_name", data.school_name)
+                var intent_school_name: Intent = intent.putExtra("school_name", data.schoolName)
                 var intent_type = intent.putExtra("type", data.type)
-                var intent_opening: Intent = intent.putExtra("opening", data.open_date)
+                var intent_opening: Intent = intent.putExtra("opening", data.openDate)
                 var intent_tel_num: Intent = intent.putExtra("tel1", data.tel1)
                 var intent_tel: Intent = intent.putExtra("tel2", data.tel2)
-                var intent_addr_num: Intent = intent.putExtra("addr_num", data.addr_num)
-                var intent_addr_detail: Intent = intent.putExtra("addr_detail", data.addr_detail)
+                var intent_addr_num: Intent = intent.putExtra("addr_num", data.addrNum)
+                var intent_addr_detail: Intent = intent.putExtra("addr_detail", data.addrDetail)
                 var intent_url: Intent = intent.putExtra("url", data.url)
 
                 startActivity(itemView.context, intent, null)
-
-
             }
-
-
         }
-
-
     }
-
-
 }
