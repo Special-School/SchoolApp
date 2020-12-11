@@ -1,32 +1,25 @@
 package com.specialschool.schoolapp.ui.search
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.*
-import androidx.core.content.ContextCompat.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.specialschool.schoolapp.R
+import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.search_school_item.view.*
 
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
 
-    private val viewModel: SearchViewModel by viewModels()
+    private val model: SearchViewModel by viewModels()
 
     private lateinit var schoolAdapter: SchoolAdapter
 
@@ -37,12 +30,21 @@ class SearchFragment : Fragment() {
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
+            viewModel = model
         }
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        model.searchResult.observe(viewLifecycleOwner, Observer {
+            schoolAdapter.submitList(it)
+        })
+
+        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, Observer {
+            //findNavController().navigate(toSchoolDetail(it))
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
