@@ -43,7 +43,7 @@ class SearchFragment : Fragment() {
         })
 
         model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, Observer {
-            //findNavController().navigate(toSchoolDetail(it))
+
         })
     }
 
