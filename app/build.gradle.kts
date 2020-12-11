@@ -19,12 +19,18 @@ android {
         versionName = Versions.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "SCHOOL_DATA_URL", "\"https://firebasestorage.googleapis.com/v0/b/schoolapp-488dc.appspot.com/o/school_data.json?alt=media&token=c1860d74-ddb7-4202-a75f-774b4f4dbfec\"")
+        buildConfigField("String", "BOOTSTRAP_SCHOOL_DATA_FILENAME", "\"school_data.json\"")
     }
 
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        }
+        getByName("debug") {
+
         }
     }
 

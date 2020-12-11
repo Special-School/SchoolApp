@@ -3,10 +3,10 @@ package com.specialschool.schoolapp.di
 import android.content.Context
 import com.specialschool.schoolapp.MainApplication
 import com.specialschool.schoolapp.data.db.AppDatabase
-import com.specialschool.schoolapp.data.search.DefaultSchoolRepository
-import com.specialschool.schoolapp.data.search.FakeSchoolDataSource
-import com.specialschool.schoolapp.data.search.SchoolDataSource
-import com.specialschool.schoolapp.data.search.SchoolRepository
+import com.specialschool.schoolapp.data.SchoolRepository
+import com.specialschool.schoolapp.data.SchoolDataSource
+import com.specialschool.schoolapp.data.bootstrap.BootstrapSchoolDataSource
+import com.specialschool.schoolapp.data.remote.RemoteSchoolDataSource
 import com.specialschool.schoolapp.domain.search.FtsQueryMatchStrategy
 import com.specialschool.schoolapp.domain.search.QueryMatchStrategy
 import dagger.Module
@@ -17,6 +17,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
+import javax.inject.Named
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -31,20 +32,34 @@ class AppModule {
 
     @Singleton
     @Provides
+    @Named("remoteSchoolDataSource")
+    fun provideRemoteSchoolDataSource(
+        @ApplicationContext context: Context
+    ): SchoolDataSource {
+        return RemoteSchoolDataSource(context)
+    }
+
+    @Singleton
+    @Provides
+    @Named("bootstrapSchoolDataSource")
+    fun provideBootstrapSchoolDataSource(): SchoolDataSource {
+        return BootstrapSchoolDataSource
+    }
+
+    @Singleton
+    @Provides
+    fun provideSchoolRepository(
+        @Named("remoteSchoolDataSource") remoteDataSource: SchoolDataSource,
+        @Named("bootstrapSchoolDataSource") bootstrapDataSource: SchoolDataSource,
+        database: AppDatabase
+    ): SchoolRepository {
+        return SchoolRepository(remoteDataSource, bootstrapDataSource, database)
+    }
+
+    @Singleton
+    @Provides
     fun provideQueryMatchStrategy(appDatabase: AppDatabase): QueryMatchStrategy {
         return FtsQueryMatchStrategy(appDatabase)
-    }
-
-    @Singleton
-    @Provides
-    fun provideSchoolRepository(dataSource: SchoolDataSource): SchoolRepository {
-        return DefaultSchoolRepository(dataSource)
-    }
-
-    @Singleton
-    @Provides
-    fun provideSchoolDataSource(): SchoolDataSource {
-        return FakeSchoolDataSource
     }
 
     @Provides
