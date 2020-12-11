@@ -6,29 +6,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.core.content.ContextCompat.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.specialschool.schoolapp.R
-import com.specialschool.schoolapp.ui.MainActivity
+import com.specialschool.schoolapp.databinding.FragmentSearchBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.search_school_item.view.*
 
-//기존 클래스에서 개발 내용 적용 안됨, 기본적인 Fragment 사용 방법으로 돌아감
-// Fragment 사용을 위해 SearchViewModel 생성
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
-    //이 부분은 확실히 왜 써야되는지 모름 기본적인 상황에선 안씀, 하단 네비게이션바 사용하는 코드에 있어서 추가함
-    private lateinit var searchViewModel: SearchViewModel
-    //onCreateView 생성 기초와 거의 동일한 모습이지만 Linear Layout과 호환 되는지 확인 필요
 
-    //test
-    var mainActivity: MainActivity? = null
+    private lateinit var binding: FragmentSearchBinding
 
-    //리사이클러뷰 클릭이벤트용
+    private val viewModel: SearchViewModel by viewModels()
 
     lateinit var recyclerSchool: RecyclerView
     private val testArray: ArrayList<Memo> = ArrayList()
@@ -39,7 +36,6 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
 
         val root = inflater.inflate(R.layout.fragment_search, container, false)
         val searchButton: Button = root.findViewById(R.id.search_btn)
@@ -186,9 +182,27 @@ class SearchFragment : Fragment() {
         return root
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        mainActivity = context as MainActivity
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onPause() {
+        dismissKeyboard(binding.searchEditLayout)
+        super.onPause()
+    }
+
+    private fun showKeyboard(view: View) {
+        val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(view, InputMethodManager.SHOW_FORCED)
+    }
+
+    private fun dismissKeyboard(view: View) {
+        val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     class SearchAdapter(val context: Context, val test_Array: ArrayList<Memo>) :
