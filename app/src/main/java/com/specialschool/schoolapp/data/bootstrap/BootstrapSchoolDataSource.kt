@@ -14,7 +14,7 @@ object BootstrapSchoolDataSource : SchoolDataSource {
         return loadAndParseBootstrapData()
     }
 
-    private fun loadAndParseBootstrapData(): SchoolData {
+    fun loadAndParseBootstrapData(): SchoolData {
         val stream = this.javaClass.classLoader!!
             .getResource(BuildConfig.BOOTSTRAP_SCHOOL_DATA_FILENAME).openStream()
 

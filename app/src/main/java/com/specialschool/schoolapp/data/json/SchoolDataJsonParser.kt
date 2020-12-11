@@ -36,8 +36,8 @@ object SchoolDataJsonParser {
                 name = school.name,
                 category = Disability.fromString(school.category),
                 principalName = school.principalName,
-                authDate = LocalDate.parse(school.authDate),
-                openDate = LocalDate.parse(school.openDate),
+                authDate = LocalDate.parse(school.authDate.replace(".", "-")),
+                openDate = LocalDate.parse(school.openDate.replace(".", "-")),
                 contact = Contact(
                     school.principalNumber,
                     school.adminNumber,

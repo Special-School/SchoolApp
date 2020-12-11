@@ -20,11 +20,11 @@ class QueryMatchStrategyTest(private val strategy: QueryMatchStrategy) {
     @get:Rule
     var coroutineRule = Companion.coroutineRule
 
-    private fun assertSearchResults(
+    /*private fun assertSearchResults(
         query: String,
         expectedSchools: List<School>
     ) = coroutineRule.runBlockingTest {
         val schools = strategy.searchSchools(TestData.schoolList, query)
         assertThat(schools, `is`(equalTo(expectedSchools)))
-    }
+    }*/
 }
