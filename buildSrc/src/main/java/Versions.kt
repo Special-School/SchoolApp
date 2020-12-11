@@ -5,7 +5,7 @@ object Versions {
 
     const val COMPILE_SDK = 30
     const val TARGET_SDK = 30
-    const val MIN_SDK = 21
+    const val MIN_SDK = 26
 
     const val ACTIVITY_KTX = "1.1.0"
     const val ANDROID_GRADLE_PLUGIN = "4.1.1"

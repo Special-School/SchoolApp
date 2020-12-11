@@ -8,7 +8,7 @@ import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.IOException
-import kotlin.Throws
+import kotlin.jvm.Throws
 
 /**
  * 학교 데이터 다운로드 모듈, OkHttp3 클라이언트로 구현

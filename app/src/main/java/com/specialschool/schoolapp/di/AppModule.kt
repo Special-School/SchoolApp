@@ -4,8 +4,8 @@ import android.content.Context
 import com.specialschool.schoolapp.MainApplication
 import com.specialschool.schoolapp.data.db.AppDatabase
 import com.specialschool.schoolapp.data.SchoolRepository
-import com.specialschool.schoolapp.data.FakeSchoolDataSource
 import com.specialschool.schoolapp.data.SchoolDataSource
+import com.specialschool.schoolapp.data.bootstrap.BootstrapSchoolDataSource
 import com.specialschool.schoolapp.data.remote.RemoteSchoolDataSource
 import com.specialschool.schoolapp.domain.search.FtsQueryMatchStrategy
 import com.specialschool.schoolapp.domain.search.QueryMatchStrategy
@@ -32,23 +32,34 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideQueryMatchStrategy(appDatabase: AppDatabase): QueryMatchStrategy {
-        return FtsQueryMatchStrategy(appDatabase)
-    }
-
-    @Singleton
-    @Provides
-    fun provideSchoolRepository(dataSource: SchoolDataSource, database: AppDatabase): SchoolRepository {
-        return SchoolRepository(dataSource, database)
-    }
-
-    @Singleton
-    @Provides
     @Named("remoteSchoolDataSource")
     fun provideRemoteSchoolDataSource(
         @ApplicationContext context: Context
     ): SchoolDataSource {
         return RemoteSchoolDataSource(context)
+    }
+
+    @Singleton
+    @Provides
+    @Named("bootstrapSchoolDataSource")
+    fun provideBootstrapSchoolDataSource(): SchoolDataSource {
+        return BootstrapSchoolDataSource
+    }
+
+    @Singleton
+    @Provides
+    fun provideSchoolRepository(
+        @Named("remoteSchoolDataSource") remoteDataSource: SchoolDataSource,
+        @Named("bootstrapSchoolDataSource") bootstrapDataSource: SchoolDataSource,
+        database: AppDatabase
+    ): SchoolRepository {
+        return SchoolRepository(remoteDataSource, bootstrapDataSource, database)
+    }
+
+    @Singleton
+    @Provides
+    fun provideQueryMatchStrategy(appDatabase: AppDatabase): QueryMatchStrategy {
+        return FtsQueryMatchStrategy(appDatabase)
     }
 
     @Provides

@@ -22,9 +22,8 @@ class SearchUseCase @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : UseCase<String, List<School>>(dispatcher) {
 
-    override fun execute(parameters: String): List<School> {
-        val query = parameters
-        val schools = repository.getSchools() ?: emptyList()
+    override fun execute(query: String): List<School> {
+        val schools = repository.getSchoolList()
         return queryMatchStrategy.searchSchools(schools, query)
     }
 }

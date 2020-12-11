@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import com.specialschool.schoolapp.data.SchoolDataSource
 import com.specialschool.schoolapp.data.json.SchoolDataJsonParser
 import com.specialschool.schoolapp.model.School
+import com.specialschool.schoolapp.model.SchoolData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.IOException
 import java.lang.RuntimeException
@@ -15,7 +16,7 @@ class RemoteSchoolDataSource @Inject constructor(
     @ApplicationContext val context: Context
 ) : SchoolDataSource {
 
-    override fun getRemoteSchoolDatas(): List<School>? {
+    override fun getRemoteSchoolData(): SchoolData? {
         if (!hasNetworkConnection()) {
             return null
         }
@@ -43,7 +44,7 @@ class RemoteSchoolDataSource @Inject constructor(
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting
     }
 
-    override fun getSchoolData(): List<School>? {
+    override fun getSchoolData(): SchoolData? {
         val responseSource = try {
             SchoolDataDownloader(context, "1").fetchCached()
         } catch (e: IOException) {
