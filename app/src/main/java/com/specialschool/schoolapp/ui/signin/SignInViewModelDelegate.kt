@@ -30,11 +30,7 @@ interface SignInViewModelDelegate {
 
     fun observeSignedInUser(): LiveData<Boolean>
 
-    fun observeRegisteredUser(): LiveData<Boolean>
-
     fun isSignedIn(): Boolean
-
-    fun isRegistered(): Boolean
 
     fun getUserId(): String?
 }
@@ -62,10 +58,6 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
 
     override val performSignInEvent = MutableLiveData<Event<SignInEvent>>()
 
-    private val isRegistered: LiveData<Boolean> = currentUserInfo.map {
-        it?.isRegistered() ?: false
-    }
-
     private val isSignedIn: LiveData<Boolean> = currentUserInfo.map {
         it?.isSignedIn() ?: false
     }
@@ -80,11 +72,7 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
 
     override fun observeSignedInUser(): LiveData<Boolean> = isSignedIn
 
-    override fun observeRegisteredUser(): LiveData<Boolean> = isRegistered
-
     override fun isSignedIn(): Boolean = isSignedIn.value == true
-
-    override fun isRegistered(): Boolean = isRegistered.value == true
 
     override fun getUserId(): String? {
         return currentUserInfo.value?.getUid()

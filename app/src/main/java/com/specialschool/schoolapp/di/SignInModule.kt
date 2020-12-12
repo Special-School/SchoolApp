@@ -5,9 +5,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.specialschool.schoolapp.data.signin.AuthStateUserDataSource
-import com.specialschool.schoolapp.data.signin.FireStoreRegisteredUserDataSource
 import com.specialschool.schoolapp.data.signin.FirebaseAuthStateUserDataSource
-import com.specialschool.schoolapp.data.signin.RegisteredUserDataSource
 import com.specialschool.schoolapp.util.signin.FirebaseAuthSignInHandler
 import com.specialschool.schoolapp.util.signin.SignInHandler
 import dagger.Module
@@ -31,12 +29,6 @@ internal class SignInModule {
     @Provides
     fun provideFirebaseAuth(): FirebaseAuth {
         return Firebase.auth
-    }
-
-    @Singleton
-    @Provides
-    fun provideRegisteredUserDataSource(fireStore: FirebaseFirestore): RegisteredUserDataSource {
-        return FireStoreRegisteredUserDataSource(fireStore)
     }
 
     @Singleton

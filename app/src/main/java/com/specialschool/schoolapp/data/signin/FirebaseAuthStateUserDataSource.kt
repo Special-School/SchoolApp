@@ -12,7 +12,7 @@ class FirebaseAuthStateUserDataSource @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : AuthStateUserDataSource {
 
-    override fun getBasicUserInfo(): Flow<Result<AuthenticatedUserInfoBasic?>> {
+    override fun getBasicUserInfo(): Flow<Result<AuthenticatedUserInfo?>> {
         TODO("Not yet implemented")
     }
 }

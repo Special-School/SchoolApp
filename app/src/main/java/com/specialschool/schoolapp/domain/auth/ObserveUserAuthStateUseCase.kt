@@ -18,8 +18,6 @@ open class ObserveUserAuthStateUseCase @Inject constructor(
     @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : FlowUseCase<Any, AuthenticatedUserInfo>(ioDispatcher) {
 
-    private var observeUserRegisteredChangesJob: Job? = null
-
     override fun execute(parameters: Any): Flow<Result<AuthenticatedUserInfo>> {
         TODO("Not yet implemented")
     }

@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface AuthStateUserDataSource {
 
-    fun getBasicUserInfo(): Flow<Result<AuthenticatedUserInfoBasic?>>
+    fun getBasicUserInfo(): Flow<Result<AuthenticatedUserInfo?>>
 }
