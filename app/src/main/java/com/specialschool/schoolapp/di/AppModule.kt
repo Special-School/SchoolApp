@@ -1,6 +1,10 @@
 package com.specialschool.schoolapp.di
 
 import android.content.Context
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.firestoreSettings
+import com.google.firebase.ktx.Firebase
 import com.specialschool.schoolapp.MainApplication
 import com.specialschool.schoolapp.data.db.AppDatabase
 import com.specialschool.schoolapp.data.SchoolRepository
@@ -73,4 +77,12 @@ class AppModule {
     fun providesApplicationScope(
         @DefaultDispatcher dispatcher: CoroutineDispatcher
     ): CoroutineScope = CoroutineScope(SupervisorJob() + dispatcher)
+
+    @Singleton
+    @Provides
+    fun provideFirebaseFireStore(): FirebaseFirestore {
+        return Firebase.firestore.apply {
+            firestoreSettings = firestoreSettings { isPersistenceEnabled = true }
+        }
+    }
 }
