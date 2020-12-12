@@ -9,6 +9,7 @@ import com.specialschool.schoolapp.util.Event
 import com.specialschool.schoolapp.util.Result
 import com.specialschool.schoolapp.util.successOr
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class SearchViewModel @ViewModelInject constructor(
@@ -24,17 +25,27 @@ class SearchViewModel @ViewModelInject constructor(
 
     private var searchJob: Job? = null
 
+    private var textQuery = ""
+
     fun onSearchQueryChanged(query: String) {
-        if (query.length < 2) {
-            onQueryCleared()
-            return
+        val newQuery = query.trim().takeIf { it.length >= 2 } ?: ""
+        if (textQuery != newQuery) {
+            textQuery = newQuery
+            executeSearch()
         }
-        executeSearch(query)
     }
 
-    private fun executeSearch(query: String) {
-        viewModelScope.launch {
-            processSearchResult(searchUseCase(query.trim()))
+    private fun executeSearch() {
+        searchJob?.cancel()
+
+        if (textQuery.isEmpty()) {
+            clearSearchResults()
+            return
+        }
+
+        searchJob = viewModelScope.launch {
+            delay(500)
+            processSearchResult(searchUseCase(textQuery))
         }
     }
 
@@ -43,7 +54,7 @@ class SearchViewModel @ViewModelInject constructor(
         _searchResults.value = schools
     }
 
-    private fun onQueryCleared() {
+    private fun clearSearchResults() {
         _searchResults.value = emptyList()
     }
 

@@ -52,8 +52,11 @@ class SearchFragment : Fragment() {
         binding.searchBtn.apply {
             setOnClickListener {
                 model.onSearchQueryChanged(binding.searchText.text.toString())
+                dismissKeyboard(binding.searchText)
             }
+        }
 
+        binding.searchText.apply {
             setOnFocusChangeListener { view, hasFocus ->
                 if (hasFocus) {
                     showKeyboard(view.findFocus())
