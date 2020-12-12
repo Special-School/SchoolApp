@@ -48,6 +48,6 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     override fun openItemDetail(id: String) {
-        TODO("Not yet implemented")
+        _navigateToSchoolDetailAction.value = Event(id)
     }
 }

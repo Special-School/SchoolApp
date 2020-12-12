@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
+import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +42,7 @@ class SearchFragment : Fragment() {
             schoolAdapter.submitList(it)
         })
 
-        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, Observer {
+        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id ->
 
         })
     }

@@ -26,11 +26,12 @@ object SchoolDataJsonParser {
 
     private fun normalize(data: SchoolDataTemp): SchoolData {
         val schools = mutableListOf<School>()
+        var index = 1
 
         // TODO: LocalDate.parse -> MIN_SDK >= 26(oreo) ...
         data.schools.forEach { school: SchoolTemp ->
             val item = School(
-                id = "school",
+                id = "school-${index++}",
                 province = school.region,
                 type = SchoolType.fromString(school.type),
                 name = school.name,
