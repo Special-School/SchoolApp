@@ -8,12 +8,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
 @Module
 class SignInViewModelDelegateModule {
 
+    @ExperimentalCoroutinesApi
     @Singleton
     @Provides
     fun provideSignInViewModelDelegate(

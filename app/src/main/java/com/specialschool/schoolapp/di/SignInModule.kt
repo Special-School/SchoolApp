@@ -14,6 +14,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Singleton
 
 @InstallIn(ApplicationComponent::class)
@@ -31,12 +32,12 @@ internal class SignInModule {
         return Firebase.auth
     }
 
+    @ExperimentalCoroutinesApi
     @Singleton
     @Provides
     fun provideAuthStateUserDataSource(
-        firebaseAuth: FirebaseAuth,
-        @IoDispatcher dispatcher: CoroutineDispatcher
+        firebaseAuth: FirebaseAuth
     ): AuthStateUserDataSource {
-        return FirebaseAuthStateUserDataSource(firebaseAuth, dispatcher)
+        return FirebaseAuthStateUserDataSource(firebaseAuth)
     }
 }

@@ -13,6 +13,7 @@ import com.specialschool.schoolapp.util.Result
 import com.specialschool.schoolapp.util.Result.Error
 import com.specialschool.schoolapp.util.Result.Success
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
@@ -39,6 +40,7 @@ enum class SignInEvent {
     REQUEST_SIGN_IN, REQUEST_SIGN_OUT
 }
 
+@ExperimentalCoroutinesApi
 internal class FirebaseSignInViewModelDelegate @Inject constructor(
     observeUserAuthStateUseCase: ObserveUserAuthStateUseCase,
     @MainDispatcher private val dispatcher: CoroutineDispatcher
