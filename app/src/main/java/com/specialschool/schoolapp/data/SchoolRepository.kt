@@ -1,7 +1,6 @@
 package com.specialschool.schoolapp.data
 
 import com.specialschool.schoolapp.data.db.AppDatabase
-import com.specialschool.schoolapp.data.db.SchoolEntity
 import com.specialschool.schoolapp.data.db.SchoolFtsEntity
 import com.specialschool.schoolapp.model.School
 import com.specialschool.schoolapp.model.SchoolData
@@ -85,17 +84,16 @@ class SchoolRepository @Inject constructor(
         val schoolFtsEntities = data.schools.map { school ->
             SchoolFtsEntity(
                 schoolId = school.id,
-                schoolName = school.name
+                schoolName = school.name,
+                displayName = insertBlankInString(school.displayName, school.displayName.length - 2)
             )
         }
         database.schoolFtsDao().insertAll(schoolFtsEntities)
+    }
 
-        val schoolEntities = data.schools.map { school ->
-            SchoolEntity(
-                schoolId = school.id,
-                schoolName = school.name
-            )
-        }
-        database.schoolDao().insertAll(schoolEntities)
+    private fun insertBlankInString(str: String, index: Int): String {
+        val temp = str.toMutableList()
+        temp.add(index, ' ')
+        return temp.joinToString("")
     }
 }

@@ -12,5 +12,8 @@ data class SchoolFtsEntity(
     val schoolId: String,
 
     @ColumnInfo(name = "schoolName")
-    val schoolName: String
+    val schoolName: String,
+
+    @ColumnInfo(name = "displayName")
+    val displayName: String
 )

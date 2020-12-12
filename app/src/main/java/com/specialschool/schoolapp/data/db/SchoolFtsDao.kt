@@ -12,5 +12,8 @@ interface SchoolFtsDao {
     fun insertAll(schools: List<SchoolFtsEntity>)
 
     @Query("SELECT schoolName FROM schoolfts WHERE schoolfts MATCH :query")
-    fun searchAllSchools(query: String): List<String>
+    fun searchBySchoolName(query: String): List<String>
+
+    @Query("SELECT displayName FROM schoolfts WHERE schoolfts MATCH :query")
+    fun searchByDisplayName(query: String): List<String>
 }
