@@ -20,7 +20,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "SCHOOL_DATA_URL", "\"https://firebasestorage.googleapis.com/v0/b/schoolapp-488dc.appspot.com/o/school_data.json?alt=media&token=c1860d74-ddb7-4202-a75f-774b4f4dbfec\"")
+        buildConfigField("String", "SCHOOL_DATA_URL", "\"https://firebasestorage.googleapis.com/v0/b/schoolapp-488dc.appspot.com/o/school_data.json?alt=media&token=5befdc11-1264-4500-8b5b-4f039d8c29c6\"")
         buildConfigField("String", "BOOTSTRAP_SCHOOL_DATA_FILENAME", "\"school_data.json\"")
     }
 

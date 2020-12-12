@@ -34,6 +34,7 @@ object SchoolDataJsonParser {
                 province = school.region,
                 type = SchoolType.fromString(school.type),
                 name = school.name,
+                displayName = school.name.replace("\\s".toRegex(), ""),
                 category = Disability.fromString(school.category),
                 principalName = school.principalName,
                 authDate = LocalDate.parse(school.authDate.replace(".", "-")),

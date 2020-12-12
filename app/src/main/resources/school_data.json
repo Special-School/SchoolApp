@@ -3,7 +3,7 @@
     {
       "region": "서울",
       "type": "국립",
-      "name": "서울맹학교",
+      "name": "서울 맹학교",
       "category": "시각장애",
       "principalName": "김은주",
       "authDate": "1913.04.01",
@@ -21,7 +21,7 @@
     {
       "region": "서울",
       "type": "국립",
-      "name": "서울농학교",
+      "name": "서울 농학교",
       "category": "청각장애",
       "principalName": "이욱승",
       "authDate": "1913.04.01",
@@ -39,7 +39,7 @@
     {
       "region": "서울",
       "type": "국립",
-      "name": "한국우진학교",
+      "name": "한국 우진 학교",
       "category": "지체장애",
       "principalName": "김장하",
       "authDate": "2000.01.28",
@@ -57,7 +57,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울경운학교",
+      "name": "서울 경운 학교",
       "category": "지적장애",
       "principalName": "최철호",
       "authDate": "2001.12.31",
@@ -75,7 +75,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울광진학교",
+      "name": "서울 광진 학교",
       "category": "지적장애",
       "principalName": "이윤동",
       "authDate": "1999.01.15",
@@ -93,7 +93,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울다원학교",
+      "name": "서울 다원 학교",
       "category": "지적장애",
       "principalName": "함미애",
       "authDate": "2015.09.01",
@@ -111,7 +111,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울도솔학교",
+      "name": "서울 도솔 학교",
       "category": "지적장애",
       "principalName": "황문주",
       "authDate": "2019.06.26",
@@ -129,7 +129,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울서진학교",
+      "name": "서울 서진 학교",
       "category": "지적장애",
       "principalName": "홍용희",
       "authDate": "2020.03.01",
@@ -147,7 +147,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울정문학교",
+      "name": "서울 정문 학교",
       "category": "지적장애",
       "principalName": "김현진",
       "authDate": "1996.01.15",
@@ -165,7 +165,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울정인학교",
+      "name": "서울 정인 학교",
       "category": "지적장애",
       "principalName": "염유민",
       "authDate": "2000.01.15",
@@ -183,7 +183,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울정진학교",
+      "name": "서울 정진 학교",
       "category": "지적장애",
       "principalName": "허충구",
       "authDate": "1987.07.09",
@@ -201,7 +201,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울나래학교",
+      "name": "서울 나래 학교",
       "category": "지체장애",
       "principalName": "김정선",
       "authDate": "2019.07.19",
@@ -219,7 +219,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울정민학교",
+      "name": "서울 정민 학교",
       "category": "지체장애",
       "principalName": "심규학",
       "authDate": "2000.11.25",
@@ -237,7 +237,7 @@
     {
       "region": "서울",
       "type": "공립",
-      "name": "서울정애학교",
+      "name": "서울 정애 학교",
       "category": "정서장애",
       "principalName": "임영숙",
       "authDate": "2000.01.15",
@@ -255,7 +255,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "서울효정학교",
+      "name": "서울 효정 학교",
       "category": "시각장애",
       "principalName": "황경선",
       "authDate": "2017.07.03",
@@ -273,7 +273,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "한빛맹학교",
+      "name": "한빛 맹학교",
       "category": "시각장애",
       "principalName": "김양수",
       "authDate": "1970.12.05",
@@ -291,7 +291,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "서울삼성학교",
+      "name": "서울 삼성 학교",
       "category": "청각장애",
       "principalName": "신래범",
       "authDate": "1983.03.03",
@@ -309,7 +309,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "서울애화학교",
+      "name": "서울 애화 학교",
       "category": "청각장애",
       "principalName": "김인숙",
       "authDate": "1975.12.01",
@@ -327,7 +327,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "한국구화학교",
+      "name": "한국 구화 학교",
       "category": "청각장애",
       "principalName": "박명희",
       "authDate": "1962.07.20",
@@ -345,7 +345,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "광성하늘빛학교",
+      "name": "광성 하늘빛 학교",
       "category": "지적장애",
       "principalName": "성정아",
       "authDate": "1999.11.08",
@@ -363,7 +363,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "교남학교",
+      "name": "교남 학교",
       "category": "지적장애",
       "principalName": "어승연",
       "authDate": "1983.01.25",
@@ -381,7 +381,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "누리학교",
+      "name": "누리 학교",
       "category": "지적장애",
       "principalName": "이영호",
       "authDate": "1998.04.29",
@@ -399,7 +399,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "다니엘학교",
+      "name": "다니엘 학교",
       "category": "지적장애",
       "principalName": "박성배",
       "authDate": "1974.12.13",
@@ -417,7 +417,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "서울동천학교",
+      "name": "서울 동천 학교",
       "category": "지적장애",
       "principalName": "이상연",
       "authDate": "1979.12.12",
@@ -435,7 +435,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "성베드로학교",
+      "name": "성베드로 학교",
       "category": "지적장애",
       "principalName": "박용숙",
       "authDate": "1975.02.15",
@@ -453,7 +453,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "수도사랑의학교",
+      "name": "수도 사랑의 학교",
       "category": "지적장애",
       "principalName": "신인수",
       "authDate": "1998.01.26",
@@ -471,7 +471,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "은평대영학교",
+      "name": "은평 대영 학교",
       "category": "지적장애",
       "principalName": "장동수",
       "authDate": "1981.03.12",
@@ -489,7 +489,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "서울새롬학교",
+      "name": "서울 새롬 학교",
       "category": "지체장애",
       "principalName": "임헌배",
       "authDate": "1969.07.28",
@@ -507,7 +507,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "연세대학교재활학교",
+      "name": "연세대학교 재활 학교",
       "category": "지체장애",
       "principalName": "주예경",
       "authDate": "1964.02.28",
@@ -525,7 +525,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "주몽학교",
+      "name": "주몽 학교",
       "category": "지체장애",
       "principalName": "김진호",
       "authDate": "1985.01.30",
@@ -543,7 +543,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "밀알학교",
+      "name": "밀알 학교",
       "category": "정서장애",
       "principalName": "최병우",
       "authDate": "1996.12.14",
@@ -561,7 +561,7 @@
     {
       "region": "서울",
       "type": "사립",
-      "name": "한국육영학교",
+      "name": "한국 육영 학교",
       "category": "정서장애",
       "principalName": "권득자",
       "authDate": "1992.09.23",
@@ -579,7 +579,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산맹학교",
+      "name": "부산 맹학교",
       "category": "시각장애",
       "principalName": "박종탁",
       "authDate": "1955.09.19",
@@ -597,7 +597,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산배화학교",
+      "name": "부산 배화 학교",
       "category": "청각장애",
       "principalName": "정진영",
       "authDate": "1955.09.19",
@@ -615,7 +615,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산솔빛학교",
+      "name": "부산 솔빛 학교",
       "category": "지적장애",
       "principalName": "권정미",
       "authDate": "2003.01.15",
@@ -633,7 +633,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산한솔학교",
+      "name": "부산 한솔 학교",
       "category": "지적장애",
       "principalName": "조춘근",
       "authDate": "2012.10.31",
@@ -651,7 +651,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산해마루학교",
+      "name": "부산 해마루 학교",
       "category": "지적장애",
       "principalName": "김을집",
       "authDate": "2012.10.31",
@@ -669,7 +669,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산혜성학교",
+      "name": "부산 혜성 학교",
       "category": "지적장애",
       "principalName": "김기화",
       "authDate": "1974.01.15",
@@ -687,7 +687,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산혜송학교",
+      "name": "부산 혜송 학교",
       "category": "지적장애",
       "principalName": "박춘배",
       "authDate": "2000.01.01",
@@ -705,7 +705,7 @@
     {
       "region": "부산",
       "type": "공립",
-      "name": "부산혜남학교",
+      "name": "부산 혜남 학교",
       "category": "지체장애",
       "principalName": "신현순",
       "authDate": "1989.01.25",
@@ -723,7 +723,7 @@
     {
       "region": "부산",
       "type": "사립",
-      "name": "부산구화학교",
+      "name": "부산 구화 학교",
       "category": "지적장애",
       "principalName": "이준우",
       "authDate": "1970.04.27",
@@ -741,7 +741,7 @@
     {
       "region": "부산",
       "type": "사립",
-      "name": "부산동암학교",
+      "name": "부산 동암 학교",
       "category": "지적장애",
       "principalName": "곽문종",
       "authDate": "1980.05.14",
@@ -759,7 +759,7 @@
     {
       "region": "부산",
       "type": "사립",
-      "name": "부산두레학교",
+      "name": "부산 두레 학교",
       "category": "지적장애",
       "principalName": "이정묵",
       "authDate": "2003.10.21",
@@ -777,7 +777,7 @@
     {
       "region": "부산",
       "type": "사립",
-      "name": "부산성우학교",
+      "name": "부산 성우 학교",
       "category": "지적장애",
       "principalName": "강진운",
       "authDate": "2008.01.30",
@@ -795,7 +795,7 @@
     {
       "region": "부산",
       "type": "사립",
-      "name": "부산은애학교",
+      "name": "부산 은애 학교",
       "category": "지적장애",
       "principalName": "박영순",
       "authDate": "1998.02.17",
@@ -813,7 +813,7 @@
     {
       "region": "부산",
       "type": "사립",
-      "name": "부산천사의학교",
+      "name": "부산 천사의 학교",
       "category": "지적장애",
       "principalName": "김영아",
       "authDate": "2001.01.20",
@@ -831,7 +831,7 @@
     {
       "region": "부산",
       "type": "사립",
-      "name": "부산혜원학교",
+      "name": "부산 혜원 학교",
       "category": "지적장애",
       "principalName": "김영숙",
       "authDate": "1972.05.24",
@@ -849,7 +849,7 @@
     {
       "region": "대구",
       "type": "공립",
-      "name": "대구남양학교",
+      "name": "대구 남양 학교",
       "category": "지적장애",
       "principalName": "이숙희",
       "authDate": "1968.07.09",
@@ -867,7 +867,7 @@
     {
       "region": "대구",
       "type": "공립",
-      "name": "대구세명학교",
+      "name": "대구 세명 학교",
       "category": "지적장애",
       "principalName": "최영호",
       "authDate": "2009.11.03",
@@ -885,7 +885,7 @@
     {
       "region": "대구",
       "type": "공립",
-      "name": "대구성보학교",
+      "name": "대구 성보 학교",
       "category": "지체장애",
       "principalName": "하미애",
       "authDate": "1973.02.20",
@@ -903,7 +903,7 @@
     {
       "region": "대구",
       "type": "사립",
-      "name": "대구광명학교",
+      "name": "대구 광명 학교",
       "category": "시각장애",
       "principalName": "김상선",
       "authDate": "1946.04.19",
@@ -921,7 +921,7 @@
     {
       "region": "대구",
       "type": "사립",
-      "name": "대구영화학교",
+      "name": "대구 영화 학교",
       "category": "청각장애",
       "principalName": "김부기",
       "authDate": "1946.04.19",
@@ -939,7 +939,7 @@
     {
       "region": "대구",
       "type": "사립",
-      "name": "대구보명학교",
+      "name": "대구 보명 학교",
       "category": "지적장애",
       "principalName": "김재규",
       "authDate": "1966.12.26",
@@ -957,7 +957,7 @@
     {
       "region": "대구",
       "type": "사립",
-      "name": "대구선명학교",
+      "name": "대구 선명 학교",
       "category": "지적장애",
       "principalName": "권영욱",
       "authDate": "1981.06.29",
@@ -975,7 +975,7 @@
     {
       "region": "대구",
       "type": "사립",
-      "name": "대구보건학교",
+      "name": "대구 보건 학교",
       "category": "지체장애",
       "principalName": "조현관",
       "authDate": "1966.12.26",
@@ -993,7 +993,7 @@
     {
       "region": "대구",
       "type": "사립",
-      "name": "대구덕희학교",
+      "name": "대구 덕희 학교",
       "category": "정서장애",
       "principalName": "최정옥",
       "authDate": "1982.11.20",
@@ -1011,7 +1011,7 @@
     {
       "region": "인천",
       "type": "공립",
-      "name": "미추홀학교",
+      "name": "미추홀 학교",
       "category": "지적장애",
       "principalName": "민병란",
       "authDate": "2006.10.20",
@@ -1029,7 +1029,7 @@
     {
       "region": "인천",
       "type": "공립",
-      "name": "인천서희학교",
+      "name": "인천 서희 학교",
       "category": "지적장애",
       "principalName": "류애숙",
       "authDate": "2018.01.02",
@@ -1047,7 +1047,7 @@
     {
       "region": "인천",
       "type": "공립",
-      "name": "인천연일학교",
+      "name": "인천 연일 학교",
       "category": "지적장애",
       "principalName": "정영남",
       "authDate": "1994.11.08",
@@ -1065,7 +1065,7 @@
     {
       "region": "인천",
       "type": "공립",
-      "name": "인천인혜학교",
+      "name": "인천 인혜 학교",
       "category": "지적장애",
       "principalName": "이정택",
       "authDate": "1987.07.14",
@@ -1083,7 +1083,7 @@
     {
       "region": "인천",
       "type": "공립",
-      "name": "인천청선학교",
+      "name": "인천 청선 학교",
       "category": "지적장애",
       "principalName": "김정애",
       "authDate": "2016.01.04",
@@ -1101,7 +1101,7 @@
     {
       "region": "인천",
       "type": "공립",
-      "name": "인천청인학교",
+      "name": "인천 청인 학교",
       "category": "지적장애",
       "principalName": "이순미",
       "authDate": "2016.09.26",
@@ -1119,7 +1119,7 @@
     {
       "region": "인천",
       "type": "사립",
-      "name": "인천혜광학교",
+      "name": "인천 혜광 학교",
       "category": "시각장애",
       "principalName": "이석주",
       "authDate": "1961.04.03",
@@ -1137,7 +1137,7 @@
     {
       "region": "인천",
       "type": "사립",
-      "name": "인천성동학교",
+      "name": "인천 성동 학교",
       "category": "청각장애",
       "principalName": "이찬정",
       "authDate": "1955.12.20",
@@ -1155,7 +1155,7 @@
     {
       "region": "인천",
       "type": "사립",
-      "name": "인천예림학교",
+      "name": "인천 예림 학교",
       "category": "지적장애",
       "principalName": "노희원",
       "authDate": "1973.12.05",
@@ -1173,7 +1173,7 @@
     {
       "region": "인천",
       "type": "사립",
-      "name": "인천은광학교",
+      "name": "인천 은광 학교",
       "category": "지체장애",
       "principalName": "최은아",
       "authDate": "1980.12.04",
@@ -1191,7 +1191,7 @@
     {
       "region": "광주",
       "type": "공립",
-      "name": "광주선광학교",
+      "name": "광주 선광 학교",
       "category": "지적장애",
       "principalName": "조혜선",
       "authDate": "1986.01.20",
@@ -1209,7 +1209,7 @@
     {
       "region": "광주",
       "type": "공립",
-      "name": "광주선명학교",
+      "name": "광주 선명 학교",
       "category": "지적장애",
       "principalName": "최미순",
       "authDate": "1978.04.29",
@@ -1227,7 +1227,7 @@
     {
       "region": "광주",
       "type": "공립",
-      "name": "광주선우학교",
+      "name": "광주 선우 학교",
       "category": "지적장애",
       "principalName": "손현주",
       "authDate": "2010.12.23",
@@ -1245,7 +1245,7 @@
     {
       "region": "광주",
       "type": "사립",
-      "name": "광주세광학교",
+      "name": "광주 세광 학교",
       "category": "시각장애",
       "principalName": "김선미",
       "authDate": "1954.07.01",
@@ -1263,7 +1263,7 @@
     {
       "region": "광주",
       "type": "사립",
-      "name": "은혜학교",
+      "name": "은혜 학교",
       "category": "지체장애",
       "principalName": "고성아",
       "authDate": "1983.11.07",
@@ -1281,7 +1281,7 @@
     {
       "region": "대전",
       "type": "공립",
-      "name": "대전맹학교",
+      "name": "대전 맹학교",
       "category": "시각장애",
       "principalName": "원종대",
       "authDate": "1969.10.20",
@@ -1299,7 +1299,7 @@
     {
       "region": "대전",
       "type": "공립",
-      "name": "대전가원학교",
+      "name": "대전 가원 학교",
       "category": "지적장애",
       "principalName": "권순오",
       "authDate": "2008.11.07",
@@ -1317,7 +1317,7 @@
     {
       "region": "대전",
       "type": "공립",
-      "name": "대전혜광학교",
+      "name": "대전 혜광 학교",
       "category": "지적장애",
       "principalName": "권우미",
       "authDate": "1995.01.21",
@@ -1335,7 +1335,7 @@
     {
       "region": "대전",
       "type": "사립",
-      "name": "대전원명학교",
+      "name": "대전 원명 학교",
       "category": "지적장애",
       "principalName": "고은주",
       "authDate": "1962.11.23",
@@ -1353,7 +1353,7 @@
     {
       "region": "대전",
       "type": "사립",
-      "name": "대전성세재활학교",
+      "name": "대전 성세 재활 학교",
       "category": "지체장애",
       "principalName": "김일수",
       "authDate": "1967.06.02",
@@ -1371,7 +1371,7 @@
     {
       "region": "울산",
       "type": "공립",
-      "name": "울산행복학교",
+      "name": "울산 행복 학교",
       "category": "지적장애",
       "principalName": "장혜경",
       "authDate": "2010.08.24",
@@ -1389,7 +1389,7 @@
     {
       "region": "울산",
       "type": "공립",
-      "name": "울산혜인학교",
+      "name": "울산 혜인 학교",
       "category": "지적장애",
       "principalName": "박옥례",
       "authDate": "2004.12.23",
@@ -1407,7 +1407,7 @@
     {
       "region": "울산",
       "type": "사립",
-      "name": "메아리학교",
+      "name": "메아리 학교",
       "category": "청각장애",
       "principalName": "이진",
       "authDate": "1980.12.11",
@@ -1425,7 +1425,7 @@
     {
       "region": "울산",
       "type": "사립",
-      "name": "태연학교",
+      "name": "태연 학교",
       "category": "지적장애",
       "principalName": "김병호",
       "authDate": "1988.01.28",
@@ -1443,7 +1443,7 @@
     {
       "region": "세종",
       "type": "공립",
-      "name": "세종누리학교",
+      "name": "세종 누리 학교",
       "category": "지적장애",
       "principalName": "정민호",
       "authDate": "2015.09.01",
@@ -1461,7 +1461,7 @@
     {
       "region": "경기",
       "type": "국립",
-      "name": "한국선진학교",
+      "name": "한국 선진 학교",
       "category": "지적장애",
       "principalName": "우이구",
       "authDate": "1989.03.01",
@@ -1479,7 +1479,7 @@
     {
       "region": "경기",
       "type": "국립",
-      "name": "한국경진학교",
+      "name": "한국 경진 학교",
       "category": "정서장애",
       "principalName": "정동일",
       "authDate": "1997.02.27",
@@ -1497,7 +1497,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "경은학교",
+      "name": "경은 학교",
       "category": "지적장애",
       "principalName": "박주훈",
       "authDate": "2008.01.07",
@@ -1515,7 +1515,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "다원학교",
+      "name": "다원 학교",
       "category": "지적장애",
       "principalName": "김효경",
       "authDate": "2016.01.04",
@@ -1533,7 +1533,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "부천상록학교",
+      "name": "부천 상록 학교",
       "category": "지적장애",
       "principalName": "오재용",
       "authDate": "2005.01.06",
@@ -1551,7 +1551,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "새솔학교",
+      "name": "새솔 학교",
       "category": "지적장애",
       "principalName": "유순주",
       "authDate": "2014.01.13",
@@ -1569,7 +1569,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "성남혜은학교",
+      "name": "성남 혜은 학교",
       "category": "지적장애",
       "principalName": "성순호",
       "authDate": "1982.07.21",
@@ -1587,7 +1587,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "성은학교",
+      "name": "성은 학교",
       "category": "지적장애",
       "principalName": "백화순",
       "authDate": "1995.03.01",
@@ -1605,7 +1605,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "송민학교",
+      "name": "송민 학교",
       "category": "지적장애",
       "principalName": "이인순",
       "authDate": "2013.01.04",
@@ -1623,7 +1623,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "아름학교",
+      "name": "아름 학교",
       "category": "지적장애",
       "principalName": "한규일",
       "authDate": "2013.01.04",
@@ -1641,7 +1641,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "안양해솔학교",
+      "name": "안양 해솔 학교",
       "category": "지적장애",
       "principalName": "박승옥",
       "authDate": "2004.02.27",
@@ -1659,7 +1659,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "양주도담학교",
+      "name": "양주 도담 학교",
       "category": "지적장애",
       "principalName": "장은주",
       "authDate": "2018.09.01",
@@ -1677,7 +1677,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "자운학교",
+      "name": "자운 학교",
       "category": "지적장애",
       "principalName": "이경심",
       "authDate": "2011.02.24",
@@ -1695,7 +1695,7 @@
     {
       "region": "경기",
       "type": "공립",
-      "name": "화성나래학교",
+      "name": "화성 나래 학교",
       "category": "지적장애",
       "principalName": "정의학",
       "authDate": "2016.03.02",
@@ -1713,7 +1713,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "에바다학교",
+      "name": "에바다 학교",
       "category": "청각장애",
       "principalName": "박창숙",
       "authDate": "1985.09.02",
@@ -1731,7 +1731,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "한우리학교",
+      "name": "한우리 학교",
       "category": "청각장애",
       "principalName": "전양임",
       "authDate": "2001.01.05",
@@ -1749,7 +1749,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "동방학교",
+      "name": "동방 학교",
       "category": "지적장애",
       "principalName": "서종만",
       "authDate": "1986.12.18",
@@ -1767,7 +1767,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "동현학교",
+      "name": "동현 학교",
       "category": "지적장애",
       "principalName": "하준석",
       "authDate": "1996.12.26",
@@ -1785,7 +1785,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "명현학교",
+      "name": "명현 학교",
       "category": "지적장애",
       "principalName": "김희태",
       "authDate": "1970.02.19",
@@ -1803,7 +1803,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "밝은학교",
+      "name": "밝은 학교",
       "category": "지적장애",
       "principalName": "조염미",
       "authDate": "1997.11.17",
@@ -1821,7 +1821,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "부천혜림학교",
+      "name": "부천 혜림 학교",
       "category": "지적장애",
       "principalName": "이경임",
       "authDate": "1976.10.19",
@@ -1839,7 +1839,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "새얼학교",
+      "name": "새얼 학교",
       "category": "지적장애",
       "principalName": "이규식",
       "authDate": "1984.01.04",
@@ -1857,7 +1857,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "성광학교",
+      "name": "성광 학교",
       "category": "지적장애",
       "principalName": "김경학",
       "authDate": "1984.12.28",
@@ -1875,7 +1875,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "성심학교",
+      "name": "성심 학교",
       "category": "지적장애",
       "principalName": "임봉숙",
       "authDate": "1981.11.13",
@@ -1893,7 +1893,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "수원서광학교",
+      "name": "수원 서광 학교",
       "category": "지적장애",
       "principalName": "이상진",
       "authDate": "1962.03.01",
@@ -1911,7 +1911,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "용인강남학교",
+      "name": "용인 강남 학교",
       "category": "지적장애",
       "principalName": "김용한",
       "authDate": "2010.12.30",
@@ -1929,7 +1929,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "인덕학교",
+      "name": "인덕 학교",
       "category": "지적장애",
       "principalName": "박월리",
       "authDate": "1985.02.15",
@@ -1947,7 +1947,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "자혜학교",
+      "name": "자혜 학교",
       "category": "지적장애",
       "principalName": "김성한",
       "authDate": "1972.11.30",
@@ -1965,7 +1965,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "창인학교",
+      "name": "창인 학교",
       "category": "지적장애",
       "principalName": "이원정",
       "authDate": "1998.12.16",
@@ -1983,7 +1983,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "한길학교",
+      "name": "한길 학교",
       "category": "지적장애",
       "principalName": "이철우",
       "authDate": "2012.02.16",
@@ -2001,7 +2001,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "해원학교",
+      "name": "해원 학교",
       "category": "지적장애",
       "principalName": "장영실",
       "authDate": "1999.12.21",
@@ -2019,7 +2019,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "홀트학교",
+      "name": "홀트 학교",
       "category": "지적장애",
       "principalName": "김봉환",
       "authDate": "1975.03.05",
@@ -2037,7 +2037,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "희망학교",
+      "name": "희망 학교",
       "category": "지적장애",
       "principalName": "홍인숙",
       "authDate": "2000.11.01",
@@ -2055,7 +2055,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "광주새롬학교",
+      "name": "광주 새롬 학교",
       "category": "지체장애",
       "principalName": "황정모",
       "authDate": "2016.08.26",
@@ -2073,7 +2073,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "명혜학교",
+      "name": "명혜 학교",
       "category": "지체장애",
       "principalName": "문선희",
       "authDate": "1981.11.13",
@@ -2091,7 +2091,7 @@
     {
       "region": "경기",
       "type": "사립",
-      "name": "한사랑학교",
+      "name": "한사랑 학교",
       "category": "지체장애",
       "principalName": "엄범순",
       "authDate": "1996.12.26",
@@ -2109,7 +2109,7 @@
     {
       "region": "강원",
       "type": "공립",
-      "name": "춘천계성학교",
+      "name": "춘천 계성 학교",
       "category": "청각장애",
       "principalName": "김희경",
       "authDate": "1974.11.12",
@@ -2127,7 +2127,7 @@
     {
       "region": "강원",
       "type": "공립",
-      "name": "강릉오성학교",
+      "name": "강릉 오성 학교",
       "category": "지적장애",
       "principalName": "함택윤",
       "authDate": "1985.02.14",
@@ -2145,7 +2145,7 @@
     {
       "region": "강원",
       "type": "공립",
-      "name": "봉대가온학교",
+      "name": "봉대 가온 학교",
       "category": "지적장애",
       "principalName": "김연옥",
       "authDate": "2019.10.04",
@@ -2163,7 +2163,7 @@
     {
       "region": "강원",
       "type": "공립",
-      "name": "속초청해학교",
+      "name": "속초 청해 학교",
       "category": "지적장애",
       "principalName": "정윤교",
       "authDate": "2003.10.01",
@@ -2181,7 +2181,7 @@
     {
       "region": "강원",
       "type": "공립",
-      "name": "원주청원학교",
+      "name": "원주 청원 학교",
       "category": "지적장애",
       "principalName": "이영진",
       "authDate": "1984.12.31",
@@ -2199,7 +2199,7 @@
     {
       "region": "강원",
       "type": "공립",
-      "name": "춘천동원학교",
+      "name": "춘천 동원 학교",
       "category": "지적장애",
       "principalName": "김범표",
       "authDate": "1980.08.04",
@@ -2217,7 +2217,7 @@
     {
       "region": "강원",
       "type": "공립",
-      "name": "태백미래학교",
+      "name": "태백 미래 학교",
       "category": "지적장애",
       "principalName": "전성호",
       "authDate": "2019.03.01",
@@ -2235,7 +2235,7 @@
     {
       "region": "강원",
       "type": "사립",
-      "name": "강원명진학교",
+      "name": "강원 명진 학교",
       "category": "시각장애",
       "principalName": "박홍식",
       "authDate": "1954.08.13",
@@ -2253,7 +2253,7 @@
     {
       "region": "충북",
       "type": "공립",
-      "name": "청주혜원학교",
+      "name": "청주 혜원 학교",
       "category": "지적장애",
       "principalName": "이우경",
       "authDate": "1979.11.08",
@@ -2271,7 +2271,7 @@
     {
       "region": "충북",
       "type": "공립",
-      "name": "충주혜성학교",
+      "name": "충주 혜성 학교",
       "category": "지적장애",
       "principalName": "남경희",
       "authDate": "2017.03.01",
@@ -2289,7 +2289,7 @@
     {
       "region": "충북",
       "type": "공립",
-      "name": "청주혜화학교",
+      "name": "청주 혜화 학교",
       "category": "지체장애",
       "principalName": "심명숙",
       "authDate": "1987.10.30",
@@ -2307,7 +2307,7 @@
     {
       "region": "충북",
       "type": "사립",
-      "name": "청주맹학교",
+      "name": "청주 맹학교",
       "category": "시각장애",
       "principalName": "윤석우",
       "authDate": "1967.03.08",
@@ -2325,7 +2325,7 @@
     {
       "region": "충북",
       "type": "사립",
-      "name": "충주성모학교",
+      "name": "충주 성모 학교",
       "category": "시각장애",
       "principalName": "이민경",
       "authDate": "1961.12.08",
@@ -2343,7 +2343,7 @@
     {
       "region": "충북",
       "type": "사립",
-      "name": "충주성심학교",
+      "name": "충주 성심 학교",
       "category": "청각장애",
       "principalName": "홍향순",
       "authDate": "1961.12.08",
@@ -2361,7 +2361,7 @@
     {
       "region": "충북",
       "type": "사립",
-      "name": "꽃동네학교",
+      "name": "꽃동네 학교",
       "category": "지적장애",
       "principalName": "김창희",
       "authDate": "2000.11.20",
@@ -2379,7 +2379,7 @@
     {
       "region": "충북",
       "type": "사립",
-      "name": "청암학교",
+      "name": "청암 학교",
       "category": "지적장애",
       "principalName": "국인숙",
       "authDate": "1992.01.14",
@@ -2397,7 +2397,7 @@
     {
       "region": "충북",
       "type": "사립",
-      "name": "숭덕학교",
+      "name": "숭덕 학교",
       "category": "지체장애",
       "principalName": "선종석",
       "authDate": "1982.11.01",
@@ -2415,7 +2415,7 @@
     {
       "region": "충북",
       "type": "사립",
-      "name": "청주성신학교",
+      "name": "청주 성신 학교",
       "category": "정서장애",
       "principalName": "오경옥",
       "authDate": "1988.11.23",
@@ -2433,7 +2433,7 @@
     {
       "region": "충남",
       "type": "공립",
-      "name": "공주정명학교",
+      "name": "공주 정명 학교",
       "category": "지적장애",
       "principalName": "조충식",
       "authDate": "1984.01.31",
@@ -2451,7 +2451,7 @@
     {
       "region": "충남",
       "type": "공립",
-      "name": "서산성봉학교",
+      "name": "서산 성봉 학교",
       "category": "지적장애",
       "principalName": "이종권",
       "authDate": "1998.09.02",
@@ -2469,7 +2469,7 @@
     {
       "region": "충남",
       "type": "공립",
-      "name": "성광온누리학교",
+      "name": "성광 온누리 학교",
       "category": "지적장애",
       "principalName": "김종만",
       "authDate": "2018.12.08",
@@ -2487,7 +2487,7 @@
     {
       "region": "충남",
       "type": "공립",
-      "name": "아산성심학교",
+      "name": "아산 성심 학교",
       "category": "지적장애",
       "principalName": "박일순",
       "authDate": "2007.02.06",
@@ -2505,7 +2505,7 @@
     {
       "region": "충남",
       "type": "공립",
-      "name": "천안늘해랑학교",
+      "name": "천안 늘해랑 학교",
       "category": "지적장애",
       "principalName": "정태수",
       "authDate": "2020.03.01",
@@ -2523,7 +2523,7 @@
     {
       "region": "충남",
       "type": "공립",
-      "name": "천안인애학교",
+      "name": "천안 인애 학교",
       "category": "지적장애",
       "principalName": "김선태",
       "authDate": "1991.01.29",
@@ -2541,7 +2541,7 @@
     {
       "region": "충남",
       "type": "사립",
-      "name": "보령정심학교",
+      "name": "보령 정심 학교",
       "category": "지적장애",
       "principalName": "정수영",
       "authDate": "1971.12.30",
@@ -2559,7 +2559,7 @@
     {
       "region": "충남",
       "type": "사립",
-      "name": "나사렛새꿈학교",
+      "name": "나사렛새꿈 학교",
       "category": "지체장애",
       "principalName": "정영숙",
       "authDate": "1998.08.20",
@@ -2577,7 +2577,7 @@
     {
       "region": "전북",
       "type": "공립",
-      "name": "전주선화학교",
+      "name": "전주 선화 학교",
       "category": "청각장애",
       "principalName": "김병노",
       "authDate": "1975.04.10",
@@ -2595,7 +2595,7 @@
     {
       "region": "전북",
       "type": "공립",
-      "name": "군산명화학교",
+      "name": "군산 명화 학교",
       "category": "지적장애",
       "principalName": "이희청",
       "authDate": "1988.02.16",
@@ -2613,7 +2613,7 @@
     {
       "region": "전북",
       "type": "공립",
-      "name": "다솜학교",
+      "name": "다솜 학교",
       "category": "지적장애",
       "principalName": "박순희",
       "authDate": "2011.03.01",
@@ -2631,7 +2631,7 @@
     {
       "region": "전북",
       "type": "공립",
-      "name": "전주유화학교",
+      "name": "전주 유화 학교",
       "category": "지적장애",
       "principalName": "김정자",
       "authDate": "2002.02.22",
@@ -2649,7 +2649,7 @@
     {
       "region": "전북",
       "type": "공립",
-      "name": "전주은화학교",
+      "name": "전주 은화 학교",
       "category": "지적장애",
       "principalName": "황수리",
       "authDate": "1984.03.05",
@@ -2667,7 +2667,7 @@
     {
       "region": "전북",
       "type": "공립",
-      "name": "한울학교",
+      "name": "한울 학교",
       "category": "지적장애",
       "principalName": "조인근",
       "authDate": "2010.12.08",
@@ -2685,7 +2685,7 @@
     {
       "region": "전북",
       "type": "사립",
-      "name": "전북맹아학교",
+      "name": "전북 맹아 학교",
       "category": "시각장애",
       "principalName": "정문수",
       "authDate": "1962.04.06",
@@ -2703,7 +2703,7 @@
     {
       "region": "전북",
       "type": "사립",
-      "name": "전북혜화학교",
+      "name": "전북 혜화 학교",
       "category": "지적장애",
       "principalName": "유재란",
       "authDate": "1962.06.28",
@@ -2721,7 +2721,7 @@
     {
       "region": "전북",
       "type": "사립",
-      "name": "동암차돌학교",
+      "name": "동암 차돌 학교",
       "category": "지체장애",
       "principalName": "남철호",
       "authDate": "1993.01.20",
@@ -2739,7 +2739,7 @@
     {
       "region": "전북",
       "type": "사립",
-      "name": "전북푸른학교",
+      "name": "전북 푸른 학교",
       "category": "지체장애",
       "principalName": "최춘규",
       "authDate": "1983.12.08",
@@ -2757,7 +2757,7 @@
     {
       "region": "전남",
       "type": "공립",
-      "name": "나주이화학교",
+      "name": "나주 이화 학교",
       "category": "지적장애",
       "principalName": "윤양석",
       "authDate": "2012.11.13",
@@ -2775,7 +2775,7 @@
     {
       "region": "전남",
       "type": "공립",
-      "name": "순천선혜학교",
+      "name": "순천 선혜 학교",
       "category": "지적장애",
       "principalName": "옥윤옥",
       "authDate": "1983.01.31",
@@ -2793,7 +2793,7 @@
     {
       "region": "전남",
       "type": "공립",
-      "name": "여수여명학교",
+      "name": "여수 여명 학교",
       "category": "지적장애",
       "principalName": "최수모",
       "authDate": "1990.01.31",
@@ -2811,7 +2811,7 @@
     {
       "region": "전남",
       "type": "사립",
-      "name": "은광학교",
+      "name": "은광 학교",
       "category": "시각장애",
       "principalName": "제도현",
       "authDate": "1963.12.16",
@@ -2829,7 +2829,7 @@
     {
       "region": "전남",
       "type": "사립",
-      "name": "소림학교",
+      "name": "소림 학교",
       "category": "청각장애",
       "principalName": "나권수",
       "authDate": "1979.04.02",
@@ -2847,7 +2847,7 @@
     {
       "region": "전남",
       "type": "사립",
-      "name": "덕수학교",
+      "name": "덕수 학교",
       "category": "지적장애",
       "principalName": "이명옥",
       "authDate": "1987.03.28",
@@ -2865,7 +2865,7 @@
     {
       "region": "전남",
       "type": "사립",
-      "name": "목포인성학교",
+      "name": "목포 인성 학교",
       "category": "지적장애",
       "principalName": "신호규",
       "authDate": "1985.01.12",
@@ -2883,7 +2883,7 @@
     {
       "region": "전남",
       "type": "사립",
-      "name": "함평영화학교",
+      "name": "함평 영화 학교",
       "category": "지적장애",
       "principalName": "전승주",
       "authDate": "1984.11.05",
@@ -2901,7 +2901,7 @@
     {
       "region": "경북",
       "type": "공립",
-      "name": "경산자인학교",
+      "name": "경산 자인 학교",
       "category": "지적장애",
       "principalName": "조정순",
       "authDate": "2010.07.21",
@@ -2919,7 +2919,7 @@
     {
       "region": "경북",
       "type": "공립",
-      "name": "경희학교",
+      "name": "경희 학교",
       "category": "지적장애",
       "principalName": "강호철",
       "authDate": "1982.12.11",
@@ -2937,7 +2937,7 @@
     {
       "region": "경북",
       "type": "공립",
-      "name": "상희학교",
+      "name": "상희 학교",
       "category": "지적장애",
       "principalName": "이병재",
       "authDate": "1986.06.09",
@@ -2955,7 +2955,7 @@
     {
       "region": "경북",
       "type": "사립",
-      "name": "경북영광학교",
+      "name": "경북 영광 학교",
       "category": "지적장애",
       "principalName": "김봉수",
       "authDate": "1983.12.30",
@@ -2973,7 +2973,7 @@
     {
       "region": "경북",
       "type": "사립",
-      "name": "구미혜당학교",
+      "name": "구미 혜당 학교",
       "category": "지적장애",
       "principalName": "박현숙",
       "authDate": "1985.01.29",
@@ -2991,7 +2991,7 @@
     {
       "region": "경북",
       "type": "사립",
-      "name": "안동영명학교",
+      "name": "안동 영명 학교",
       "category": "지적장애",
       "principalName": "권영춘",
       "authDate": "1971.12.15",
@@ -3009,7 +3009,7 @@
     {
       "region": "경북",
       "type": "사립",
-      "name": "포항명도학교",
+      "name": "포항 명도 학교",
       "category": "지적장애",
       "principalName": "최경섭",
       "authDate": "1988.11.18",
@@ -3027,7 +3027,7 @@
     {
       "region": "경북",
       "type": "사립",
-      "name": "안동진명학교",
+      "name": "안동 진명 학교",
       "category": "정서장애",
       "principalName": "김상우",
       "authDate": "1966.12.05",
@@ -3045,7 +3045,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "거창나래학교",
+      "name": "거창 나래 학교",
       "category": "지적장애",
       "principalName": "김영미",
       "authDate": "2018.12.27",
@@ -3063,7 +3063,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "경남혜림학교",
+      "name": "경남 혜림 학교",
       "category": "지적장애",
       "principalName": "윤인숙",
       "authDate": "1969.03.01",
@@ -3081,7 +3081,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "김해은혜학교",
+      "name": "김해 은혜 학교",
       "category": "지적장애",
       "principalName": "원성호",
       "authDate": "2002.05.01",
@@ -3099,7 +3099,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "양산희망학교",
+      "name": "양산 희망 학교",
       "category": "지적장애",
       "principalName": "정문자",
       "authDate": "2010.12.30",
@@ -3117,7 +3117,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "진주혜광학교",
+      "name": "진주 혜광 학교",
       "category": "지적장애",
       "principalName": "시옥순",
       "authDate": "1981.01.29",
@@ -3135,7 +3135,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "창원천광학교",
+      "name": "창원 천광 학교",
       "category": "지적장애",
       "principalName": "박인호",
       "authDate": "1985.01.31",
@@ -3153,7 +3153,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "통영잠포학교",
+      "name": "통영 잠포 학교",
       "category": "지적장애",
       "principalName": "박용학",
       "authDate": "2007.04.08",
@@ -3171,7 +3171,7 @@
     {
       "region": "경남",
       "type": "공립",
-      "name": "경남은광학교",
+      "name": "경남 은광 학교",
       "category": "지체장애",
       "principalName": "배진수",
       "authDate": "1996.02.05",
@@ -3189,7 +3189,7 @@
     {
       "region": "경남",
       "type": "사립",
-      "name": "거제애광학교",
+      "name": "거제 애광 학교",
       "category": "지적장애",
       "principalName": "박용천",
       "authDate": "1979.12.29",
@@ -3207,7 +3207,7 @@
     {
       "region": "경남",
       "type": "사립",
-      "name": "창원동백학교",
+      "name": "창원 동백 학교",
       "category": "지적장애",
       "principalName": "손재경",
       "authDate": "2013.11.26",
@@ -3225,7 +3225,7 @@
     {
       "region": "제주",
       "type": "공립",
-      "name": "서귀포온성학교",
+      "name": "서귀포 온성 학교",
       "category": "지적장애",
       "principalName": "고춘매",
       "authDate": "2006.01.05",
@@ -3243,7 +3243,7 @@
     {
       "region": "제주",
       "type": "공립",
-      "name": "제주영지학교",
+      "name": "제주 영지 학교",
       "category": "지체장애",
       "principalName": "이용랑",
       "authDate": "1971.04.08",
@@ -3261,9 +3261,9 @@
     {
       "region": "제주",
       "type": "사립",
-      "name": "제주영송학교",
+      "name": "제주 영송 학교",
       "category": "지적장애",
-      "principalName": "직무대리인    엄동빈",
+      "principalName": "직무대리인 엄동빈",
       "authDate": "1987.01.30",
       "openDate": "1987.03.21",
       "principalNumber": "064-747-5759",

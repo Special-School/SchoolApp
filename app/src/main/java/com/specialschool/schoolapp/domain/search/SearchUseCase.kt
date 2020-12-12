@@ -4,9 +4,7 @@ import com.specialschool.schoolapp.data.SchoolRepository
 import com.specialschool.schoolapp.di.IoDispatcher
 import com.specialschool.schoolapp.domain.UseCase
 import com.specialschool.schoolapp.model.School
-import com.specialschool.schoolapp.util.Result
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 /**
@@ -22,8 +20,8 @@ class SearchUseCase @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : UseCase<String, List<School>>(dispatcher) {
 
-    override fun execute(query: String): List<School> {
+    override fun execute(parameters: String): List<School> {
         val schools = repository.getSchoolList()
-        return queryMatchStrategy.searchSchools(schools, query)
+        return queryMatchStrategy.searchSchools(schools, parameters)
     }
 }

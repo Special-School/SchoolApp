@@ -15,9 +15,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
-    private val model: SearchViewModel by viewModels()
-
     private lateinit var binding: FragmentSearchBinding
+
+    private val model: SearchViewModel by viewModels()
 
     private lateinit var schoolAdapter: SchoolAdapter
 
@@ -32,16 +32,41 @@ class SearchFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             viewModel = model
         }
-
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        model.searchResults.observe(viewLifecycleOwner, Observer {
+            schoolAdapter.submitList(it)
+        })
+
+        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, Observer {
+
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.searchBtn.apply {
+            setOnClickListener {
+                model.onSearchQueryChanged(binding.searchText.text.toString())
+            }
+
+            setOnFocusChangeListener { view, hasFocus ->
+                if (hasFocus) {
+                    showKeyboard(view.findFocus())
+                }
+            }
+            requestFocus()
+        }
+
+        schoolAdapter = SchoolAdapter(model, this)
+
+        binding.schoolInfoRecycler.apply {
+            adapter = schoolAdapter
+        }
     }
 
     override fun onPause() {

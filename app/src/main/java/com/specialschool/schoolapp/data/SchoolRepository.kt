@@ -84,9 +84,16 @@ class SchoolRepository @Inject constructor(
         val schoolFtsEntities = data.schools.map { school ->
             SchoolFtsEntity(
                 schoolId = school.id,
-                schoolName = school.name
+                schoolName = school.name,
+                displayName = insertBlankInString(school.displayName, school.displayName.length - 2)
             )
         }
         database.schoolFtsDao().insertAll(schoolFtsEntities)
+    }
+
+    private fun insertBlankInString(str: String, index: Int): String {
+        val temp = str.toMutableList()
+        temp.add(index, ' ')
+        return temp.joinToString("")
     }
 }

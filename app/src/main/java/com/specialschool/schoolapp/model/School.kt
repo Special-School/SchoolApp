@@ -7,6 +7,7 @@ data class School(
     val province: String,
     val type: SchoolType,
     val name: String,
+    val displayName: String,
     val category: Disability,
     val principalName: String,
     val authDate: LocalDate,
