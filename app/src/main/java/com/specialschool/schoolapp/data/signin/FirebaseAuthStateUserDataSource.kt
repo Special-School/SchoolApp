@@ -1,17 +1,12 @@
 package com.specialschool.schoolapp.data.signin
 
 import com.google.firebase.auth.FirebaseAuth
-import com.specialschool.schoolapp.di.IoDispatcher
 import com.specialschool.schoolapp.util.Result
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.channels.ConflatedBroadcastChannel
-import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.channelFlow
-import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
