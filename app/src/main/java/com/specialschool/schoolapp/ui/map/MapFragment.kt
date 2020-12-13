@@ -1,4 +1,4 @@
-package com.specialschool.schoolapp.ui.search
+package com.specialschool.schoolapp.ui.map
 
 import androidx.fragment.app.Fragment
 
@@ -12,6 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.specialschool.schoolapp.R
+import com.specialschool.schoolapp.ui.detail.SchoolDetailFragment
 
 class MapFragment : Fragment() {
 
@@ -29,7 +30,7 @@ class MapFragment : Fragment() {
         val seoulTower = LatLng(37.551322486232706, 126.98821586913124)
 
         //입력 받은 주소(특수학교의 주소)
-        val detail = SearchDetailFragment()
+        val detail = SchoolDetailFragment()
 
         googleMap.addMarker(MarkerOptions().position(seoulTower).title("test"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(seoulTower, 15F))

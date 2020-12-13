@@ -1,15 +1,16 @@
-package com.specialschool.schoolapp.ui.search
+package com.specialschool.schoolapp.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.fragment.app.FragmentTransaction
 import com.specialschool.schoolapp.R
+import com.specialschool.schoolapp.ui.map.MapFragment
 
-class SearchTestActivity : AppCompatActivity() {
+class SchoolDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search_test)
+        setContentView(R.layout.activity_school_detail)
 
         //search_fragment에서 정보 받아옴 fragment 구성이 안되서 activity로 화면 구성후 intent로 정보 주고 받음
 
@@ -21,7 +22,7 @@ class SearchTestActivity : AppCompatActivity() {
         setFragment()
         //리사이클러뷰에 있는 정보를 search_detail로 넘겨줌
 
-        val searchdetailfragment = SearchDetailFragment()
+        val schoolDetailFragment = SchoolDetailFragment()
         val mapfragment = MapFragment()
 
         val bundle = Bundle()
@@ -35,17 +36,17 @@ class SearchTestActivity : AppCompatActivity() {
         bundle.putString("addr_num", intent.getStringExtra("addr_num"))
         bundle.putString("addr_detail", intent.getStringExtra("addr_detail"))
         bundle.putString("url", intent.getStringExtra("url"))
-        searchdetailfragment.arguments = bundle
+        schoolDetailFragment.arguments = bundle
         mapfragment.arguments = bundle
 
 
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.scroll_frame, searchdetailfragment)
+        transaction.add(R.id.scroll_frame, schoolDetailFragment)
         transaction.commit()
     }
 
     fun setFragment() {
-        val fragment = SearchDetailFragment()
+        val fragment = SchoolDetailFragment()
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.scroll_frame, fragment)
         transaction.commit()

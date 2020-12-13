@@ -1,4 +1,4 @@
-package com.specialschool.schoolapp.ui.search
+package com.specialschool.schoolapp.ui.detail
 
 import android.app.AlertDialog
 import android.content.Context
@@ -13,13 +13,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.specialschool.schoolapp.R
 
-class SearchDetailFragment : Fragment() {
+class SchoolDetailFragment : Fragment() {
 
-    var search: SearchTestActivity? = null
+    var search: SchoolDetailActivity? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        search = context as SearchTestActivity
+        search = context as SchoolDetailActivity
     }
 
     override fun onCreateView(
@@ -27,7 +27,7 @@ class SearchDetailFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_search_detail, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_school_detail, container, false)
 
         val t1: TextView = view.findViewById(R.id.detail_info1)
         val t2: TextView = view.findViewById(R.id.detail_info2)
