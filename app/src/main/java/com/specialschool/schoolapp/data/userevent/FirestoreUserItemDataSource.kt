@@ -8,6 +8,7 @@ import com.specialschool.schoolapp.model.UserItem
 import com.specialschool.schoolapp.util.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class FirestoreUserItemDataSource @Inject constructor(
@@ -38,7 +39,7 @@ class FirestoreUserItemDataSource @Inject constructor(
     override suspend fun starEvent(
         userId: String,
         userEvent: UserEvent
-    ): Result<StarUpdatedStatus> {
+    ): Result<StarUpdatedStatus> = withContext(dispatcher) {
         TODO("Not yet implemented")
     }
 }

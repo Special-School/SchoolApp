@@ -50,9 +50,7 @@ class DefaultSchoolAndUserItemRepository @Inject constructor(
     override suspend fun starEvent(
         userId: String,
         userEvent: UserEvent
-    ): Result<StarUpdatedStatus> {
-        TODO("Not yet implemented")
-    }
+    ): Result<StarUpdatedStatus> = userItemDataSource.starEvent(userId, userEvent)
 
     override fun getUserItem(userId: String, itemId: String): UserItem {
         TODO("Not yet implemented")
