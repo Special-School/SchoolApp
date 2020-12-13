@@ -15,6 +15,6 @@ data class SchoolTemp(
     val zipCode: Int,
     val address: String,
     val website: String,
-    val latitude: Long,
-    val longitude: Long
+    val latitude: Double,
+    val longitude: Double
 )

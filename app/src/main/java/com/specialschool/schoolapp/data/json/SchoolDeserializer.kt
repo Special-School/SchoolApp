@@ -29,8 +29,8 @@ class SchoolDeserializer : JsonDeserializer<SchoolTemp> {
             zipCode = obj.get("zipCode").asInt,
             address = obj.get("address").asString,
             website = obj.get("website").asString,
-            latitude = obj.get("latitude").asLong,
-            longitude = obj.get("longitude").asLong
+            latitude = obj.get("latitude").asDouble,
+            longitude = obj.get("longitude").asDouble
         )
     }
 }
