@@ -1,15 +1,20 @@
 package com.specialschool.schoolapp.ui.search
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
+import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -42,7 +47,14 @@ class SearchFragment : Fragment() {
             schoolAdapter.submitList(it)
         })
 
-        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, Observer {
+        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id->"school_id"
+            //activity로 id를 전달하는 방법을 사용하면 전달은 가능
+
+
+
+            var intent = Intent(context,SearchTestActivity::class.java)
+            intent.putExtra("school_id",id)
+            startActivity(intent)
 
         })
     }
@@ -66,7 +78,12 @@ class SearchFragment : Fragment() {
 
         binding.schoolInfoRecycler.apply {
             adapter = schoolAdapter
+
+
         }
+
+
+
     }
 
     override fun onPause() {
@@ -84,3 +101,5 @@ class SearchFragment : Fragment() {
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
+
+

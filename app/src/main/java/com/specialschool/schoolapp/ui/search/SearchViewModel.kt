@@ -1,7 +1,12 @@
 package com.specialschool.schoolapp.ui.search
 
+import android.content.Intent
+import android.os.Bundle
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
+import com.google.protobuf.LazyStringArrayList
 import com.specialschool.schoolapp.domain.search.SearchUseCase
 import com.specialschool.schoolapp.model.School
 import com.specialschool.schoolapp.ui.event.EventActions
@@ -48,6 +53,32 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     override fun openItemDetail(id: String) {
-        TODO("Not yet implemented")
+        _navigateToSchoolDetailAction.value = Event(id)
     }
+
+    private val _test1 = MutableLiveData<String>().apply {
+        value = "검색"
+    }
+    val test : LiveData<String> = _test1
+
+    private fun detail(str:String){
+        var bundle = Bundle()
+        val searchdetail : SearchDetailFragment = SearchDetailFragment()
+
+        bundle.putString("school_id",str)
+        searchdetail.arguments = bundle
+    }
+    private fun map(str:String){
+        var bundle = Bundle()
+        val map : MapFragment = MapFragment()
+
+        bundle.putString("school_id",str)
+        map.arguments = bundle
+    }
+
+
+
+
+
+
 }
