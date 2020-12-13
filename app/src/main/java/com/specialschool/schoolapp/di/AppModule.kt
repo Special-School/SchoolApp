@@ -11,6 +11,10 @@ import com.specialschool.schoolapp.data.SchoolRepository
 import com.specialschool.schoolapp.data.SchoolDataSource
 import com.specialschool.schoolapp.data.bootstrap.BootstrapSchoolDataSource
 import com.specialschool.schoolapp.data.remote.RemoteSchoolDataSource
+import com.specialschool.schoolapp.data.userevent.DefaultSchoolAndUserItemRepository
+import com.specialschool.schoolapp.data.userevent.FirestoreUserItemDataSource
+import com.specialschool.schoolapp.data.userevent.SchoolAndUserItemRepository
+import com.specialschool.schoolapp.data.userevent.UserItemDataSource
 import com.specialschool.schoolapp.domain.search.FtsQueryMatchStrategy
 import com.specialschool.schoolapp.domain.search.QueryMatchStrategy
 import dagger.Module
@@ -62,6 +66,24 @@ class AppModule {
 
     @Singleton
     @Provides
+    fun provideUserItemDataSource(
+        firestore: FirebaseFirestore,
+        @IoDispatcher dispatcher: CoroutineDispatcher
+    ): UserItemDataSource {
+        return FirestoreUserItemDataSource(firestore, dispatcher)
+    }
+
+    @Singleton
+    @Provides
+    fun provideSchoolAndUserItemRepository(
+        userItemDataSource: UserItemDataSource,
+        schoolRepository: SchoolRepository
+    ): SchoolAndUserItemRepository {
+        return DefaultSchoolAndUserItemRepository(userItemDataSource, schoolRepository)
+    }
+
+    @Singleton
+    @Provides
     fun provideQueryMatchStrategy(appDatabase: AppDatabase): QueryMatchStrategy {
         return FtsQueryMatchStrategy(appDatabase)
     }
@@ -80,7 +102,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun provideFirebaseFireStore(): FirebaseFirestore {
+    fun provideFirebaseFirestore(): FirebaseFirestore {
         return Firebase.firestore.apply {
             firestoreSettings = firestoreSettings { isPersistenceEnabled = true }
         }
