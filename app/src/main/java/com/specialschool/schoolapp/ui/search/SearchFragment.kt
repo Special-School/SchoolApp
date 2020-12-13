@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
+import com.specialschool.schoolapp.ui.detail.SchoolDetailActivity
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
 import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,8 +46,8 @@ class SearchFragment : Fragment() {
 
         model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id ->
             //activity로 id를 전달하는 방법을 사용하면 전달은 가능
-            var intent = Intent(context,SearchTestActivity::class.java)
-            intent.putExtra("school_id",id)
+            val intent = Intent(context, SchoolDetailActivity::class.java)
+            intent.putExtra("school_id", id)
             startActivity(intent)
         })
     }

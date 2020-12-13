@@ -1,4 +1,4 @@
-package com.specialschool.schoolapp.ui.search
+package com.specialschool.schoolapp.ui.detail
 
 import android.content.Context
 import android.content.Intent
@@ -9,27 +9,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.specialschool.schoolapp.R
+import com.specialschool.schoolapp.ui.map.MapFragment
 
-class SearchDetailFragment : Fragment() {
+class SchoolDetailFragment : Fragment() {
 
-    var search: SearchTestActivity? = null
+    var search: SchoolDetailActivity? = null
     private var txt = mutableListOf<String>()
     private var dou = mutableListOf<Double>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        search = context as SearchTestActivity
+        search = context as SchoolDetailActivity
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?,
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater.inflate(R.layout.fragment_search_detail, container, false)
+        val view: View = inflater.inflate(R.layout.fragment_school_detail, container, false)
 
         //세부 사항 화면에서 사용할 텍스트뷰 와 버튼을 선언
 
@@ -82,8 +82,7 @@ class SearchDetailFragment : Fragment() {
             dou.add(it.getDouble("double1")!!)
             dou.add(it.getDouble("double2")!!)
         }
-
-
+        
         t1.setText(txt[1])
         t2.setText(txt[2])
         t3.setText(txt[3])
@@ -94,17 +93,6 @@ class SearchDetailFragment : Fragment() {
         t8.setText(txt[8])
         t9.setText(txt[9])
         t10.setText(txt[10])
-
-
-
-
-
-
-
-
-
-
-
 
         btn2.setOnClickListener {
             val intent = Intent(Intent.ACTION_DIAL)
@@ -118,16 +106,13 @@ class SearchDetailFragment : Fragment() {
         }
         btn4.setOnClickListener {
             val intent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse("http://${txt[10]}"))
+                Intent(Intent.ACTION_VIEW, Uri.parse("http://${txt[10]}"))
             startActivity(intent)
         }
         btn1.setOnClickListener {
-            val map:MapFragment = MapFragment()
-
-            val testA = activity as SearchTestActivity
-            testA.set2(map,txt,dou)
-
-
+            val map: MapFragment = MapFragment()
+            val testA = activity as SchoolDetailActivity
+            testA.set2(map, txt, dou)
         }
 
         return view
