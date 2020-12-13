@@ -1,6 +1,7 @@
 package com.specialschool.schoolapp.ui.search
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -43,7 +44,10 @@ class SearchFragment : Fragment() {
         })
 
         model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id ->
-
+            //activity로 id를 전달하는 방법을 사용하면 전달은 가능
+            var intent = Intent(context,SearchTestActivity::class.java)
+            intent.putExtra("school_id",id)
+            startActivity(intent)
         })
     }
 
