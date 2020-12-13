@@ -12,9 +12,9 @@ import com.specialschool.schoolapp.data.SchoolDataSource
 import com.specialschool.schoolapp.data.bootstrap.BootstrapSchoolDataSource
 import com.specialschool.schoolapp.data.remote.RemoteSchoolDataSource
 import com.specialschool.schoolapp.data.userevent.DefaultSchoolAndUserItemRepository
-import com.specialschool.schoolapp.data.userevent.FirestoreUserItemDataSource
+import com.specialschool.schoolapp.data.userevent.FirestoreUserEventDataSource
 import com.specialschool.schoolapp.data.userevent.SchoolAndUserItemRepository
-import com.specialschool.schoolapp.data.userevent.UserItemDataSource
+import com.specialschool.schoolapp.data.userevent.UserEventDataSource
 import com.specialschool.schoolapp.domain.search.FtsQueryMatchStrategy
 import com.specialschool.schoolapp.domain.search.QueryMatchStrategy
 import dagger.Module
@@ -24,6 +24,7 @@ import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.SupervisorJob
 import javax.inject.Named
 import javax.inject.Singleton
@@ -69,17 +70,18 @@ class AppModule {
     fun provideUserItemDataSource(
         firestore: FirebaseFirestore,
         @IoDispatcher dispatcher: CoroutineDispatcher
-    ): UserItemDataSource {
-        return FirestoreUserItemDataSource(firestore, dispatcher)
+    ): UserEventDataSource {
+        return FirestoreUserEventDataSource(firestore, dispatcher)
     }
 
+    @ExperimentalCoroutinesApi
     @Singleton
     @Provides
     fun provideSchoolAndUserItemRepository(
-        userItemDataSource: UserItemDataSource,
+        userEventDataSource: UserEventDataSource,
         schoolRepository: SchoolRepository
     ): SchoolAndUserItemRepository {
-        return DefaultSchoolAndUserItemRepository(userItemDataSource, schoolRepository)
+        return DefaultSchoolAndUserItemRepository(userEventDataSource, schoolRepository)
     }
 
     @Singleton

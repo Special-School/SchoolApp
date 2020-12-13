@@ -11,28 +11,28 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class FirestoreUserItemDataSource @Inject constructor(
+class FirestoreUserEventDataSource @Inject constructor(
     val firestore: FirebaseFirestore,
     @IoDispatcher private val dispatcher: CoroutineDispatcher
-) : UserItemDataSource {
+) : UserEventDataSource {
 
     companion object {
 
     }
 
-    override fun getObservableUserItems(userId: String): Flow<List<UserItem>> {
+    override fun getObservableUserEvents(userId: String): Flow<List<UserEvent>> {
         TODO("Not yet implemented")
     }
 
-    override fun getObservableUserItem(userId: String, itemId: String): Flow<UserItem> {
+    override fun getObservableUserEvent(userId: String, eventId: String): Flow<UserEvent> {
         TODO("Not yet implemented")
     }
 
-    override fun getUserItems(userId: String): List<UserItem> {
+    override fun getUserEvents(userId: String): List<UserEvent> {
         TODO("Not yet implemented")
     }
 
-    override fun getUserItem(userId: String, itemId: String): UserItem? {
+    override fun getUserEvent(userId: String, eventId: String): UserEvent? {
         TODO("Not yet implemented")
     }
 

@@ -96,4 +96,12 @@ class SchoolRepository @Inject constructor(
         temp.add(index, ' ')
         return temp.joinToString("")
     }
+
+    fun getSchool(schoolId: String): School {
+        return getOfflineSchoolData().schools.firstOrNull { school ->
+            school.id == schoolId
+        } ?: throw SchoolNotFoundException()
+    }
 }
+
+class SchoolNotFoundException : Throwable()

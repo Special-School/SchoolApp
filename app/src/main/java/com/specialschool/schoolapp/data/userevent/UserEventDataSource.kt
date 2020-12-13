@@ -2,19 +2,18 @@ package com.specialschool.schoolapp.data.userevent
 
 import com.specialschool.schoolapp.domain.bookmark.StarUpdatedStatus
 import com.specialschool.schoolapp.model.UserEvent
-import com.specialschool.schoolapp.model.UserItem
 import com.specialschool.schoolapp.util.Result
 import kotlinx.coroutines.flow.Flow
 
-interface UserItemDataSource {
+interface UserEventDataSource {
 
-    fun getObservableUserItems(userId: String): Flow<List<UserItem>>
+    fun getObservableUserEvents(userId: String): Flow<List<UserEvent>>
 
-    fun getObservableUserItem(userId: String, itemId: String): Flow<UserItem>
+    fun getObservableUserEvent(userId: String, eventId: String): Flow<UserEvent>
 
-    fun getUserItems(userId: String): List<UserItem>
+    fun getUserEvents(userId: String): List<UserEvent>
 
-    fun getUserItem(userId: String, itemId: String): UserItem?
+    fun getUserEvent(userId: String, eventId: String): UserEvent?
 
     suspend fun starEvent(userId: String, userEvent: UserEvent): Result<StarUpdatedStatus>
 }
