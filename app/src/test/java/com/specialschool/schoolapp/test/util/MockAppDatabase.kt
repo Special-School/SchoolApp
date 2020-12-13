@@ -35,6 +35,10 @@ class MockSearchAppDatabase : AppDatabase() {
             override fun searchBySchoolName(query: String): List<String> {
                 TODO("when (query) { TestData에서 불러온다 }")
             }
+
+            override fun searchByDisplayName(query: String): List<String> {
+                TODO("Not implemented")
+            }
         }
     }
 
