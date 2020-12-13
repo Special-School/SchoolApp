@@ -85,7 +85,8 @@ class SchoolRepository @Inject constructor(
             SchoolFtsEntity(
                 schoolId = school.id,
                 schoolName = school.name,
-                displayName = insertBlankInString(school.displayName, school.displayName.length - 2)
+                displayName = insertBlankInString(school.displayName, school.displayName.length - 2),
+                fullName = school.displayName
             )
         }
         database.schoolFtsDao().insertAll(schoolFtsEntities)

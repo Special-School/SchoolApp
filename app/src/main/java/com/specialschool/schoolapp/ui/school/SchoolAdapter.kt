@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.specialschool.schoolapp.databinding.SearchSchoolItemBinding
 import com.specialschool.schoolapp.model.School
+import com.specialschool.schoolapp.model.UserItem
 import com.specialschool.schoolapp.ui.event.EventActions
 
 class SchoolAdapter(
     private val eventListener: EventActions,
     private val lifecycleOwner: LifecycleOwner
-) : ListAdapter<School, SchoolViewHolder>(SchoolDiff) {
+) : ListAdapter<UserItem, SchoolViewHolder>(SchoolDiff) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SchoolViewHolder {
         val binding = SearchSchoolItemBinding.inflate(
@@ -33,21 +34,21 @@ class SchoolViewHolder(
     private val lifecycleOwner: LifecycleOwner
 ) : ViewHolder(binding.root) {
 
-    fun bind(school: School) {
-        binding.school = school
+    fun bind(userItem: UserItem) {
+        binding.userItem = userItem
         binding.eventListener = eventListener
         binding.lifecycleOwner = lifecycleOwner
         binding.executePendingBindings()
     }
 }
 
-object SchoolDiff : DiffUtil.ItemCallback<School>() {
+object SchoolDiff : DiffUtil.ItemCallback<UserItem>() {
 
-    override fun areItemsTheSame(oldItem: School, newItem: School): Boolean {
-        return oldItem.id == newItem.id
+    override fun areItemsTheSame(oldItem: UserItem, newItem: UserItem): Boolean {
+        return oldItem.school.id == newItem.school.id
     }
 
-    override fun areContentsTheSame(oldItem: School, newItem: School): Boolean {
+    override fun areContentsTheSame(oldItem: UserItem, newItem: UserItem): Boolean {
         return oldItem == newItem
     }
 }
