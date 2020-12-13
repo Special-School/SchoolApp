@@ -21,6 +21,8 @@ import javax.inject.Inject
 
 interface SignInViewModelDelegate {
 
+    val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>>
+
     val currentUserInfo: LiveData<AuthenticatedUserInfo?>
 
     val performSignInEvent: MutableLiveData<Event<SignInEvent>>
@@ -46,7 +48,7 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
     @MainDispatcher private val dispatcher: CoroutineDispatcher
 ) : SignInViewModelDelegate {
 
-    private val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>> =
+    override val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>> =
         observeUserAuthStateUseCase(Any()).map {
             if (it is Error) {
                 Log.e("", "", it.exception)

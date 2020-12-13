@@ -34,6 +34,7 @@ object Versions {
     const val MATERIAL = "1.2.1"
     const val MOCKITO_CORE = "1.10.19"
     const val MOCKITO_KOTLIN = "2.2.0"
+    const val NAVIGATION = "2.3.2"
     const val NAVIGATION_FRAGMENT_KTX = "2.3.1"
     const val NAVIGATION_UI_KTX = "2.3.1"
     const val OKHTTP = "4.9.0"

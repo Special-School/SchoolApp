@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
     //id("kotlin-parcelize")
     id("org.jetbrains.dokka-android") version Versions.DOKKA_ANDROID

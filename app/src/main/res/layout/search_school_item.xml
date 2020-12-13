@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="school"
-            type="com.specialschool.schoolapp.model.School" />
+            name="userItem"
+            type="com.specialschool.schoolapp.model.UserItem" />
 
         <variable
             name="eventListener"
@@ -19,14 +19,14 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:onClick="@{() -> eventListener.openItemDetail(school.id)}">
+        android:onClick="@{() -> eventListener.openItemDetail(userItem.school.id)}">
 
         <TextView
             android:id="@+id/school_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@{school.displayName}"
+            android:text="@{userItem.school.displayName}"
             android:textSize="20dp" />
 
         <View
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="@{school.address}"
+            android:text="@{userItem.school.address}"
             android:textSize="14dp" />
 
         <View

@@ -1,7 +1,6 @@
 package com.specialschool.schoolapp.ui.search
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +9,15 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
-import com.specialschool.schoolapp.ui.detail.SchoolDetailActivity
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
+import com.specialschool.schoolapp.ui.search.SearchFragmentDirections.Companion.toSchoolDetail
 import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class SearchFragment : Fragment() {
 
@@ -44,11 +46,8 @@ class SearchFragment : Fragment() {
             schoolAdapter.submitList(it)
         })
 
-        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id ->
-            //activity로 id를 전달하는 방법을 사용하면 전달은 가능
-            val intent = Intent(context, SchoolDetailActivity::class.java)
-            intent.putExtra("school_id", id)
-            startActivity(intent)
+        model.navigateToEventAction.observe(viewLifecycleOwner, EventObserver { id ->
+            findNavController().navigate(toSchoolDetail(id))
         })
     }
 

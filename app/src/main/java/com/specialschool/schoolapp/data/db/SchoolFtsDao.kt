@@ -16,4 +16,7 @@ interface SchoolFtsDao {
 
     @Query("SELECT displayName FROM schoolfts WHERE schoolfts MATCH :query")
     fun searchByDisplayName(query: String): List<String>
+
+    @Query("SELECT fullName FROM schoolfts WHERE schoolfts MATCH :query")
+    fun searchByFullName(query: String): List<String>
 }
