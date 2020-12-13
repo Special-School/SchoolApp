@@ -65,6 +65,7 @@ class AppModule {
         return SchoolRepository(remoteDataSource, bootstrapDataSource, database)
     }
 
+    @ExperimentalCoroutinesApi
     @Singleton
     @Provides
     fun provideUserItemDataSource(
