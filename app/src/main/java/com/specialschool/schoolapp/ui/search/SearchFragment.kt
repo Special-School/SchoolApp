@@ -7,11 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.RecyclerView
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
 import com.specialschool.schoolapp.util.EventObserver
@@ -31,9 +29,7 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSearchBinding.inflate(
-            inflater, container, false
-        ).apply {
+        binding = FragmentSearchBinding.inflate(inflater, container, false).apply {
             lifecycleOwner = viewLifecycleOwner
             viewModel = model
         }
@@ -47,15 +43,11 @@ class SearchFragment : Fragment() {
             schoolAdapter.submitList(it)
         })
 
-        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id->"school_id"
+        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id ->
             //activity로 id를 전달하는 방법을 사용하면 전달은 가능
-
-
-
             var intent = Intent(context,SearchTestActivity::class.java)
             intent.putExtra("school_id",id)
             startActivity(intent)
-
         })
     }
 
@@ -64,8 +56,11 @@ class SearchFragment : Fragment() {
         binding.searchBtn.apply {
             setOnClickListener {
                 model.onSearchQueryChanged(binding.searchText.text.toString())
+                dismissKeyboard(binding.searchText)
             }
+        }
 
+        binding.searchText.apply {
             setOnFocusChangeListener { view, hasFocus ->
                 if (hasFocus) {
                     showKeyboard(view.findFocus())
@@ -78,12 +73,7 @@ class SearchFragment : Fragment() {
 
         binding.schoolInfoRecycler.apply {
             adapter = schoolAdapter
-
-
         }
-
-
-
     }
 
     override fun onPause() {
@@ -101,5 +91,3 @@ class SearchFragment : Fragment() {
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
-
-
