@@ -3,8 +3,6 @@ package com.specialschool.schoolapp.ui.signin
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.map
 import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
 import com.specialschool.schoolapp.di.MainDispatcher
 import com.specialschool.schoolapp.domain.auth.ObserveUserAuthStateUseCase
@@ -48,22 +46,29 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
     @MainDispatcher private val dispatcher: CoroutineDispatcher
 ) : SignInViewModelDelegate {
 
-    override val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>> =
-        observeUserAuthStateUseCase(Any()).map {
-            if (it is Error) {
-                Log.e("", "", it.exception)
-            }
-            it
-        }
+    override val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>>
 
-    override val currentUserInfo: LiveData<AuthenticatedUserInfo?> = currentFirebaseUser.map {
-        (it as? Success)?.data
-    }.asLiveData()
+    private val _currentUserInfo = MutableLiveData<AuthenticatedUserInfo?>()
+    override val currentUserInfo: LiveData<AuthenticatedUserInfo?>
+        get() = _currentUserInfo
 
     override val performSignInEvent = MutableLiveData<Event<SignInEvent>>()
 
-    private val isSignedIn: LiveData<Boolean> = currentUserInfo.map {
-        it?.isSignedIn() ?: false
+    private val isSignedIn = MutableLiveData<Boolean>()
+
+    private var authenticatedUserInfo: AuthenticatedUserInfo? = null
+
+    init {
+        currentFirebaseUser = observeUserAuthStateUseCase(Any()).map { result ->
+            if (result is Success) {
+                authenticatedUserInfo = result.data
+                isSignedIn.value = result.data?.isSignedIn() ?: false
+                _currentUserInfo.value = result.data
+            } else if (result is Error) {
+                Log.e("", "", result.exception)
+            }
+            result
+        }
     }
 
     override suspend fun emitSignInRequest() = withContext(dispatcher) {

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.specialschool.schoolapp.databinding.FragmentHomeBinding
+import com.specialschool.schoolapp.ui.signin.SignInDialogFragment
+import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -31,7 +33,16 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }*/
+
+        model.navigateToSignInDialogAction.observe(viewLifecycleOwner, EventObserver {
+            openSignInDialog()
+        })
+    }
+
+    private fun openSignInDialog() {
+        val dialog = SignInDialogFragment()
+        dialog.show(requireActivity().supportFragmentManager, "dialog_sign_in")
+    }
 }

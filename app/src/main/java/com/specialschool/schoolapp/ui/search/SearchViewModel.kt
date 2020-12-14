@@ -2,40 +2,47 @@ package com.specialschool.schoolapp.ui.search
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
+import androidx.lifecycle.Observer
 import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
+import com.specialschool.schoolapp.domain.bookmark.StarEventParameter
+import com.specialschool.schoolapp.domain.bookmark.StarEventUseCase
 import com.specialschool.schoolapp.domain.schooldata.LoadUserItemsUseCase
 import com.specialschool.schoolapp.domain.search.SearchParameter
 import com.specialschool.schoolapp.domain.search.SearchUseCase
 import com.specialschool.schoolapp.model.UserItem
+import com.specialschool.schoolapp.ui.event.EventActions
 import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
-import com.specialschool.schoolapp.util.Result
-import com.specialschool.schoolapp.util.cancelIfActive
-import com.specialschool.schoolapp.util.data
-import com.specialschool.schoolapp.util.successOr
+import com.specialschool.schoolapp.util.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import java.util.*
 
 @ExperimentalCoroutinesApi
 class SearchViewModel @ViewModelInject constructor(
     signInViewModelDelegate: SignInViewModelDelegate,
-    eventActionsViewModelDelegate: EventActionsViewModelDelegate,
     private val searchUseCase: SearchUseCase,
-    private val loadUserItemsUseCase: LoadUserItemsUseCase
+    private val loadUserItemsUseCase: LoadUserItemsUseCase,
+    private val starEventUseCase: StarEventUseCase
 ) : ViewModel(),
-    SignInViewModelDelegate by signInViewModelDelegate,
-    EventActionsViewModelDelegate by eventActionsViewModelDelegate {
+    EventActions,
+    SignInViewModelDelegate by signInViewModelDelegate {
 
     private var loadUserItemsJob: Job? = null
 
     private var searchJob: Job? = null
 
     private val _searchResults = MediatorLiveData<List<UserItem>>()
-
     val searchResults: LiveData<List<UserItem>> = _searchResults
+
+    private val _navigateToSchoolDetailAction = MutableLiveData<Event<String>>()
+    val navigateToSchoolDetailAction: LiveData<Event<String>> = _navigateToSchoolDetailAction
+
+    private val _navigateToSignInDialogAction = MutableLiveData<Event<Unit>>()
+    val navigateToSignInDialogAction: LiveData<Event<Unit>> = _navigateToSignInDialogAction
 
     private var textQuery = ""
 
@@ -97,6 +104,34 @@ class SearchViewModel @ViewModelInject constructor(
         loadUserItemsJob = viewModelScope.launch {
             loadUserItemsUseCase(getUserId()).collect {
                 _searchResults.value = it.data
+            }
+        }
+    }
+
+    override fun openItemDetail(id: String) {
+        _navigateToSchoolDetailAction.value = Event(id)
+    }
+
+    override fun onStarClicked(userItem: UserItem) {
+        if (!isSignedIn()) {
+            _navigateToSignInDialogAction.value = Event(Unit)
+            return
+        }
+        val newIsStarredState = !userItem.userEvent.isStarred
+
+        viewModelScope.launch {
+            getUserId()?.let {
+                val result = starEventUseCase(
+                    StarEventParameter(
+                        it, userItem.copy(
+                            userEvent = userItem.userEvent.copy(isStarred = newIsStarredState)
+                        )
+                    )
+                )
+                // Show an error message if a star request fails
+                if (result is Result.Error) {
+
+                }
             }
         }
     }
