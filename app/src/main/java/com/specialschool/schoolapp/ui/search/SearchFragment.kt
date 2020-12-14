@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -13,6 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.specialschool.schoolapp.databinding.FragmentSearchBinding
 import com.specialschool.schoolapp.ui.school.SchoolAdapter
 import com.specialschool.schoolapp.ui.search.SearchFragmentDirections.Companion.toSchoolDetail
+import com.specialschool.schoolapp.ui.signin.SignInDialogFragment
 import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -46,22 +48,27 @@ class SearchFragment : Fragment() {
             schoolAdapter.submitList(it)
         })
 
-        model.navigateToEventAction.observe(viewLifecycleOwner, EventObserver { id ->
+        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id ->
             findNavController().navigate(toSchoolDetail(id))
         })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.searchBtn.apply {
-            setOnClickListener {
-                model.onSearchQueryChanged(binding.searchText.text.toString())
-                dismissKeyboard(binding.searchText)
-            }
-        }
+        binding.searchView.apply {
+            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(p0: String?): Boolean {
+                    dismissKeyboard(this@apply)
+                    return true
+                }
 
-        binding.searchText.apply {
-            setOnFocusChangeListener { view, hasFocus ->
+                override fun onQueryTextChange(p0: String): Boolean {
+                    model.onSearchQueryChanged(p0)
+                    return true
+                }
+            })
+
+            setOnQueryTextFocusChangeListener { view, hasFocus ->
                 if (hasFocus) {
                     showKeyboard(view.findFocus())
                 }
@@ -73,11 +80,18 @@ class SearchFragment : Fragment() {
 
         binding.schoolInfoRecycler.apply {
             adapter = schoolAdapter
+            /*doOnApplyWindowInsets { v, insets, padding ->
+                v.updatePadding(bottom = padding.bottom + insets.systemWindowInsetBottom)
+            }*/
         }
+
+        model.navigateToSignInDialogAction.observe(viewLifecycleOwner, EventObserver {
+            openSignInDialog()
+        })
     }
 
     override fun onPause() {
-        dismissKeyboard(binding.searchEditLayout)
+        dismissKeyboard(binding.searchView)
         super.onPause()
     }
 
@@ -89,5 +103,10 @@ class SearchFragment : Fragment() {
     private fun dismissKeyboard(view: View) {
         val imm = view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    private fun openSignInDialog() {
+        val dialog = SignInDialogFragment()
+        dialog.show(requireActivity().supportFragmentManager, "dialog_sign_in")
     }
 }

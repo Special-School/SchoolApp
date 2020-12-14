@@ -12,79 +12,58 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <FrameLayout
-            android:id="@+id/testSearchFrame"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone" />
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:divider="?android:dividerHorizontal"
+            android:elevation="8dp"
+            android:fitsSystemWindows="true"
+            android:showDividers="middle"
+            tools:parentTag="androidx.coordinatorlayout.widget.CoordinatorLayout">
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-
-
-
-            <LinearLayout
+            <Toolbar
+                android:id="@+id/tool_bar"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="2"
-                android:background="#6799FF"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:layout_height="?actionBarSize">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/search_edit_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    app:boxBackgroundColor="#FFE400"
-                    app:hintTextColor="@color/purple_500">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/search_text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <Button
-                    android:id="@+id/search_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="@{viewModel.test}"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/school_info_recycler"
+                <SearchView
+                    android:id="@+id/search_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scrollbars="vertical"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/search_school_item"/>
-            </LinearLayout>
-        </LinearLayout>
+                    android:iconifiedByDefault="false"
+                    android:imeOptions="actionDone|flagNoExtractUi"
+                    android:queryHint="Search"
+                    android:searchHintIcon="@null"
+                    android:searchIcon="@null"
+                    tools:targetApi="lollipop_mr1">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                </SearchView>
+
+            </Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/school_info_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            tools:listitem="@layout/search_school_item" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

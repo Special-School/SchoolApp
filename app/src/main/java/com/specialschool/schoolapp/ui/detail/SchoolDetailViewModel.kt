@@ -3,10 +3,12 @@ package com.specialschool.schoolapp.ui.detail
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.specialschool.schoolapp.domain.schooldata.LoadUserItemUseCase
+import com.specialschool.schoolapp.model.Coordinate
 import com.specialschool.schoolapp.model.School
 import com.specialschool.schoolapp.model.UserEvent
 import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
+import com.specialschool.schoolapp.util.Event
 import com.specialschool.schoolapp.util.cancelIfActive
 import com.specialschool.schoolapp.util.data
 import com.specialschool.schoolapp.util.setValueIfNew
@@ -33,6 +35,9 @@ class SchoolDetailViewModel @ViewModelInject constructor(
     val userEvent: LiveData<UserEvent> = _userEvent
 
     private val schoolId = MutableLiveData<String?>()
+
+    private val _navigateToMapAction = MutableLiveData<Event<Unit>>()
+    val navigateToMapAction: LiveData<Event<Unit>> = _navigateToMapAction
 
     init {
         _userEvent.addSource(currentUserInfo) {
@@ -71,5 +76,9 @@ class SchoolDetailViewModel @ViewModelInject constructor(
 
     private fun getSchoolId(): String? {
         return schoolId.value
+    }
+
+    fun openSchoolMap() {
+        _navigateToMapAction.value = Event(Unit)
     }
 }
