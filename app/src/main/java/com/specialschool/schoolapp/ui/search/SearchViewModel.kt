@@ -2,16 +2,15 @@ package com.specialschool.schoolapp.ui.search
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import androidx.lifecycle.Observer
 import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
 import com.specialschool.schoolapp.domain.bookmark.StarEventParameter
 import com.specialschool.schoolapp.domain.bookmark.StarEventUseCase
 import com.specialschool.schoolapp.domain.schooldata.LoadUserItemsUseCase
+import com.specialschool.schoolapp.domain.schooldata.RefreshSchoolDataUseCase
 import com.specialschool.schoolapp.domain.search.SearchParameter
 import com.specialschool.schoolapp.domain.search.SearchUseCase
 import com.specialschool.schoolapp.model.UserItem
 import com.specialschool.schoolapp.ui.event.EventActions
-import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
 import com.specialschool.schoolapp.util.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -19,14 +18,14 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import java.util.*
 
 @ExperimentalCoroutinesApi
 class SearchViewModel @ViewModelInject constructor(
     signInViewModelDelegate: SignInViewModelDelegate,
     private val searchUseCase: SearchUseCase,
     private val loadUserItemsUseCase: LoadUserItemsUseCase,
-    private val starEventUseCase: StarEventUseCase
+    private val starEventUseCase: StarEventUseCase,
+    private val refreshSchoolDataUseCase: RefreshSchoolDataUseCase
 ) : ViewModel(),
     EventActions,
     SignInViewModelDelegate by signInViewModelDelegate {
@@ -52,6 +51,7 @@ class SearchViewModel @ViewModelInject constructor(
 
     init {
         viewModelScope.launch {
+            refreshSchoolDataUseCase(Any())
             currentFirebaseUser.collect {
                 refreshUserItems()
             }
@@ -139,5 +139,5 @@ class SearchViewModel @ViewModelInject constructor(
     private val _test1 = MutableLiveData<String>().apply {
         value = "검색"
     }
-    val test : LiveData<String> = _test1
+    val test: LiveData<String> = _test1
 }

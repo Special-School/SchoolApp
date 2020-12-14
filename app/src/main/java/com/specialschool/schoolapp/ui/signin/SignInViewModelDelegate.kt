@@ -1,8 +1,10 @@
 package com.specialschool.schoolapp.ui.signin
 
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
 import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
 import com.specialschool.schoolapp.di.MainDispatcher
 import com.specialschool.schoolapp.domain.auth.ObserveUserAuthStateUseCase
@@ -22,6 +24,8 @@ interface SignInViewModelDelegate {
     val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>>
 
     val currentUserInfo: LiveData<AuthenticatedUserInfo?>
+
+    val currentUserImageUri: LiveData<Uri?>
 
     val performSignInEvent: MutableLiveData<Event<SignInEvent>>
 
@@ -51,6 +55,10 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
     private val _currentUserInfo = MutableLiveData<AuthenticatedUserInfo?>()
     override val currentUserInfo: LiveData<AuthenticatedUserInfo?>
         get() = _currentUserInfo
+
+    override val currentUserImageUri: LiveData<Uri?> = currentUserInfo.map {
+        it?.getPhotoUrl()
+    }
 
     override val performSignInEvent = MutableLiveData<Event<SignInEvent>>()
 

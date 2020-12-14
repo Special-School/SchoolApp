@@ -12,16 +12,16 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.specialschool.schoolapp.R
 
-class SettingsFragment : Fragment() {
-    private lateinit var settingViewModel: SettingViewModel
+class InfoFragment : Fragment() {
+    private lateinit var infoViewModel: InfoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settingViewModel = ViewModelProvider(this).get(SettingViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_settings, container, false)
+        infoViewModel = ViewModelProvider(this).get(InfoViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_info, container, false)
 
         val btn1: Button = root.findViewById(R.id.setting_btn1)
         val btn2: Button = root.findViewById(R.id.setting_btn2)

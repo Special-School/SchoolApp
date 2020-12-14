@@ -4,9 +4,12 @@ import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.specialschool.schoolapp.domain.schooldata.RefreshSchoolDataUseCase
 import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
 import com.specialschool.schoolapp.util.Event
+import kotlinx.coroutines.launch
 
 class HomeViewModel @ViewModelInject constructor(
     signInViewModelDelegate: SignInViewModelDelegate,
@@ -24,8 +27,15 @@ class HomeViewModel @ViewModelInject constructor(
     override val navigateToSignInDialogAction: LiveData<Event<Unit>>
         get() = _navigateToSignInDialogAction
 
+    private val _navigateToSignOutDialogAction = MutableLiveData<Event<Unit>>()
+    val navigateToSignOutDialogAction: LiveData<Event<Unit>>
+        get() = _navigateToSignOutDialogAction
+
     fun onClickButton() {
-        _title.value = "change"
-        _navigateToSignInDialogAction.value = Event(Unit)
+        if (isSignedIn()) {
+            _navigateToSignOutDialogAction.value = Event(Unit)
+        } else {
+            _navigateToSignInDialogAction.value = Event(Unit)
+        }
     }
 }

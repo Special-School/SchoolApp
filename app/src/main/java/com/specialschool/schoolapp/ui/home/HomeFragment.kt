@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.specialschool.schoolapp.databinding.FragmentHomeBinding
 import com.specialschool.schoolapp.ui.signin.SignInDialogFragment
+import com.specialschool.schoolapp.ui.signin.SignOutDialogFragment
 import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -39,10 +40,19 @@ class HomeFragment : Fragment() {
         model.navigateToSignInDialogAction.observe(viewLifecycleOwner, EventObserver {
             openSignInDialog()
         })
+
+        model.navigateToSignOutDialogAction.observe(viewLifecycleOwner, EventObserver {
+            openSignOutDialog()
+        })
     }
 
     private fun openSignInDialog() {
         val dialog = SignInDialogFragment()
         dialog.show(requireActivity().supportFragmentManager, "dialog_sign_in")
+    }
+
+    private fun openSignOutDialog() {
+        val dialog = SignOutDialogFragment()
+        dialog.show(requireActivity().supportFragmentManager, "dialog_sign_out")
     }
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -10,9 +11,10 @@
             type="com.specialschool.schoolapp.ui.signin.SignInViewModel" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_start"
@@ -28,87 +30,96 @@
             android:orientation="vertical"
             app:layout_constraintGuide_end="24dp" />
 
-        <TextView
-            android:id="@+id/top_message"
+        <LinearLayout
+            android:id="@+id/username_email_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:gravity="center_vertical"
-            android:lines="1"
             android:minHeight="68dp"
-            android:paddingTop="16dp"
+            android:orientation="vertical"
             android:paddingBottom="16dp"
-            android:text="Welcome!"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:paddingTop="16dp"
             app:layout_constraintEnd_toStartOf="@id/guideline_end"
             app:layout_constraintStart_toEndOf="@id/user_avatar"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:letterSpacing="0"
+                android:textStyle="bold"
+                app:userName="@{viewModel.currentUserInfo}"
+                tools:text="User Name" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                app:userEmail="@{viewModel.currentUserInfo}"
+                tools:text="user@email.com" />
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/user_avatar"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:layout_marginTop="16dp"
             android:contentDescription="@null"
-            app:layout_constraintLeft_toLeftOf="@id/top_message"
+            app:layout_constraintBottom_toBottomOf="@id/username_email_container"
             app:layout_constraintStart_toEndOf="@id/guideline_start"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_account_avatar" />
+            app:imageUri="@{viewModel.currentUserImageUri}"
+            app:placeholder="@{@drawable/ic_account_avatar}"
+            tools:src="@drawable/ic_account_avatar" />
 
         <View
             android:id="@+id/divider1"
             android:layout_width="0dp"
             android:layout_height="1dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/list_divider"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/top_message" />
+            app:layout_constraintTop_toBottomOf="@id/username_email_container" />
 
         <TextView
             android:id="@+id/message"
             style="?materialAlertDialogBodyTextStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:lineSpacingExtra="4sp"
-            android:text="이벤트를 저장하고, 좌석을 예약하고, 참석한 세션을 평가하려면 로그인하세요. 관련 작업이 앱과 사이트에서 계정과 동기화됩니다."
-            android:textAlignment="viewStart"
-            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:text="모든 저장된 이벤트, 좌석 예약, 참석한 세션 평가가 계정에 동기화된 상태로 유지됩니다."
             app:layout_constraintEnd_toStartOf="@id/guideline_end"
             app:layout_constraintStart_toEndOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/divider1" />
-
+            app:layout_constraintTop_toBottomOf="@id/divider1"
+            tools:style="@style/AlertDialog.BodyText"
+            tools:ignore="PrivateResource" />
 
         <TextView
-            android:id="@+id/sign_in"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawableStart="@drawable/ic_login"
+            android:id="@+id/sign_out"
+            android:background="?selectableItemBackground"
             android:drawablePadding="16dp"
             android:gravity="center_vertical"
-            android:onClick="@{() -> viewModel.onSignIn()}"
+            android:minHeight="48dip"
+            android:paddingBottom="8dp"
+            android:paddingEnd="16dp"
             android:paddingStart="16dp"
             android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp"
-            android:text="로그인"
+            android:textColor="#FF000000"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_logout"
+            android:onClick="@{() -> viewModel.onSignOut()}"
+            android:text="Sign out"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/message" />
-
-        <!--        <View-->
-        <!--            android:id="@+id/divider2"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="1dp"-->
-        <!--            android:background="@drawable/list_divider"-->
-        <!--            app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--            app:layout_constraintRight_toRightOf="parent"-->
-        <!--            app:layout_constraintTop_toBottomOf="@id/sign_in" />-->
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
