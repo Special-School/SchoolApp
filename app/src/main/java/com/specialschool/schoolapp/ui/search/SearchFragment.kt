@@ -59,13 +59,13 @@ class SearchFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.searchView.apply {
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(p0: String?): Boolean {
+                override fun onQueryTextSubmit(query: String?): Boolean {
                     dismissKeyboard(this@apply)
                     return true
                 }
 
-                override fun onQueryTextChange(p0: String): Boolean {
-                    model.onSearchQueryChanged(p0)
+                override fun onQueryTextChange(query: String): Boolean {
+                    model.onSearchQueryChanged(query)
                     return true
                 }
             })

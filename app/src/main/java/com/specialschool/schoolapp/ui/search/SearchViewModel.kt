@@ -25,12 +25,9 @@ class SearchViewModel @ViewModelInject constructor(
     eventActionsViewModelDelegate: EventActionsViewModelDelegate,
     private val searchUseCase: SearchUseCase,
     private val loadUserItemsUseCase: LoadUserItemsUseCase
-//    private val refreshSchoolDataUseCase: RefreshSchoolDataUseCase
 ) : ViewModel(),
     EventActionsViewModelDelegate by eventActionsViewModelDelegate,
     SignInViewModelDelegate by signInViewModelDelegate {
-
-    private var loadUserItemsJob: Job? = null
 
     private var searchJob: Job? = null
 
@@ -43,21 +40,23 @@ class SearchViewModel @ViewModelInject constructor(
         executeSearch()
     }
 
-    // TODO: Fix crash -> JobCancellationException
+    private val loadUserItemsResult = currentUserInfo.switchMap {
+        loadUserItemsUseCase(getUserId()).asLiveData()
+    }
+
+    private val currentUserItemObserver = Observer<Result<List<UserItem>>> {
+        refreshUserItems(it.data)
+    }
+
     init {
-//        viewModelScope.launch {
-//            refreshSchoolDataUseCase(Any())
-//            currentFirebaseUser.collect {
-//                refreshUserItems()
-//            }
-//        }
         currentUserInfo.observeForever(currentUserObserver)
-        refreshUserItems()
+        loadUserItemsResult.observeForever(currentUserItemObserver)
     }
 
     override fun onCleared() {
         super.onCleared()
         currentUserInfo.removeObserver(currentUserObserver)
+        loadUserItemsResult.removeObserver(currentUserItemObserver)
     }
 
     fun onSearchQueryChanged(query: String) {
@@ -95,17 +94,10 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     private fun clearSearchResults() {
-        refreshUserItems()
-        //_searchResults.value = emptyList()
+        _searchResults.value = loadUserItemsResult.value?.data ?: emptyList()
     }
 
-    private fun refreshUserItems() {
-        loadUserItemsJob.cancelIfActive()
-
-        loadUserItemsJob = viewModelScope.launch {
-            loadUserItemsUseCase(getUserId()).collect {
-                _searchResults.value = it.data
-            }
-        }
+    private fun refreshUserItems(items: List<UserItem>?) {
+        _searchResults.value = items ?: emptyList()
     }
 }

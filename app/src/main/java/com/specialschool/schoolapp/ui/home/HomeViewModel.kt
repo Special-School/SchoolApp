@@ -2,18 +2,14 @@ package com.specialschool.schoolapp.ui.home
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
 import com.specialschool.schoolapp.domain.schooldata.LoadUserItemsUseCase
 import com.specialschool.schoolapp.model.Coordinate
 import com.specialschool.schoolapp.model.UserItem
-import com.specialschool.schoolapp.ui.event.EventActions
-import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
 import com.specialschool.schoolapp.util.Event
-import com.specialschool.schoolapp.util.cancelIfActive
+import com.specialschool.schoolapp.util.Result
 import com.specialschool.schoolapp.util.data
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
@@ -24,8 +20,6 @@ class HomeViewModel @ViewModelInject constructor(
 ) : ViewModel(),
     HomeItemEventListener,
     SignInViewModelDelegate by signInViewModelDelegate {
-
-    private var loadUserItemsJob: Job? = null
 
     private val _itemResults = MediatorLiveData<List<Any>>()
     val itemResults: LiveData<List<Any>> = _itemResults
@@ -45,24 +39,25 @@ class HomeViewModel @ViewModelInject constructor(
     val navigateToEventAction: LiveData<Event<String>>
         get() = _navigateToEventAction
 
-    private val currentUserObserver = Observer<AuthenticatedUserInfo?> {
-        refreshIsStarredItems()
+    private val loadUserStarredItemResult = currentUserInfo.switchMap {
+        loadUserItemsUseCase(getUserId()).asLiveData()
+    }
+
+    private val currentUserStarredItemObserver = Observer<Result<List<UserItem>>> {
+        refreshIsStarredItems(it.data)
     }
 
     init {
         viewModelScope.launch {
-            // TODO: Fix crash -> JobCancellationException
-            currentFirebaseUser.collect {
-                refreshIsStarredItems()
-            }
+            currentFirebaseUser.collect()
         }
 
-        currentUserInfo.observeForever(currentUserObserver)
+        loadUserStarredItemResult.observeForever(currentUserStarredItemObserver)
     }
 
     override fun onCleared() {
         super.onCleared()
-        currentUserInfo.removeObserver(currentUserObserver)
+        loadUserStarredItemResult.removeObserver(currentUserStarredItemObserver)
     }
 
     fun onProfileButtonClicked() {
@@ -73,16 +68,8 @@ class HomeViewModel @ViewModelInject constructor(
         }
     }
 
-    private fun refreshIsStarredItems() {
-        loadUserItemsJob.cancelIfActive()
-
-        loadUserItemsJob = viewModelScope.launch {
-            loadUserItemsUseCase(getUserId()).collect { items ->
-                _itemResults.value = items.data?.filter { item ->
-                    item.userEvent.isStarred
-                }
-            }
-        }
+    private fun refreshIsStarredItems(items: List<UserItem>?) {
+        _itemResults.value = items?.filter { it.userEvent.isStarred } ?: emptyList()
     }
 
     override fun openItemDetail(id: String) {
