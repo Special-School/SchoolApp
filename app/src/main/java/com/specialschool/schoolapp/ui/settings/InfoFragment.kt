@@ -32,7 +32,7 @@ class InfoFragment : Fragment() {
         val builder = AlertDialog.Builder(root.context)
 
         btn1.setOnClickListener {
-            val dialogView = layoutInflater.inflate(R.layout.setting_dialog, null)
+            val dialogView = layoutInflater.inflate(R.layout.info_dialog, null)
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialogTitle: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialogTitle.setText(btn1.text)
@@ -47,7 +47,7 @@ class InfoFragment : Fragment() {
                 }.show()
         }
         btn2.setOnClickListener {
-            val dialogView = layoutInflater.inflate(R.layout.setting_dialog, null)
+            val dialogView = layoutInflater.inflate(R.layout.info_dialog, null)
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialogTitle: TextView = dialogView.findViewById(R.id.dialog_title)
             dialogTitle.setText((btn2.text))
@@ -58,7 +58,7 @@ class InfoFragment : Fragment() {
                 }.show()
         }
         btn3.setOnClickListener {
-            val dialogView = layoutInflater.inflate(R.layout.setting_dialog, null)
+            val dialogView = layoutInflater.inflate(R.layout.info_dialog, null)
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialogTitle: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialogTitle.setText((btn3.text))
@@ -69,7 +69,7 @@ class InfoFragment : Fragment() {
                 }.show()
         }
         btn4.setOnClickListener {
-            val dialogView = layoutInflater.inflate(R.layout.setting_dialog, null)
+            val dialogView = layoutInflater.inflate(R.layout.info_dialog, null)
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialogTitle: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialogTitle.setText((btn4.text))
@@ -80,7 +80,7 @@ class InfoFragment : Fragment() {
                 }.show()
         }
         btn5.setOnClickListener {
-            val dialogView = layoutInflater.inflate(R.layout.setting_dialog, null)
+            val dialogView = layoutInflater.inflate(R.layout.info_dialog, null)
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialogTitle: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialogTitle.setText((btn5.text))
