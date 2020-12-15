@@ -9,8 +9,8 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.KOTLIN}")
         classpath("com.google.gms:google-services:${Versions.GOOGLE_SERVICES}")
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Versions.NAVIGATION}")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}")
         classpath("org.jetbrains.dokka:dokka-gradle-plugin:${Versions.DOKKA_ANDROID}")
+        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.HILT}")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

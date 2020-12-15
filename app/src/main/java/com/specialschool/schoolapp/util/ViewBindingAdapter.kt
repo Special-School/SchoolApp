@@ -41,10 +41,11 @@ fun goneUnless(view: View, visible: Boolean) {
 }
 
 @BindingAdapter("websiteLink")
-fun websiteLink(button: View, url: String) {
+fun websiteLink(button: View, url: String?) {
     button.isVisible = true
     button.setOnClickListener {
-        openWebsiteUri(it.context, Uri.parse(url))
+        val newUrl = "http://$url"
+        openWebsiteUri(it.context, Uri.parse(newUrl))
     }
 }
 

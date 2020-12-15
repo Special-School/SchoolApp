@@ -24,7 +24,7 @@ object Versions {
     const val FRAGMENT_KTX = "1.2.5"
     const val GLIDE = "4.11.0"
     const val GOOGLE_PLAY_SERVICES_MAPS = "17.0.0"
-    const val GOOGLE_SERVICES = "4.3.3"
+    const val GOOGLE_SERVICES = "4.3.4"
     const val GSON = "2.8.6"
     const val HAMCREST = "2.2"
     const val HILT = "2.28-alpha"
