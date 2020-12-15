@@ -4,6 +4,7 @@ import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.map
 import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
 import com.specialschool.schoolapp.di.MainDispatcher
@@ -46,11 +47,21 @@ enum class SignInEvent {
 
 @ExperimentalCoroutinesApi
 internal class FirebaseSignInViewModelDelegate @Inject constructor(
-    observeUserAuthStateUseCase: ObserveUserAuthStateUseCase,
+    private val observeUserAuthStateUseCase: ObserveUserAuthStateUseCase,
     @MainDispatcher private val dispatcher: CoroutineDispatcher
 ) : SignInViewModelDelegate {
 
     override val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>>
+        get() = observeUserAuthStateUseCase(Any()).map { result ->
+            if (result is Success) {
+                authenticatedUserInfo = result.data
+                isSignedIn.value = result.data?.isSignedIn() ?: false
+                _currentUserInfo.value = result.data
+            } else if (result is Error) {
+                Log.e("", "", result.exception)
+            }
+            result
+        }
 
     private val _currentUserInfo = MutableLiveData<AuthenticatedUserInfo?>()
     override val currentUserInfo: LiveData<AuthenticatedUserInfo?>
@@ -65,19 +76,6 @@ internal class FirebaseSignInViewModelDelegate @Inject constructor(
     private val isSignedIn = MutableLiveData<Boolean>()
 
     private var authenticatedUserInfo: AuthenticatedUserInfo? = null
-
-    init {
-        currentFirebaseUser = observeUserAuthStateUseCase(Any()).map { result ->
-            if (result is Success) {
-                authenticatedUserInfo = result.data
-                isSignedIn.value = result.data?.isSignedIn() ?: false
-                _currentUserInfo.value = result.data
-            } else if (result is Error) {
-                Log.e("", "", result.exception)
-            }
-            result
-        }
-    }
 
     override suspend fun emitSignInRequest() = withContext(dispatcher) {
         performSignInEvent.value = Event(SignInEvent.REQUEST_SIGN_IN)

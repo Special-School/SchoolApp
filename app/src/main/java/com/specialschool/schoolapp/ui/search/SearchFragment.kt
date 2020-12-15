@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.SearchView
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -16,6 +17,7 @@ import com.specialschool.schoolapp.ui.school.SchoolAdapter
 import com.specialschool.schoolapp.ui.search.SearchFragmentDirections.Companion.toSchoolDetail
 import com.specialschool.schoolapp.ui.signin.SignInDialogFragment
 import com.specialschool.schoolapp.util.EventObserver
+import com.specialschool.schoolapp.util.doOnApplyWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -80,9 +82,9 @@ class SearchFragment : Fragment() {
 
         binding.schoolInfoRecycler.apply {
             adapter = schoolAdapter
-            /*doOnApplyWindowInsets { v, insets, padding ->
+            doOnApplyWindowInsets { v, insets, padding ->
                 v.updatePadding(bottom = padding.bottom + insets.systemWindowInsetBottom)
-            }*/
+            }
         }
 
         model.navigateToSignInDialogAction.observe(viewLifecycleOwner, EventObserver {

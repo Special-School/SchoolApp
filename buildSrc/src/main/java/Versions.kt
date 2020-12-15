@@ -11,6 +11,8 @@ object Versions {
     const val ANDROID_GRADLE_PLUGIN = "4.1.1"
     const val APPCOMPAT = "1.2.0"
     const val ARCH_TESTING = "2.1.0"
+    const val BROWSER = "1.0.0"
+    const val CARDVIEW = "1.0.0"
     const val CONSTRAINT_LAYOUT = "2.0.4"
     const val CORE_KTX = "1.3.2"
     const val COROUTINES = "1.4.1"

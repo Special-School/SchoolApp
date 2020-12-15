@@ -47,11 +47,13 @@ class SearchViewModel @ViewModelInject constructor(
     init {
         viewModelScope.launch {
             refreshSchoolDataUseCase(Any())
-            currentFirebaseUser.collect {
-                refreshUserItems()
-            }
+            // TODO: Fix crash -> JobCancellationException
+//            currentFirebaseUser.collect {
+//                refreshUserItems()
+//            }
         }
         currentUserInfo.observeForever(currentUserObserver)
+        refreshUserItems()
     }
 
     override fun onCleared() {
@@ -68,7 +70,7 @@ class SearchViewModel @ViewModelInject constructor(
     }
 
     private fun executeSearch() {
-        searchJob?.cancel()
+        searchJob.cancelIfActive()
 
         if (textQuery.isEmpty()) {
             clearSearchResults()

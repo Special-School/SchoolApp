@@ -31,6 +31,10 @@ class SchoolRepository @Inject constructor(
     private val loadDataLock = Any()
 
     fun refreshCacheWithRemoteSchoolData() {
+        if (dataCache != null) {
+            return
+        }
+
         val schoolData = try {
             remoteDataSource.getRemoteSchoolData()
         } catch (e: IOException) {
