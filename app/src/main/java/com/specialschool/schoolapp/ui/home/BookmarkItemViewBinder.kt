@@ -18,7 +18,7 @@ class BookmarkItemHeaderViewBinder : HomeItemViewBinder<BookmarkItemHeader, Head
 ) {
 
     override fun createViewHolder(parent: ViewGroup): ViewHolder {
-        return EmptyViewHolder(
+        return HeaderViewHolder(
             LayoutInflater.from(parent.context).inflate(getHomeItemType(), parent, false)
         )
     }
@@ -39,15 +39,16 @@ class BookmarkItemHeaderViewBinder : HomeItemViewBinder<BookmarkItemHeader, Head
 }
 
 class BookmarkItemViewBinder(
-    private val lifecycleOwner: LifecycleOwner
+    private val lifecycleOwner: LifecycleOwner,
+    private val eventListener: HomeItemEventListener
 ) : HomeItemViewBinder<UserItem, BookmarkItemViewHolder>(UserItem::class.java) {
 
     override fun createViewHolder(parent: ViewGroup): ViewHolder =
         BookmarkItemViewHolder(
             ItemHomeBookmarkBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            eventListener,
             lifecycleOwner
         )
-
 
     override fun bindViewHolder(model: UserItem, viewHolder: BookmarkItemViewHolder) {
         viewHolder.bind(model)
@@ -65,11 +66,13 @@ class BookmarkItemViewBinder(
 
 class BookmarkItemViewHolder(
     private val binding: ItemHomeBookmarkBinding,
+    private val eventListener: HomeItemEventListener,
     private val lifecycleOwner: LifecycleOwner
 ) : ViewHolder(binding.root) {
 
     fun bind(userItem: UserItem) {
         binding.item = userItem
+        binding.listener = eventListener
         binding.lifecycleOwner = lifecycleOwner
         binding.executePendingBindings()
     }

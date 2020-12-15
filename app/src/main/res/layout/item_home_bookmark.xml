@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="listener"
+            type="com.specialschool.schoolapp.ui.home.HomeItemEventListener" />
+
+        <variable
             name="item"
             type="com.specialschool.schoolapp.model.UserItem" />
     </data>
@@ -14,16 +18,19 @@
         style="@style/Widget.MaterialComponents.CardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="0dp"
-        app:strokeColor="#1F000000"
-        app:strokeWidth="1dp"
-        app:cardCornerRadius="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp">
+        android:padding="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#479F74"
+        app:strokeWidth="1dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="300dp"
-            android:layout_height="180dp">
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            >
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline_start"
@@ -41,8 +48,8 @@
 
             <ImageView
                 android:id="@+id/starred_icon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:contentDescription="@null"
@@ -54,61 +61,72 @@
 
             <TextView
                 android:id="@+id/title"
-                android:textSize="18sp"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:ellipsize="end"
                 android:lines="2"
                 android:maxLines="2"
-                android:ellipsize="end"
-                android:text=""
+                android:text="@{item.school.displayName}"
                 android:textColor="#DD000000"
-                app:layout_constraintVertical_chainStyle="packed"
-                app:layout_constraintVertical_bias="0"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed"
                 tools:text="서울맹학교" />
 
             <TextView
-                android:id="@+id/time"
-                android:layout_width="wrap_content"
+                android:id="@+id/address"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="16dp"
-                android:textAppearance="?attr/textAppearanceCaption"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:lines="2"
+                android:maxLines="2"
+                android:text="@{item.school.address}"
                 android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/footer_buttons"
                 app:layout_constraintStart_toStartOf="@id/guideline_start"
                 app:layout_constraintTop_toBottomOf="@id/title"
-                app:layout_constraintBottom_toTopOf="@id/footer_buttons"
                 tools:text="서울특별시" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/footer_buttons"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:layout_constrainedHeight="true"
-                app:layout_constraintTop_toBottomOf="@id/time"
-                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintBottom_toBottomOf="@id/keyline_bottom"
                 app:layout_constraintEnd_toEndOf="@id/guideline_end"
-                app:layout_constraintBottom_toBottomOf="@id/keyline_bottom">
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toBottomOf="@id/address">
 
                 <Button
                     android:id="@+id/map_button"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Outline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:text="지도에서 보기" />
+                    android:onClick="@{() -> listener.openItemMap(item.school.coordinate)}"
+                    android:text="지도에서 보기"
+                    app:layout_constraintEnd_toStartOf="@+id/details_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/details_button"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Outline"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="자세히 보기" />
+                    android:onClick="@{() -> listener.openItemDetail(item.school.id)}"
+                    android:text="자세히 보기"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/map_button"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/keyline_bottom"

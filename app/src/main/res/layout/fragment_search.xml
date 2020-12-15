@@ -57,7 +57,7 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:paddingBottom="24dp"
             android:scrollbars="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
