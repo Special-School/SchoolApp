@@ -1,5 +1,7 @@
 package com.specialschool.schoolapp.ui.detail
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -76,6 +78,10 @@ class SchoolDetailFragment : Fragment() {
                             ?: Coordinate(0.0, 0.0)
                     )
                 )
+        })
+
+        model.navigateToCallAction.observe(viewLifecycleOwner, EventObserver { phone ->
+            startActivity(Intent(Intent.ACTION_DIAL, Uri.parse(phone)))
         })
     }
 

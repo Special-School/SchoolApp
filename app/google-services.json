@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "568006620061-k9ftq25nqdsdhku4jgugp6himrvdgmjv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.specialschool.schoolapp",
+            "certificate_hash": "329e23f858e78106a1fbf88524da400840c2478c"
+          }
+        },
+        {
           "client_id": "568006620061-t3cenavuvcan554geofts3avjlhvoi9f.apps.googleusercontent.com",
           "client_type": 3
         }

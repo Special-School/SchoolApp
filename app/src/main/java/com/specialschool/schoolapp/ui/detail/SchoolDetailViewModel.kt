@@ -39,6 +39,9 @@ class SchoolDetailViewModel @ViewModelInject constructor(
     private val _navigateToMapAction = MutableLiveData<Event<Unit>>()
     val navigateToMapAction: LiveData<Event<Unit>> = _navigateToMapAction
 
+    private val _navigateToCallAction = MutableLiveData<Event<String>>()
+    val navigateToCallAction: LiveData<Event<String>> = _navigateToCallAction
+
     init {
         _userEvent.addSource(currentUserInfo) {
             refreshUserItem()
@@ -80,5 +83,9 @@ class SchoolDetailViewModel @ViewModelInject constructor(
 
     fun openSchoolMap() {
         _navigateToMapAction.value = Event(Unit)
+    }
+
+    fun openPhoneCall(phone: String) {
+        _navigateToCallAction.value = Event("tel:$phone")
     }
 }
