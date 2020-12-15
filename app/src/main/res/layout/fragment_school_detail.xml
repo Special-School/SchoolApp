@@ -30,7 +30,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -252,7 +252,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginHorizontal="50dp"
-                        android:text="지도로 보기"
+                        android:text="@string/school_detail_button_map"
                         android:onClick="@{() -> viewModel.openSchoolMap()}"/>
 
                     <View
@@ -292,7 +292,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginHorizontal="50dp"
-                        android:text="전화 걸기"
+                        android:text="@string/school_detail_button_call"
                         android:onClick="@{() -> viewModel.openPhoneCall(viewModel.school.contact.adminNumber)}"/>
 
                     <View
@@ -332,7 +332,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginHorizontal="50dp"
-                        android:text="전화 걸기"
+                        android:text="@string/school_detail_button_call"
                         android:onClick="@{() -> viewModel.openPhoneCall(viewModel.school.contact.staffRoomNumber)}"/>
 
                     <View
@@ -372,7 +372,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:layout_marginHorizontal="50dp"
-                        android:text="홈페이지 보기"
+                        android:text="@string/school_detail_button_website"
                         app:websiteLink="@{viewModel.school.website}" />
 
                     <View

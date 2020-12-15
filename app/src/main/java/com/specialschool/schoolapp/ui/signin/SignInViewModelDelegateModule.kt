@@ -1,6 +1,5 @@
 package com.specialschool.schoolapp.ui.signin
 
-import com.specialschool.schoolapp.di.IoDispatcher
 import com.specialschool.schoolapp.di.MainDispatcher
 import com.specialschool.schoolapp.domain.auth.ObserveUserAuthStateUseCase
 import dagger.Module

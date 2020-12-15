@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.specialschool.schoolapp.databinding.SearchSchoolItemBinding
-import com.specialschool.schoolapp.model.School
 import com.specialschool.schoolapp.model.UserItem
 import com.specialschool.schoolapp.ui.event.EventActions
 

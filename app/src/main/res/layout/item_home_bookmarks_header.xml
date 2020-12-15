@@ -33,7 +33,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="즐겨찾기한 학교"
+            android:text="@string/item_home_header_title"
             android:textColor="#DD000000"
             android:textStyle="bold"
             android:textSize="18sp"

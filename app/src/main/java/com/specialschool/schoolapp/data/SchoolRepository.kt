@@ -80,6 +80,17 @@ class SchoolRepository @Inject constructor(
             return schoolData
         }
 
+        schoolData = try {
+            remoteDataSource.getRemoteSchoolData()
+        } catch (e: IOException) {
+            latestException = e
+            null
+        }
+
+        if (schoolData != null) {
+            return schoolData
+        }
+
         schoolData = bootstrapDataSource.getSchoolData()!!
         return schoolData
     }

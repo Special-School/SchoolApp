@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.specialschool.schoolapp.R
 
 class InfoFragment : Fragment() {
+
     private lateinit var infoViewModel: InfoViewModel
 
     override fun onCreateView(

@@ -23,4 +23,15 @@
     <string name="dialog_sign_out_message">학교 데이터가 계정에 동기화된 상태로 유지됩니다.</string>
     <string name="bookmark_empty_text">즐겨찾기한 학교가 없습니다.</string>
     <string name="app_title">특수학교 찾기</string>
+    <string name="info_1">서비스 이용 약관</string>
+    <string name="info_2">위치 기반 서비스 이용 약관</string>
+    <string name="info_3">정보 제공처</string>
+    <string name="info_4">버전 정보</string>
+    <string name="info_5">개발자 정보</string>
+    <string name="school_detail_button_map">지도로 보기</string>
+    <string name="school_detail_button_call">전화 걸기</string>
+    <string name="school_detail_button_website">홈페이지 보기</string>
+    <string name="item_home_button_map">지도에서 보기</string>
+    <string name="item_home_button_detail">자세히 보기</string>
+    <string name="item_home_header_title">즐겨찾기한 학교</string>
 </resources>

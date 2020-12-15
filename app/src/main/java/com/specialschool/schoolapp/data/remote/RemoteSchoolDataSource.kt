@@ -5,11 +5,9 @@ import android.content.Context.CONNECTIVITY_SERVICE
 import android.net.ConnectivityManager
 import com.specialschool.schoolapp.data.SchoolDataSource
 import com.specialschool.schoolapp.data.json.SchoolDataJsonParser
-import com.specialschool.schoolapp.model.School
 import com.specialschool.schoolapp.model.SchoolData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.IOException
-import java.lang.RuntimeException
 import javax.inject.Inject
 
 class RemoteSchoolDataSource @Inject constructor(

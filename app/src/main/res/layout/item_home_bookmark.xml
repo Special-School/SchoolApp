@@ -110,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> listener.openItemMap(item.school.coordinate)}"
-                    android:text="지도에서 보기"
+                    android:text="@string/item_home_button_map"
                     app:layout_constraintEnd_toStartOf="@+id/details_button"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -121,7 +121,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="@{() -> listener.openItemDetail(item.school.id)}"
-                    android:text="자세히 보기"
+                    android:text="@string/item_home_button_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/map_button"
                     app:layout_constraintTop_toTopOf="parent" />

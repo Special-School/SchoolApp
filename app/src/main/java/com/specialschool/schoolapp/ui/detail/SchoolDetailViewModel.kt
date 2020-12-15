@@ -3,7 +3,6 @@ package com.specialschool.schoolapp.ui.detail
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.specialschool.schoolapp.domain.schooldata.LoadUserItemUseCase
-import com.specialschool.schoolapp.model.Coordinate
 import com.specialschool.schoolapp.model.School
 import com.specialschool.schoolapp.model.UserEvent
 import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
