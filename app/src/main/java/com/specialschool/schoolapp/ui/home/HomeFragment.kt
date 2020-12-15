@@ -121,7 +121,9 @@ class HomeFragment : Fragment() {
         }
 
         if (list.isNullOrEmpty()) {
-            (recyclerView.adapter as HomeItemAdapter).submitList(listOf(BookmarkItemEmpty))
+            (recyclerView.adapter as HomeItemAdapter).submitList(
+                listOf(BookmarkItemHeader, BookmarkItemEmpty)
+            )
         } else {
             val items = listOf(BookmarkItemHeader).plus(list)
             (recyclerView.adapter as HomeItemAdapter).submitList(items)

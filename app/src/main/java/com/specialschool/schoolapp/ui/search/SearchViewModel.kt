@@ -3,17 +3,16 @@ package com.specialschool.schoolapp.ui.search
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
-import com.specialschool.schoolapp.domain.bookmark.StarEventParameter
-import com.specialschool.schoolapp.domain.bookmark.StarEventUseCase
 import com.specialschool.schoolapp.domain.schooldata.LoadUserItemsUseCase
-import com.specialschool.schoolapp.domain.schooldata.RefreshSchoolDataUseCase
 import com.specialschool.schoolapp.domain.search.SearchParameter
 import com.specialschool.schoolapp.domain.search.SearchUseCase
 import com.specialschool.schoolapp.model.UserItem
-import com.specialschool.schoolapp.ui.event.EventActions
 import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
-import com.specialschool.schoolapp.util.*
+import com.specialschool.schoolapp.util.Result
+import com.specialschool.schoolapp.util.cancelIfActive
+import com.specialschool.schoolapp.util.data
+import com.specialschool.schoolapp.util.successOr
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -25,8 +24,8 @@ class SearchViewModel @ViewModelInject constructor(
     signInViewModelDelegate: SignInViewModelDelegate,
     eventActionsViewModelDelegate: EventActionsViewModelDelegate,
     private val searchUseCase: SearchUseCase,
-    private val loadUserItemsUseCase: LoadUserItemsUseCase,
-    private val refreshSchoolDataUseCase: RefreshSchoolDataUseCase
+    private val loadUserItemsUseCase: LoadUserItemsUseCase
+//    private val refreshSchoolDataUseCase: RefreshSchoolDataUseCase
 ) : ViewModel(),
     EventActionsViewModelDelegate by eventActionsViewModelDelegate,
     SignInViewModelDelegate by signInViewModelDelegate {
@@ -44,14 +43,14 @@ class SearchViewModel @ViewModelInject constructor(
         executeSearch()
     }
 
+    // TODO: Fix crash -> JobCancellationException
     init {
-        viewModelScope.launch {
-            refreshSchoolDataUseCase(Any())
-            // TODO: Fix crash -> JobCancellationException
+//        viewModelScope.launch {
+//            refreshSchoolDataUseCase(Any())
 //            currentFirebaseUser.collect {
 //                refreshUserItems()
 //            }
-        }
+//        }
         currentUserInfo.observeForever(currentUserObserver)
         refreshUserItems()
     }
