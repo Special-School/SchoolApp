@@ -11,6 +11,7 @@ import com.specialschool.schoolapp.domain.search.SearchParameter
 import com.specialschool.schoolapp.domain.search.SearchUseCase
 import com.specialschool.schoolapp.model.UserItem
 import com.specialschool.schoolapp.ui.event.EventActions
+import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
 import com.specialschool.schoolapp.util.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -22,12 +23,12 @@ import kotlinx.coroutines.launch
 @ExperimentalCoroutinesApi
 class SearchViewModel @ViewModelInject constructor(
     signInViewModelDelegate: SignInViewModelDelegate,
+    eventActionsViewModelDelegate: EventActionsViewModelDelegate,
     private val searchUseCase: SearchUseCase,
     private val loadUserItemsUseCase: LoadUserItemsUseCase,
-    private val starEventUseCase: StarEventUseCase,
     private val refreshSchoolDataUseCase: RefreshSchoolDataUseCase
 ) : ViewModel(),
-    EventActions,
+    EventActionsViewModelDelegate by eventActionsViewModelDelegate,
     SignInViewModelDelegate by signInViewModelDelegate {
 
     private var loadUserItemsJob: Job? = null
@@ -36,12 +37,6 @@ class SearchViewModel @ViewModelInject constructor(
 
     private val _searchResults = MediatorLiveData<List<UserItem>>()
     val searchResults: LiveData<List<UserItem>> = _searchResults
-
-    private val _navigateToSchoolDetailAction = MutableLiveData<Event<String>>()
-    val navigateToSchoolDetailAction: LiveData<Event<String>> = _navigateToSchoolDetailAction
-
-    private val _navigateToSignInDialogAction = MutableLiveData<Event<Unit>>()
-    val navigateToSignInDialogAction: LiveData<Event<Unit>> = _navigateToSignInDialogAction
 
     private var textQuery = ""
 
@@ -57,6 +52,11 @@ class SearchViewModel @ViewModelInject constructor(
             }
         }
         currentUserInfo.observeForever(currentUserObserver)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        currentUserInfo.removeObserver(currentUserObserver)
     }
 
     fun onSearchQueryChanged(query: String) {
@@ -107,37 +107,4 @@ class SearchViewModel @ViewModelInject constructor(
             }
         }
     }
-
-    override fun openItemDetail(id: String) {
-        _navigateToSchoolDetailAction.value = Event(id)
-    }
-
-    override fun onStarClicked(userItem: UserItem) {
-        if (!isSignedIn()) {
-            _navigateToSignInDialogAction.value = Event(Unit)
-            return
-        }
-        val newIsStarredState = !userItem.userEvent.isStarred
-
-        viewModelScope.launch {
-            getUserId()?.let {
-                val result = starEventUseCase(
-                    StarEventParameter(
-                        it, userItem.copy(
-                            userEvent = userItem.userEvent.copy(isStarred = newIsStarredState)
-                        )
-                    )
-                )
-                // Show an error message if a star request fails
-                if (result is Result.Error) {
-
-                }
-            }
-        }
-    }
-
-    private val _test1 = MutableLiveData<String>().apply {
-        value = "검색"
-    }
-    val test: LiveData<String> = _test1
 }

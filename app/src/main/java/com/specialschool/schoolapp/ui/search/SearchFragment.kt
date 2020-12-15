@@ -48,7 +48,7 @@ class SearchFragment : Fragment() {
             schoolAdapter.submitList(it)
         })
 
-        model.navigateToSchoolDetailAction.observe(viewLifecycleOwner, EventObserver { id ->
+        model.navigateToEventAction.observe(viewLifecycleOwner, EventObserver { id ->
             findNavController().navigate(toSchoolDetail(id))
         })
     }

@@ -16,4 +16,9 @@
     <string name="detail_text_8">행정실 전화번호 : </string>
     <string name="detail_text_9">교무실 전화번호 : </string>
     <string name="detail_text_10">홈페이지 : </string>
+    <string name="dialog_sign_in_message">학교를 즐겨찾기 하려면 로그인하세요. 관련 데이터가 앱에서 계정과 동기화됩니다.</string>
+    <string name="dialog_sign_in_top_message">반갑습니다!</string>
+    <string name="sign_in_button">Sign in</string>
+    <string name="sign_out_button">Sign out</string>
+    <string name="dialog_sign_out_message">학교 데이터가 계정에 동기화된 상태로 유지됩니다.</string>
 </resources>
