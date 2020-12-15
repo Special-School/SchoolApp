@@ -39,6 +39,10 @@ class MockSearchAppDatabase : AppDatabase() {
             override fun searchByDisplayName(query: String): List<String> {
                 TODO("Not implemented")
             }
+
+            override fun searchByFullName(query: String): List<String> {
+                TODO("Not yet implemented")
+            }
         }
     }
 

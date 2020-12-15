@@ -11,7 +11,9 @@ import com.specialschool.schoolapp.ui.signin.SignInDialogFragment
 import com.specialschool.schoolapp.ui.signin.SignOutDialogFragment
 import com.specialschool.schoolapp.util.EventObserver
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 
+@ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 

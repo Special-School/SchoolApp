@@ -3,6 +3,8 @@ object Libs {
     const val ANDROIDX_HILT_COMPILER = "androidx.hilt:hilt-compiler:${Versions.HILT_JETPACK}"
     const val APPCOMPAT = "androidx.appcompat:appcompat:${Versions.APPCOMPAT}"
     const val ARCH_TESTING = "androidx.arch.core:core-testing:${Versions.ARCH_TESTING}"
+    const val BROWSER = "androidx.browser:browser:${Versions.BROWSER}"
+    const val CARDVIEW = "androidx.cardview:cardview:${Versions.CARDVIEW}"
     const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:${Versions.CONSTRAINT_LAYOUT}"
     const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"

@@ -57,6 +57,8 @@ dependencies {
     implementation(Libs.CORE_KTX)
     implementation(Libs.APPCOMPAT)
     implementation(Libs.ACTIVITY_KTX)
+    implementation(Libs.BROWSER)
+    implementation(Libs.CARDVIEW)
     implementation(Libs.FRAGMENT_KTX)
     implementation(Libs.MATERIAL)
     implementation(Libs.CONSTRAINT_LAYOUT)

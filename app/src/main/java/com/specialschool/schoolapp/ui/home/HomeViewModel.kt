@@ -1,21 +1,29 @@
 package com.specialschool.schoolapp.ui.home
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.specialschool.schoolapp.data.signin.AuthenticatedUserInfo
+import com.specialschool.schoolapp.domain.schooldata.LoadUserItemsUseCase
 import com.specialschool.schoolapp.ui.event.EventActionsViewModelDelegate
 import com.specialschool.schoolapp.ui.signin.SignInViewModelDelegate
 import com.specialschool.schoolapp.util.Event
+import com.specialschool.schoolapp.util.cancelIfActive
+import com.specialschool.schoolapp.util.data
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
+@ExperimentalCoroutinesApi
 class HomeViewModel @ViewModelInject constructor(
     signInViewModelDelegate: SignInViewModelDelegate,
-    eventActionsViewModelDelegate: EventActionsViewModelDelegate
+    eventActionsViewModelDelegate: EventActionsViewModelDelegate,
+    private val loadUserItemsUseCase: LoadUserItemsUseCase
 ) : ViewModel(),
     SignInViewModelDelegate by signInViewModelDelegate,
     EventActionsViewModelDelegate by eventActionsViewModelDelegate {
+
+    private var loadUserItemsJob: Job? = null
 
     private val _navigateToSignInDialogAction = MutableLiveData<Event<Unit>>()
     override val navigateToSignInDialogAction: LiveData<Event<Unit>>
@@ -26,16 +34,20 @@ class HomeViewModel @ViewModelInject constructor(
         get() = _navigateToSignOutDialogAction
 
     private val currentUserObserver = Observer<AuthenticatedUserInfo?> {
-
+        refreshIsStarredItems()
     }
 
     init {
+        viewModelScope.launch {
+            currentFirebaseUser.collect()
+        }
+
         currentUserInfo.observeForever(currentUserObserver)
     }
 
     override fun onCleared() {
         super.onCleared()
-        currentUserInfo.observeForever(currentUserObserver)
+        currentUserInfo.removeObserver(currentUserObserver)
     }
 
     fun onProfileButtonClicked() {
@@ -43,6 +55,16 @@ class HomeViewModel @ViewModelInject constructor(
             _navigateToSignOutDialogAction.value = Event(Unit)
         } else {
             _navigateToSignInDialogAction.value = Event(Unit)
+        }
+    }
+
+    private fun refreshIsStarredItems() {
+        loadUserItemsJob.cancelIfActive()
+
+        loadUserItemsJob = viewModelScope.launch {
+            loadUserItemsUseCase(getUserId()).collect {
+
+            }
         }
     }
 }
