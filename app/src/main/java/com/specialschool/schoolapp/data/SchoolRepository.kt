@@ -10,6 +10,13 @@ import javax.inject.Inject
 import javax.inject.Named
 import javax.inject.Singleton
 
+/**
+ * Domain layer에서 학교 데이터에 접근하기 위한 repository
+ *
+ * @property remoteDataSource 네트워크로 불러오는 data source
+ * @property bootstrapDataSource 로컬에 저장된 data source
+ * @property database Room database
+ */
 @Singleton
 class SchoolRepository @Inject constructor(
     @Named("remoteSchoolDataSource") private val remoteDataSource: SchoolDataSource,
@@ -17,6 +24,7 @@ class SchoolRepository @Inject constructor(
     private val database: AppDatabase
 ) {
 
+    // In memory cache of the school data
     private var dataCache: SchoolData? = null
 
     val currentSchoolDataVersion: Int
@@ -30,6 +38,9 @@ class SchoolRepository @Inject constructor(
     // 동기화를 위한 lock object
     private val loadDataLock = Any()
 
+    /**
+     * 네트워크를 통해 [dataCache]를 업데이트한다.
+     */
     fun refreshCacheWithRemoteSchoolData() {
         if (dataCache != null) {
             return
@@ -47,6 +58,7 @@ class SchoolRepository @Inject constructor(
             throw e
         }
 
+        // 데이터를 성공적으로 불러오면 캐시를 업데이트한다.
         synchronized(loadDataLock) {
             dataCache = schoolData
             populateSearchData(schoolData)
@@ -55,6 +67,9 @@ class SchoolRepository @Inject constructor(
         latestException = null
     }
 
+    /**
+     * [School] 리스트를 반환한다.
+     */
     fun getSchoolList(): List<School> {
         return getOfflineSchoolData().schools
     }
@@ -74,12 +89,14 @@ class SchoolRepository @Inject constructor(
     }
 
     private fun getCacheOrBootstrapData(): SchoolData {
+        // 1. Http 로컬 캐시를 사용해 불러온다.
         var schoolData = remoteDataSource.getSchoolData()
 
         if (schoolData != null) {
             return schoolData
         }
 
+        // 2. Http 연결을 통해 불러온다.
         schoolData = try {
             remoteDataSource.getRemoteSchoolData()
         } catch (e: IOException) {
@@ -91,10 +108,12 @@ class SchoolRepository @Inject constructor(
             return schoolData
         }
 
+        // 3. 위의 경우가 모두 실패할 때, 내장된 파일로 부터 데이터를 불러온다.
         schoolData = bootstrapDataSource.getSchoolData()!!
         return schoolData
     }
 
+    // Full text search를 위해 불러온 데이터를 local db에 저장한다.
     private fun populateSearchData(data: SchoolData) {
         val schoolFtsEntities = data.schools.map { school ->
             SchoolFtsEntity(
@@ -107,12 +126,16 @@ class SchoolRepository @Inject constructor(
         database.schoolFtsDao().insertAll(schoolFtsEntities)
     }
 
+    // TODO: Need refactoring
     private fun insertBlankInString(str: String, index: Int): String {
         val temp = str.toMutableList()
         temp.add(index, ' ')
         return temp.joinToString("")
     }
 
+    /**
+     * 특정 학교 데이터를 불러온다.
+     */
     fun getSchool(schoolId: String): School {
         return getOfflineSchoolData().schools.firstOrNull { school ->
             school.id == schoolId

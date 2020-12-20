@@ -32,27 +32,34 @@ interface SchoolAndUserItemRepository {
     fun getUserItem(userId: String, itemId: String): UserItem
 }
 
+// TODO: change name?
 data class ObservableUserItems(
     val userItems: List<UserItem>
 )
 
+/**
+ * 학교 데이터와 User data를 불러오는 repository
+ */
 @ExperimentalCoroutinesApi
 class DefaultSchoolAndUserItemRepository @Inject constructor(
     private val userEventDataSource: UserEventDataSource,
     private val schoolRepository: SchoolRepository
 ) : SchoolAndUserItemRepository {
 
+    /**
+     * 학교 데이터 목록과 User event 목록을 각각 불러와 병합해서 반환한다.
+     */
     override fun getObservableUserItems(userId: String?): Flow<Result<ObservableUserItems>> {
         return flow {
             emit(Result.Loading)
             if (userId == null) {
                 val schools = schoolRepository.getSchoolList()
-                val userItems = mergeUserDataAndItmes(emptyList(), schools)
+                val userItems = mergeUserDataAndSchools(emptyList(), schools)
                 emit(Result.Success(ObservableUserItems(userItems)))
             } else {
                 emitAll(userEventDataSource.getObservableUserEvents(userId).map { events ->
                     val schools = schoolRepository.getSchoolList()
-                    val userItems = mergeUserDataAndItmes(events, schools)
+                    val userItems = mergeUserDataAndSchools(events, schools)
                     Result.Success(
                         ObservableUserItems(userItems)
                     )
@@ -61,6 +68,9 @@ class DefaultSchoolAndUserItemRepository @Inject constructor(
         }
     }
 
+    /**
+     * 특정 학교 데이터와 User event 데이터를 병합해서 반환한다.
+     */
     override fun getObservableUserItem(userId: String?, itemId: String): Flow<Result<UserItem>> {
         if (userId == null) {
             val school = schoolRepository.getSchool(itemId)
@@ -77,15 +87,20 @@ class DefaultSchoolAndUserItemRepository @Inject constructor(
         }
     }
 
+    // TODO: unused method
     override fun getUserEvents(userId: String?): List<UserEvent> {
         return userEventDataSource.getUserEvents(userId ?: "")
     }
 
+    /**
+     * @see [FirestoreUserEventDataSource.starEvent]
+     */
     override suspend fun starEvent(
         userId: String,
         userEvent: UserEvent
     ): Result<StarUpdatedStatus> = userEventDataSource.starEvent(userId, userEvent)
 
+    // TODO: unused method
     override fun getUserItem(userId: String, itemId: String): UserItem {
         val school = schoolRepository.getSchool(itemId)
         val userEvent = userEventDataSource.getUserEvent(userId, itemId)
@@ -101,8 +116,9 @@ class DefaultSchoolAndUserItemRepository @Inject constructor(
         return UserEvent(id = school.id)
     }
 
+    // User data와 학교 데이터 목록을 병합한다.
     @WorkerThread
-    private fun mergeUserDataAndItmes(
+    private fun mergeUserDataAndSchools(
         userData: List<UserEvent>,
         schools: List<School>
     ): List<UserItem> {

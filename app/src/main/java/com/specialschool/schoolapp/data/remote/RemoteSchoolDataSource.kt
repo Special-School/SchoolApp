@@ -10,10 +10,16 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import java.io.IOException
 import javax.inject.Inject
 
+/**
+ * 학교 데이터를 다운로드 받아 파싱하는 data source
+ */
 class RemoteSchoolDataSource @Inject constructor(
     @ApplicationContext val context: Context
 ) : SchoolDataSource {
 
+    /**
+     * Http 연결을 통해 학교 데이터를 가져온다.
+     */
     override fun getRemoteSchoolData(): SchoolData? {
         if (!hasNetworkConnection()) {
             return null
@@ -42,6 +48,9 @@ class RemoteSchoolDataSource @Inject constructor(
         return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting
     }
 
+    /**
+     * Http 캐시를 통해 학교 데이터를 가져온다.
+     */
     override fun getSchoolData(): SchoolData? {
         val responseSource = try {
             SchoolDataDownloader(context, "1").fetchCached()

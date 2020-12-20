@@ -5,6 +5,9 @@ import com.google.gson.JsonDeserializer
 import com.google.gson.JsonElement
 import java.lang.reflect.Type
 
+/**
+ * Custom deserializer for [SchoolTemp]
+ */
 class SchoolDeserializer : JsonDeserializer<SchoolTemp> {
 
     override fun deserialize(

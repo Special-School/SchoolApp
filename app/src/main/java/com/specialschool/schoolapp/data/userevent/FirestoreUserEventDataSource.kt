@@ -22,12 +22,18 @@ import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
+/**
+ * Firestore에 저장된 user data source
+ */
 @ExperimentalCoroutinesApi
 class FirestoreUserEventDataSource @Inject constructor(
     val firestore: FirebaseFirestore,
     @IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : UserEventDataSource {
 
+    /**
+     * User event 데이터 들을 가져오는 비동기 메서드
+     */
     override fun getObservableUserEvents(userId: String): Flow<List<UserEvent>> {
         if (userId.isEmpty()) {
             return flow { emit(emptyList()) }
@@ -55,6 +61,9 @@ class FirestoreUserEventDataSource @Inject constructor(
         }
     }
 
+    /**
+     * 특정 User event 데이터를 가져오는 비동기 메서드
+     */
     override fun getObservableUserEvent(userId: String, eventId: String): Flow<UserEvent> {
         return (channelFlow<UserEvent> {
             val eventDocument = firestore
@@ -83,6 +92,7 @@ class FirestoreUserEventDataSource @Inject constructor(
         }).flowOn(dispatcher)
     }
 
+    // TODO: unused method
     override fun getUserEvents(userId: String): List<UserEvent> {
         if (userId.isEmpty()) {
             return emptyList()
@@ -97,6 +107,7 @@ class FirestoreUserEventDataSource @Inject constructor(
         return snapshot.documents.map { parseUserEvent(it) }
     }
 
+    // TODO: unused method
     override fun getUserEvent(userId: String, eventId: String): UserEvent? {
         if (userId.isEmpty()) {
             return null
@@ -112,6 +123,11 @@ class FirestoreUserEventDataSource @Inject constructor(
         return parseUserEvent(snapshot)
     }
 
+    /**
+     * Firestore에 즐겨찾기된 학교 정보를 업데이트한다.
+     *
+     * @return 실행 결과([StarUpdatedStatus])를 반환한다.
+     */
     override suspend fun starEvent(
         userId: String,
         userEvent: UserEvent
@@ -149,5 +165,3 @@ class FirestoreUserEventDataSource @Inject constructor(
         }
     }
 }
-
-// In FirestoreExtensions, FirebaseFirestore.schoolDataDocument()

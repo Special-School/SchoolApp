@@ -9,8 +9,15 @@ import java.io.InputStream
 import java.time.LocalDate
 import kotlin.jvm.Throws
 
+/**
+ * 불러온 Json 데이터를 위한 parser,
+ */
 object SchoolDataJsonParser {
 
+    /**
+     * @return 정규화된 [School] 목록을 반환한다.
+     * @param unprocessedData 스트림 형태로 받아온 json 데이터
+     */
     @Throws(JsonIOException::class, JsonSyntaxException::class)
     fun parseJsonData(unprocessedData: InputStream): SchoolData {
         val jsonReader = JsonReader(unprocessedData.reader())

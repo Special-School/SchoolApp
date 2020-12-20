@@ -1,5 +1,8 @@
 package com.specialschool.schoolapp.data.json
 
+/**
+ * Raw data from stream.
+ */
 data class SchoolTemp(
     val region: String,
     val type: String,

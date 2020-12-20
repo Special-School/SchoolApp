@@ -5,6 +5,11 @@ import com.specialschool.schoolapp.model.UserEvent
 import com.specialschool.schoolapp.util.Result
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * User event data source 인터페이스
+ *
+ * @see [FirestoreUserEventDataSource]
+ */
 interface UserEventDataSource {
 
     fun getObservableUserEvents(userId: String): Flow<List<UserEvent>>

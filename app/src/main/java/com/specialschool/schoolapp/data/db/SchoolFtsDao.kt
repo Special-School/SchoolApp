@@ -5,6 +5,9 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 
+/**
+ * The data access object for [SchoolFtsEntity]
+ */
 @Dao
 interface SchoolFtsDao {
 
