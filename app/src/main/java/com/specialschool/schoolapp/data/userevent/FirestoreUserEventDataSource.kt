@@ -32,7 +32,7 @@ class FirestoreUserEventDataSource @Inject constructor(
 ) : UserEventDataSource {
 
     /**
-     * User event 데이터 들을 가져오는 비동기 메서드
+     * 실시간 업데이트 리스너를 등록하고, User event 데이터 들을 가져오는 비동기 메서드.
      */
     override fun getObservableUserEvents(userId: String): Flow<List<UserEvent>> {
         if (userId.isEmpty()) {
@@ -62,7 +62,7 @@ class FirestoreUserEventDataSource @Inject constructor(
     }
 
     /**
-     * 특정 User event 데이터를 가져오는 비동기 메서드
+     * 실시간 업데이트 리스너를 등록하고, 특정 User event 데이터를 가져오는 비동기 메서드
      */
     override fun getObservableUserEvent(userId: String, eventId: String): Flow<UserEvent> {
         return (channelFlow<UserEvent> {
@@ -132,6 +132,7 @@ class FirestoreUserEventDataSource @Inject constructor(
         userId: String,
         userEvent: UserEvent
     ): Result<StarUpdatedStatus> = withContext(dispatcher) {
+        // 응답이 오기 전까진 lock
         suspendCancellableCoroutine<Result<StarUpdatedStatus>> { continuation ->
             val data = mapOf(
                 "id" to userEvent.id,

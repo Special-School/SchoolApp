@@ -21,6 +21,8 @@ class FtsQueryMatchStrategy @Inject constructor(
      * @return 매치하는 학교 데이터 리스트
      * @param userItems 검색할 학교 데이터 리스트
      * @param query 검색 쿼리
+     *
+     * TODO: Refactoring
      */
     override fun searchSchools(userItems: List<UserItem>, query: String): List<UserItem> {
         if (query.isEmpty()) {

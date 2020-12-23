@@ -11,8 +11,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
+/**
+ * Firestore에서 사용자 데이터 들을 불러오는 use case
+ *
+ * TODO: IO Dispatcher? Default dispatcher?
+ */
 @ExperimentalCoroutinesApi
-// TODO: IO Dispatcher? Default dispatcher?
 class LoadUserItemUseCase @Inject constructor(
     private val repository: DefaultSchoolAndUserItemRepository,
     @DefaultDispatcher dispatcher: CoroutineDispatcher

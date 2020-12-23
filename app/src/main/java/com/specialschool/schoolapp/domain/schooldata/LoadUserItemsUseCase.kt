@@ -1,6 +1,6 @@
 package com.specialschool.schoolapp.domain.schooldata
 
-import com.specialschool.schoolapp.data.userevent.DefaultSchoolAndUserItemRepository
+import com.specialschool.schoolapp.data.userevent.SchoolAndUserItemRepository
 import com.specialschool.schoolapp.di.DefaultDispatcher
 import com.specialschool.schoolapp.domain.FlowUseCase
 import com.specialschool.schoolapp.model.UserItem
@@ -10,12 +10,15 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
-import kotlin.IllegalStateException
 
+/**
+ * Firestore에서 사용자 데이터 들을 불러오는 use case
+ *
+ * TODO: IO Dispatcher? Default dispatcher?
+ */
 @ExperimentalCoroutinesApi
-// TODO: IO Dispatcher? Default dispatcher?
 class LoadUserItemsUseCase @Inject constructor(
-    private val repository: DefaultSchoolAndUserItemRepository,
+    private val repository: SchoolAndUserItemRepository,
     @DefaultDispatcher dispatcher: CoroutineDispatcher
 ) : FlowUseCase<String?, List<UserItem>>(dispatcher) {
 

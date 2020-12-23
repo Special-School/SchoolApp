@@ -7,7 +7,7 @@ import java.lang.RuntimeException
 import kotlin.jvm.Throws
 
 /**
- * 비즈니스 로직을 코루틴을 이용해 실행한다.
+ * Domain layer를 표현한 추상 클래스, 비즈니스 로직을 코루틴을 이용해 실행한다.
  */
 abstract class UseCase<in P, R>(private val dispatcher: CoroutineDispatcher) {
 

@@ -2,6 +2,9 @@ package com.specialschool.schoolapp.model
 
 import java.time.LocalDate
 
+/**
+ * 학교 데이터 model
+ */
 data class School(
     val id: String,
     val province: String,

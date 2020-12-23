@@ -22,8 +22,8 @@ class FirebaseAuthStateUserDataSource @Inject constructor(
     private var lastUid: String? = null
 
 
-    // 모든 subscriber에 마지막으로 변경된 데이터를 송신하는 채널
-    // TODO: ConflatedBroadcastChannel(deprecated) -> StateFlow
+    // 모든 subscriber에 마지막으로 변경된 데이터를 송신하는 채널, multicast
+    // TODO: Deprecated API 변경, ConflatedBroadcastChannel -> StateFlow
     private val channel = ConflatedBroadcastChannel<Result<AuthenticatedUserInfo>>()
 
     /**

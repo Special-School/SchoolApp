@@ -14,6 +14,11 @@ import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * 사용자의 인증 상태를 관찰하는 use case
+ *
+ * @property authStateUserDataSource Firebase auth api
+ */
 @ExperimentalCoroutinesApi
 @Singleton
 open class ObserveUserAuthStateUseCase @Inject constructor(

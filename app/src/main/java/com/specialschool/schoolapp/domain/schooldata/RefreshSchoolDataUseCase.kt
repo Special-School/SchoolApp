@@ -7,6 +7,11 @@ import com.specialschool.schoolapp.domain.UseCase
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
+/**
+ * 네트워크를 통해 학교 데이터를 새로 불러와서 캐시 데이터를 업데이트하는 use case
+ * 
+ * TODO: Unused use case
+ */
 class RefreshSchoolDataUseCase @Inject constructor(
     private val repository: SchoolRepository,
     @IoDispatcher dispatcher: CoroutineDispatcher

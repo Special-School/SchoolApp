@@ -9,6 +9,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+/**
+ * Presentation Layer에서 사용자 인증을 다루는 인터페이스, Auth provider와 상호 작용한다.
+ */
 interface SignInHandler {
 
     fun makeSignInIntent(): LiveData<Intent?>
@@ -18,6 +21,9 @@ interface SignInHandler {
     fun signOut(context: Context, onComplete: () -> Unit = {})
 }
 
+/**
+ * Firebase AuthUI를 호출하는 [SignInHandler]
+ */
 class FirebaseAuthSignInHandler(private val externalScope: CoroutineScope) : SignInHandler {
 
     override fun makeSignInIntent(): LiveData<Intent?> {

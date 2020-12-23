@@ -8,6 +8,9 @@ import com.specialschool.schoolapp.util.Result
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
+/**
+ * 학교 북마크 이벤트 use case
+ */
 class StarEventUseCase @Inject constructor(
     private val repository: SchoolAndUserItemRepository,
     @IoDispatcher dispatcher: CoroutineDispatcher
