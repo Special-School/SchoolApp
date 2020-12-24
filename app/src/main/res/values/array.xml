@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="search_spinner_item">
+        <item>전체 검색</item>
+        <item>도시</item>
+        <item>학교명</item>
+        <item>설립별</item>
+        <item>장애 영역</item>
+    </string-array>
+</resources>
