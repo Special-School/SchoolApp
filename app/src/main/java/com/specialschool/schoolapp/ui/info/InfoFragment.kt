@@ -1,4 +1,4 @@
-package com.specialschool.schoolapp.ui.settings
+package com.specialschool.schoolapp.ui.info
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -74,7 +74,8 @@ class InfoFragment : Fragment() {
             val dialog = dialogView.findViewById<TextView>(R.id.custom_dialog_text)
             val dialogTitle: TextView = dialogView.findViewById<TextView>(R.id.dialog_title)
             dialogTitle.setText((btn4.text))
-            dialog.setText("version : 1.0.0 (2020-11-18)\nversion : 1.1.0 (2020-12-03)")
+            dialog.setText("version : 0.8.0 (2020-11-18)\nversion : 0.9.0 (2020-12-03)\n" +
+                    "version : 1.0.0 (2020-12-24)")
             builder.setView(dialogView)
                 .setPositiveButton("확인") { dialogInterface: DialogInterface, i: Int ->
 

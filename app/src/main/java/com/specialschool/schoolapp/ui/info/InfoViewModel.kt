@@ -1,4 +1,4 @@
-package com.specialschool.schoolapp.ui.settings
+package com.specialschool.schoolapp.ui.info
 
 import androidx.lifecycle.ViewModel
 

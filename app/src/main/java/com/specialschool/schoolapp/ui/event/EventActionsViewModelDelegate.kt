@@ -15,6 +15,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+/**
+ * ViewModel에서 각 View들의 공통 이벤트 처리를 구현 하는 인터페이스, Delegation을 통한 확장을 사용한다.
+ */
 interface EventActionsViewModelDelegate : EventActions {
     val navigateToEventAction: LiveData<Event<String>>
     val navigateToSignInDialogAction: LiveData<Event<Unit>>

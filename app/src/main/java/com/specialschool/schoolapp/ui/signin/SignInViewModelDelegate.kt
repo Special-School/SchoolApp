@@ -19,6 +19,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * ViewModel에서 인증 기능을 구현하는 인터페이스, Delegation을 통한 확장을 사용한다.
+ */
 interface SignInViewModelDelegate {
 
     val currentFirebaseUser: Flow<Result<AuthenticatedUserInfo?>>
@@ -44,6 +47,9 @@ enum class SignInEvent {
     REQUEST_SIGN_IN, REQUEST_SIGN_OUT
 }
 
+/**
+ * Firebase의 인증 기능을 사용하는 SignInViewModelDelegate 구현 클래스
+ */
 @ExperimentalCoroutinesApi
 internal class FirebaseSignInViewModelDelegate @Inject constructor(
     private val observeUserAuthStateUseCase: ObserveUserAuthStateUseCase,
